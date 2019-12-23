@@ -63,8 +63,6 @@ export default class Field extends React.Component {
           <RightZone color={this.props.game.away.color}>
             <Away>{this.props.game.away.school}</Away>
           </RightZone>
-          {/* <h3 className="team-1">Bears</h3> */}
-          {/* <h3 className="team-2">Tigers</h3> */}
 
           <img className='goal-post-right' src={goal} alt='' height='100' />
         </div>

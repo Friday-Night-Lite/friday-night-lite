@@ -2,30 +2,29 @@ import React from 'react'
 import styled from 'styled-components'
 import { returnText } from '../functions/returnText'
 
-const Wrapper = styled.div`
-display: flex;
-justify-content: center;
-align-items: center;
-font-family: sans-serif;
-background: yellow;
-h1 {
+const Plays = styled.h1`
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    font-family: sans-serif;
     font-weight: bold;
+    text-align: left;
+    font-size: 12px;
+    padding: 5px;
+    color: black;
+    .play-desc {
+        font-weight: 400;
+    }
+`
+
+export default class Play extends React.Component {
+  state = {}
+  render() {
+    const { play } = this.props
+    return (
+      <Plays>
+        Play {play.playCount}: <span className='play-desc'>{returnText(play)}</span>
+      </Plays>
+    )
+  }
 }
-h2 {
-    font-weight: bold;
-}`
-
-export default class Play extends React.Component{
-    state={
-
-    }
-    render(){
-        const { play } = this.props
-        return(
-            <Wrapper>
-            <h2>play {play.playCount}:</h2>
-            {returnText(play)}
-            </Wrapper>
-        )
-    }
-} 

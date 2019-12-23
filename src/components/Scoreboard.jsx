@@ -77,6 +77,7 @@ span {
 
 export default class Scoreboard extends React.Component {
   state = {
+    gameObj: {},
     min: '15',
     sec: '00',
     hScore: 0,
@@ -92,9 +93,18 @@ export default class Scoreboard extends React.Component {
 
   };
 
-  componentDidMount = () => {
-   
+  componentDidMount = async () => {
+   await this.setState({ game: this.props.game })
     this.calculateScore()
+  }
+
+  componentDidUpdate = (prevProps) => {
+    if (this.props.game !== prevProps.game) {
+      this.setState({ gameObj: this.props.game }, () => {
+        this.calculateScore()
+      })
+
+    }
   }
 
 
@@ -153,6 +163,7 @@ export default class Scoreboard extends React.Component {
   }
 
   render() {
+    
     const {
       away,
       home
