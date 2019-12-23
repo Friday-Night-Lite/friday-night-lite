@@ -7,7 +7,7 @@ border: 1px solid black;
 border-radius: 7px;
 margin-left: 25px;
 height: 400px;
-width: 475px;
+width: 525px;
 overflow: scroll;`
 
 export default class Drives extends React.Component{

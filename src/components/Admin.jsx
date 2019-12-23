@@ -3,12 +3,23 @@ import styled from 'styled-components'
 import axios from 'axios'
 import PlayInputs from './PlayInputs'
 import AfterTDInputs from './AfterTDInputs'
+import SubmitButton from './SubmitButton'
 
 const Wrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
   margin: 15px auto;
+  padding: 25px;
   border: 1px solid black;
-  height: 100px;
+  border-radius: 7px;
   width: 850px;
+  .new-drive {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 800px;
+  }
 `
 
 export default class Admin extends React.Component {
@@ -17,6 +28,7 @@ export default class Admin extends React.Component {
     gameId: '',
    
     showAddDrive: true,
+    submitDrive: true,
     team: '',
     fieldSide: '',
     yardLine: '',
@@ -24,6 +36,7 @@ export default class Admin extends React.Component {
     driveCount: 1,
 
     showAddPlay: false,
+    submitPlay: true,
     playType: '',
     gainLoss: '',
     playDist: '',
@@ -52,11 +65,40 @@ export default class Admin extends React.Component {
   }
 
   handleChange = trg => {
-    this.setState({ [trg.name]: trg.value })
+    this.setState({ [trg.name]: trg.value }, () => {
+      this.enableButtons()
+    })
+  }
+  
+  enableButtons = () => {
+    const { 
+      team, 
+      fieldSide, 
+      yardLine,  
+      playType,
+      gainLoss,
+      playDist,
+      player1,
+      result,
+      min,
+      sec } = this.state
+    if (team && fieldSide && yardLine) {
+      this.setState({ submitDrive: false })
+    }
+    if (!team || !fieldSide || !yardLine) {
+      this.setState({ submitDrive: true })
+    }
+    if (playType && gainLoss && playDist && player1 && result && min && sec) {
+      this.setState({ submitPlay: false })
+    }
+    if (playType || gainLoss || playDist || player1 || result || min || sec) {
+      this.setState({ submitPlay: true })
+    }
   }
 
   submitDrive = () => {
     const { gameId, driveCount, team, fieldSide, yardLine } = this.state
+    
     axios
       .put('/api/game/drive', {
         id: gameId,
@@ -192,8 +234,9 @@ export default class Admin extends React.Component {
       <Wrapper>
         {/* Add drive inputs */}
         {this.state.showAddDrive && (
-          <div className='new-drive'>
+          <form className='new-drive'>
             <select
+              required={true}
               onChange={e => this.handleChange(e.target)}
               name='team'
               className='team-select'>
@@ -202,6 +245,7 @@ export default class Admin extends React.Component {
               <option value='away'>Away</option>
             </select>
             <select
+              required={true}
               onChange={e => this.handleChange(e.target)}
               name='fieldSide'>
               <option>Field Side</option>
@@ -209,6 +253,7 @@ export default class Admin extends React.Component {
               <option value='away'>Away</option>
             </select>
             <input
+              required={true}
               onChange={e => this.handleChange(e.target)}
               name='yardLine'
               placeholder='Yard Line'
@@ -221,8 +266,8 @@ export default class Admin extends React.Component {
                 </option>
               ))}
             </datalist>
-            <button onClick={() => this.submitDrive()}>Submit</button>
-          </div>
+            <SubmitButton disable={this.state.submitDrive} addScore={this.submitDrive} title='Add Drive'/>
+          </form>
         )}
         
         <AfterTDInputs admin={this.state} handleChange={this.handleChange} addScore={this.addScore}/>
@@ -230,6 +275,7 @@ export default class Admin extends React.Component {
         {this.state.showAddPlay && (
           <div>
             <select
+            required={true}
               onChange={e => this.handleChange(e.target)}
               name='playType'
               placeholder='Play Type'
