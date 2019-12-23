@@ -3,20 +3,27 @@ import styled from 'styled-components'
 import Play from './Play'
 
 const Wrapper = styled.div`
-h1 {
-  color: ${'#999999'};
-  &:hover {
-    color: black;
+  .drives {
+    &:hover {
+    }
   }
-}
-.drives {
+  .drives {
+    text-align: left;
+    padding: 5px 10px;
+    border: 1px solid lightgray;
     font-size: 1.25rem;
     font-weight: bold;
     font-family: sans-serif;
+    color: ${'#999999'};
     &:hover {
-        cursor: pointer;
+      cursor: pointer;
+      color: black;
     }
-}`
+  }
+    :matches(${props => props.selected}) {
+      color: black;
+    }
+`
 
 export default class Drive extends React.Component{
     state={
@@ -32,11 +39,14 @@ showPlays(){
       
         const { drive } = this.props
         return (
-          <Wrapper>
-            <h1 onClick={() => this.props.setCurrentDrive(drive.driveCount)} className='drives'>
-              Drive {drive.driveCount}: {this.props.teamObj.school} {this.props.teamObj.mascot}
+          <Wrapper selected={this.props.selectedDrive}>
+            <h1
+              onClick={() => this.props.setCurrentDrive(drive.driveCount)}
+              className={`drives ${drive.driveCount}`}>
+              Drive {drive.driveCount}: {this.props.teamObj.school}{' '}
+              {this.props.teamObj.mascot}
             </h1>
-            {(this.props.selectedDrive === drive.driveCount) && (
+            {this.props.selectedDrive === drive.driveCount && (
               <div className='plays'>
                 {drive.plays.map((play, i) => (
                   <Play key={i} play={play} />
