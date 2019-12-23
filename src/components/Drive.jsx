@@ -3,6 +3,12 @@ import styled from 'styled-components'
 import Play from './Play'
 
 const Wrapper = styled.div`
+h1 {
+  color: ${'#999999'};
+  &:hover {
+    color: black;
+  }
+}
 .drives {
     font-size: 1.25rem;
     font-weight: bold;
@@ -32,8 +38,8 @@ showPlays(){
             </h1>
             {(this.props.selectedDrive === drive.driveCount) && (
               <div className='plays'>
-                {drive.plays.map(play => (
-                  <Play key={play.index} play={play} />
+                {drive.plays.map((play, i) => (
+                  <Play key={i} play={play} />
                 ))}
               </div>
             )}
