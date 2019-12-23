@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import SubmitButton from './SubmitButton'
 
-const Wrapper = styled.div``
+// const Wrapper = styled.div``
 
 export default class AfterTDInputs extends React.Component{
     state ={}
@@ -10,8 +10,8 @@ export default class AfterTDInputs extends React.Component{
     render(){
         const { admin } = this.props
         return(
-            <Wrapper>
-
+            // <Wrapper>
+          <>
 {/* After TD play inputs */}
 {admin.showAfterTD && (
 
@@ -74,7 +74,6 @@ export default class AfterTDInputs extends React.Component{
               </option>
             ))}
         </datalist>
-        <button>Submit</button>
       </>
     )}
   </>
@@ -143,13 +142,12 @@ export default class AfterTDInputs extends React.Component{
           <option value='2 point'>Good</option>
           <option value='failed'>Failed</option>
         </select>
-        <button>Submit</button>
       </div>
     )
   )}
         {admin.afterTD && <SubmitButton title='End Drive' addScore={this.props.addScore}/>}
-
-            </Wrapper>
+         </>         
+            // </Wrapper>
         )
     }
 }

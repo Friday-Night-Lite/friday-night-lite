@@ -11,6 +11,7 @@ const Plays = styled.h1`
     text-align: left;
     font-size: 12px;
     padding: 5px;
+    color: black;
     .play-desc {
         font-weight: 400;
     }
@@ -22,7 +23,7 @@ export default class Play extends React.Component {
     const { play } = this.props
     return (
       <Plays>
-        Play {play.playCount}: <p className='play-desc'>{returnText(play)}</p>
+        Play {play.playCount}: <span className='play-desc'>{returnText(play)}</span>
       </Plays>
     )
   }
