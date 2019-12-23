@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
-import lights from '../assets/lights.png'
+import lights from '../assets/lights2.png'
 
 const Wrapper = styled.div`
 @import url('https://fonts.googleapis.com/css?family=Bungee+Shade|Frijole&display=swap');
