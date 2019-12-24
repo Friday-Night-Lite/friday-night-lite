@@ -130,7 +130,7 @@ export default class GameLeaders extends React.Component{
       for (const key in aPlayers){
         if (aPlayers[key].recYards){
         let yards = aPlayers[key].recYards.reduce((acc, num) => {return acc + num})
-        aRecLeaders.push({name: aPlayers[key].last_name, yards, number: aPlayers[key].player_number, position: aPlayers[key].position })
+        aRecLeaders.push({name: aPlayers[key].last_name, yards, number: aPlayers[key].player_number, position: aPlayers[key].position, tds: aPlayers[key].recTDs })
       }
       }
       let aRecLeader = {
@@ -146,7 +146,7 @@ export default class GameLeaders extends React.Component{
       for (const key in hPlayers){
         if (hPlayers[key].recYards){
         let yards = hPlayers[key].recYards.reduce((acc, num) => {return acc + num})
-        hRecLeaders.push({name: hPlayers[key].last_name, yards, number: hPlayers[key].player_number, position: hPlayers[key].position })}
+        hRecLeaders.push({name: hPlayers[key].last_name, yards, number: hPlayers[key].player_number, position: hPlayers[key].position, tds: hPlayers[key].recTDs })}
       }
       let hRecLeader = {
         name: '---',

@@ -232,11 +232,11 @@ export default class Admin extends React.Component {
 
       if (playType === 'run'){
         if (result === 'touchdown'){
-          // if (!playerA.rushTDs){
-            // playerA.rushTDs = 1
-          // } else {
+          if (!playerA.rushTDs){
+            playerA.rushTDs = 1
+          } else {
             playerA.rushTDs += 1
-          // }
+          }
           
         }
         if (!playerA.rushYards){
@@ -259,8 +259,16 @@ export default class Admin extends React.Component {
       playerB = game[drivingTeam].players[index2]
 
         if (result === 'touchdown'){
-          playerA.passTDs += 1
-          playerB.recTDs += 1
+          if (!playerA.recTDs){
+            playerA.passTDs = 1
+          } else {
+            playerA.passTDs += 1
+          }
+          if (!playerB.recTDs){
+            playerB.recTDs = 1
+          } else {
+            playerB.recTDs += 1
+          }
         }
         if (!playerA.passYards){
         gainLoss === 'gain' ? playerA.passYards = [ +playDist] : playerA.passYards = [ -(+playDist)]
