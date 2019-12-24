@@ -180,6 +180,8 @@ export default class Scoreboard extends React.Component {
       as3,
       as4 } = this.state
 
+      console.log(this.props)
+
     return (
       <Wrapper>
         <div className='teams'>

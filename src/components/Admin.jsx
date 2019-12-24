@@ -48,6 +48,7 @@ export default class Admin extends React.Component {
     quarter: 'first',
     kickType: '',
     playCount: 1,
+    drivingTeam: '',
 
     showAfterTD: false,
     afterTD: '',
@@ -99,7 +100,9 @@ export default class Admin extends React.Component {
 
   submitDrive = () => {
     const { gameId, driveCount, team, fieldSide, yardLine } = this.state
-
+    this.setState({
+      drivingTeam: team
+    })
     axios
       .put('/api/game/drive', {
         id: gameId,
@@ -115,6 +118,7 @@ export default class Admin extends React.Component {
           driveId: res.data.drivesArr[idLoc]._id,
           fieldSide: '',
           yardLine: ''
+          
         })
         this.props.updateGame(res.data)
       })
@@ -182,6 +186,7 @@ export default class Admin extends React.Component {
 
   submitPlay = async scoreObj => {
     const {
+      game,
       gameId,
       driveId,
       playType,
@@ -194,7 +199,8 @@ export default class Admin extends React.Component {
       sec,
       quarter,
       kickType,
-      playCount
+      playCount,
+      drivingTeam
     } = this.state
     let playObj = {
       playType,
@@ -209,13 +215,81 @@ export default class Admin extends React.Component {
       kickType,
       playCount
     }
+    let teamObj = {}
+    let index1
+    let index2
+    let playerA
+    let playerB
+
+    console.log(game[drivingTeam])
+
+    index1 = game[drivingTeam].players.findIndex(player => {
+       return player1 === player.last_name
+      })
+
+      playerA = game[drivingTeam].players[index1]
+     
+
+      if (playType === 'run'){
+        if (result === 'touchdown'){
+          playerA.rushTDs += 1
+        }
+        if (!playerA.rushYards){
+          gainLoss === 'gain' ? playerA.rushYards = [+playDist] : playerA.rushYards = [ -(+playDist)]
+        }
+        else {
+        gainLoss === 'gain' ? playerA.rushYards = [...playerA.rushYards, +playDist] : playerA.rushYards = [...playerA.rushYards, -(+playDist)]
+        }
+
+        let updatedPlayers = [...game[drivingTeam].players]
+
+        teamObj = {...game[drivingTeam], players: updatedPlayers}
+      }
+
+      if (playType === 'pass'){
+        index2 = game[drivingTeam].players.findIndex(player => {
+          return player2 === player.last_name
+        })
+
+      playerB = game[drivingTeam].players[index2]
+
+        if (result === 'touchdown'){
+          playerA.passTDs += 1
+          playerB.recTDs += 1
+        }
+        if (!playerA.passYards){
+        gainLoss === 'gain' ? playerA.passYards = [ +playDist] : playerA.passYards = [ -(+playDist)]
+        } else {
+          gainLoss === 'gain' ? playerA.passYards = [...playerA.passYards, +playDist] : playerA.passYards = [...playerA.passYards, -(+playDist)]
+        }
+        
+        
+        // gainLoss === 'gain' ? playerB.rushYards = [...playerB.recYards, +playDist] : playerB.recYards = [...playerB.recYards, -(+playDist)]
+
+        if (!playerB.recYards){
+          gainLoss === 'gain' ? playerB.recYards = [ +playDist] : playerB.recYards = [ -(+playDist)]
+          } else {
+            gainLoss === 'gain' ? playerB.recYards = [...playerB.recYards, +playDist] : playerB.recYards = [...playerB.recYards, -(+playDist)]
+          }
+        
+        
+        // teamObj = {...game[drivingTeam], players: [...game[drivingTeam].players, playerA, playerB]}
+        let updatedPlayers = [...game[drivingTeam].players]
+        teamObj = {...game[drivingTeam], players: updatedPlayers}
+      }
+
+      console.log(teamObj)
+
+
     this.setState({ game: { ...this.state.game, score: scoreObj } }, () => {
       axios
         .put(`/api/game`, {
           driveId,
           gameId,
           playObj,
-          scoreObj
+          scoreObj,
+          teamObj,
+          drivingTeam
         })
         .then(res => {
           if (this.state.result === 'touchdown') {

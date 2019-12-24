@@ -66,9 +66,14 @@ module.exports = {
         if (body.scoreObj) {
           result.score = body.scoreObj
         }
+        if (body.teamObj){
+          result[body.drivingTeam] = body.teamObj
+        }
         result.status = result.status
         result.score = result.score
         result.drivesArr = result.drivesArr
+        result.away = result.away
+        result.home = result.home
 
         result
           .save()
