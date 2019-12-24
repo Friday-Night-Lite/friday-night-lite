@@ -64,7 +64,7 @@ export default class GameLeaders extends React.Component{
       for (const key in aPlayers){
         if (aPlayers[key].passYards){
         let yards = aPlayers[key].passYards.reduce((acc, num) => {return acc + num})
-        aPassLeaders.push({name: aPlayers[key].last_name, yards, number: aPlayers[key].player_number })
+        aPassLeaders.push({name: aPlayers[key].last_name, yards, number: aPlayers[key].player_number, position: aPlayers[key].position, tds: aPlayers[key].passTDs, })
       }
       }
       let aPassLeader = {
@@ -80,7 +80,7 @@ export default class GameLeaders extends React.Component{
       for (const key in hPlayers){
         if (hPlayers[key].passYards){
         let yards = hPlayers[key].passYards.reduce((acc, num) => {return acc + num})
-        hPassLeaders.push({name: hPlayers[key].last_name, yards, number: hPlayers[key].player_number })
+        hPassLeaders.push({name: hPlayers[key].last_name, yards, number: hPlayers[key].player_number, position: hPlayers[key].position , tds: hPlayers[key].passTDs,})
       }
       }
       let hPassLeader = {
@@ -114,7 +114,7 @@ export default class GameLeaders extends React.Component{
       for (const key in hPlayers){
         if (hPlayers[key].rushYards){
         let yards = hPlayers[key].rushYards.reduce((acc, num) => {return acc + num})
-        hRushLeaders.push({name: hPlayers[key].last_name, yards, number: hPlayers[key].player_number, tds: hPlayers[key].rushTDs })
+        hRushLeaders.push({name: hPlayers[key].last_name, yards, number: hPlayers[key].player_number, tds: hPlayers[key].rushTDs, position: hPlayers[key].position })
       }
       }
       let hRushLeader = {
@@ -130,7 +130,7 @@ export default class GameLeaders extends React.Component{
       for (const key in aPlayers){
         if (aPlayers[key].recYards){
         let yards = aPlayers[key].recYards.reduce((acc, num) => {return acc + num})
-        aRecLeaders.push({name: aPlayers[key].last_name, yards, number: aPlayers[key].player_number })
+        aRecLeaders.push({name: aPlayers[key].last_name, yards, number: aPlayers[key].player_number, position: aPlayers[key].position })
       }
       }
       let aRecLeader = {
@@ -146,7 +146,7 @@ export default class GameLeaders extends React.Component{
       for (const key in hPlayers){
         if (hPlayers[key].recYards){
         let yards = hPlayers[key].recYards.reduce((acc, num) => {return acc + num})
-        hRecLeaders.push({name: hPlayers[key].last_name, yards, number: hPlayers[key].player_number })}
+        hRecLeaders.push({name: hPlayers[key].last_name, yards, number: hPlayers[key].player_number, position: hPlayers[key].position })}
       }
       let hRecLeader = {
         name: '---',
@@ -189,7 +189,8 @@ export default class GameLeaders extends React.Component{
                   <div className='home'>
                     <p><span>{hPass.name}</span></p>
                     <p>{hPass.yards} yards</p>
-                    <p>{this.props.game.home.school} #{hPass.number}</p>
+                    <p>{hPass.tds} TD</p>
+                    <p>{hPass.position} #{hPass.number}</p>
                   </div>
                   <div className='away'>
                     <p>
@@ -198,7 +199,8 @@ export default class GameLeaders extends React.Component{
                       </span>
                     </p>
                     <p>{aPass.yards} yards</p>
-                    <p>{this.props.game.away.school} #{aPass.number}</p>
+                    <p>{aPass.tds} TD</p>
+                    <p>{aPass.position} #{aPass.number}</p>
                   </div>
                 </div>
               </div>
@@ -217,7 +219,7 @@ export default class GameLeaders extends React.Component{
                     </p>
                     <p>{hRush.yards} yards</p>
                     <p>{hRush.tds} TD</p>
-                    <p>{this.props.game.home.school} #{hRush.number}</p>
+                    <p>{hRush.position} #{hRush.number}</p>
                   </div>
                   <div className='away'>
                     <p><span>
@@ -249,7 +251,8 @@ export default class GameLeaders extends React.Component{
                       <span>{hRec.name}</span>
                     </p>
                     <p>{hRec.yards} yards</p>
-                    <p>{this.props.game.home.school} #{hRec.number}</p>
+                    <p>{hRec.tds} TD</p>
+                    <p>{hRec.position} #{hRec.number}</p>
                   </div>
                   <div className='away'>
                     <p><span>
@@ -257,7 +260,8 @@ export default class GameLeaders extends React.Component{
                     </span>
                       </p>
                     <p>{aRec.yards} yards</p>
-                   <p>{this.props.game.away.school} #{aRec.number}</p>
+                    <p>{aRec.tds} TD</p>
+                   <p>{aRec.position} #{aRec.number}</p>
                   </div>
                 </div>
               </div>

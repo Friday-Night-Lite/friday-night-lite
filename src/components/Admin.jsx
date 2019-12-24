@@ -129,7 +129,7 @@ export default class Admin extends React.Component {
     let { team, result, quarter } = this.state
     let { score } = this.props.game
     let points = 0
-    //extra point
+    //PAT
     if (result === 'extra point') {
       points = 1
       this.setState({ showAddDrive: true, team: '', showAfterTD: false })
@@ -232,11 +232,11 @@ export default class Admin extends React.Component {
 
       if (playType === 'run'){
         if (result === 'touchdown'){
-          if (!playerA.rushTDs){
-            playerA.rushTDs = 1
-          } else {
+          // if (!playerA.rushTDs){
+            // playerA.rushTDs = 1
+          // } else {
             playerA.rushTDs += 1
-          }
+          // }
           
         }
         if (!playerA.rushYards){
