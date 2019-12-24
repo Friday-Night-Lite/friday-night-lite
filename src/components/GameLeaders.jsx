@@ -39,49 +39,6 @@ const Wrapper = styled.div`
   }
 `
 
-var dummyData = {
-  home: {
-    players: [
-      {
-        last_name: 'Rosetti',
-        player_number: 54,
-        position: 'QB',
-        passYards: [0, 3, 20],
-        rushYards: [0, 15],
-        recYards: [0]
-      },
-      {
-        last_name: 'Chaz',
-        player_number: 1,
-        position: 'RB',
-        passYards: [0, 3],
-        rushYards: [0, 15, 99],
-        recYards: [0, 2]
-      }
-    ]
-  },
-  away: {
-    players: [
-      {
-        last_name: 'Gater',
-        player_number: 2,
-        position: 'RB',
-        passYards: [1,1],
-        rushYards: [99, 900],
-        recYards: [17, 20]
-      },
-      {
-        last_name: 'Jeramiah',
-        player_number: 3,
-        position: 'WR',
-        passYards: [10,1],
-        rushYards: [1, 2, 3],
-        recYards: [1, 2, 3, 50]
-      }
-    ]
-  },
-}
-
 export default class GameLeaders extends React.Component{
     state={
       //HOME
@@ -96,51 +53,110 @@ export default class GameLeaders extends React.Component{
     }
 
     async findLeaders(){
-      const  aPlayers = dummyData.away.players
-      const hPlayers = dummyData.home.players
+      //needs update
+      const  aPlayers = this.props.game.away.players
+      const hPlayers = this.props.game.home.players
+
+      // console.log(aPlayers)
 
       //pass - away
       let aPassLeaders = []
       for (const key in aPlayers){
+        if (aPlayers[key].passYards){
         let yards = aPlayers[key].passYards.reduce((acc, num) => {return acc + num})
-        aPassLeaders.push({name: aPlayers[key].last_name, yards, number: aPlayers[key].player_number })
+        aPassLeaders.push({name: aPlayers[key].last_name, yards, number: aPlayers[key].player_number, position: aPlayers[key].position, tds: aPlayers[key].passTDs, })
       }
-      let aPassLeader = aPassLeaders.reduce((prev, current) => {return (prev.yards > current.yards) ? prev : current})
+      }
+      let aPassLeader = {
+        name: '---',
+        number: '00',
+        position: '--',
+        yards: '---'
+      }
+      if (aPassLeaders.length > 0){
+      aPassLeader = aPassLeaders.reduce((prev, current) => {return (prev.yards > current.yards) ? prev : current})}
       //pass - home
       let hPassLeaders = []
       for (const key in hPlayers){
+        if (hPlayers[key].passYards){
         let yards = hPlayers[key].passYards.reduce((acc, num) => {return acc + num})
-        hPassLeaders.push({name: hPlayers[key].last_name, yards, number: hPlayers[key].player_number })
+        hPassLeaders.push({name: hPlayers[key].last_name, yards, number: hPlayers[key].player_number, position: hPlayers[key].position , tds: hPlayers[key].passTDs,})
       }
-      let hPassLeader = hPassLeaders.reduce((prev, current) => {return (prev.yards > current.yards) ? prev : current})
+      }
+      let hPassLeader = {
+        name: '---',
+        number: '00',
+        position: '--',
+        yards: '---'
+      }
+      if (hPassLeaders.length > 0){
+      hPassLeader = hPassLeaders.reduce((prev, current) => {return (prev.yards > current.yards) ? prev : current})
+    }
       //rush - away
       let aRushLeaders = []
       for (const key in aPlayers){
+        if (aPlayers[key].rushYards){
         let yards = aPlayers[key].rushYards.reduce((acc, num) => {return acc + num})
-        aRushLeaders.push({name: aPlayers[key].last_name, yards, number: aPlayers[key].player_number })
+        aRushLeaders.push({name: aPlayers[key].last_name, yards, number: aPlayers[key].player_number, tds: aPlayers[key].rushTDs, position: aPlayers[key].position })
       }
-      let aRushLeader = aRushLeaders.reduce((prev, current) => {return (prev.yards > current.yards) ? prev : current})
+      }
+      let aRushLeader = {
+        name: '---',
+        number: '00',
+        position: '--',
+        yards: '---'
+      }
+      if (aRushLeaders.length > 0){
+      aRushLeader = aRushLeaders.reduce((prev, current) => {return (prev.yards > current.yards) ? prev : current})
+}
       //rush - home
       let hRushLeaders = []
       for (const key in hPlayers){
+        if (hPlayers[key].rushYards){
         let yards = hPlayers[key].rushYards.reduce((acc, num) => {return acc + num})
-        hRushLeaders.push({name: hPlayers[key].last_name, yards, number: hPlayers[key].player_number })
+        hRushLeaders.push({name: hPlayers[key].last_name, yards, number: hPlayers[key].player_number, tds: hPlayers[key].rushTDs, position: hPlayers[key].position })
       }
-      let hRushLeader = hRushLeaders.reduce((prev, current) => {return (prev.yards > current.yards) ? prev : current})
+      }
+      let hRushLeader = {
+        name: '---',
+        number: '00',
+        position: '--',
+        yards: '---'
+      }
+      if (hRushLeaders.length > 0){
+      hRushLeader = hRushLeaders.reduce((prev, current) => {return (prev.yards > current.yards) ? prev : current})}
       //rec - away
       let aRecLeaders = []
       for (const key in aPlayers){
+        if (aPlayers[key].recYards){
         let yards = aPlayers[key].recYards.reduce((acc, num) => {return acc + num})
-        aRecLeaders.push({name: aPlayers[key].last_name, yards, number: aPlayers[key].player_number })
+        aRecLeaders.push({name: aPlayers[key].last_name, yards, number: aPlayers[key].player_number, position: aPlayers[key].position, tds: aPlayers[key].recTDs })
       }
-      let aRecLeader = aRecLeaders.reduce((prev, current) => {return (prev.yards > current.yards) ? prev : current})
+      }
+      let aRecLeader = {
+        name: '---',
+        number: '00',
+        position: '--',
+        yards: '---'
+      }
+      if (aRecLeaders.length > 0){
+      aRecLeader = aRecLeaders.reduce((prev, current) => {return (prev.yards > current.yards) ? prev : current})}
       //rec - home
       let hRecLeaders = []
       for (const key in hPlayers){
+        if (hPlayers[key].recYards){
         let yards = hPlayers[key].recYards.reduce((acc, num) => {return acc + num})
-        hRecLeaders.push({name: hPlayers[key].last_name, yards, number: hPlayers[key].player_number })
+        hRecLeaders.push({name: hPlayers[key].last_name, yards, number: hPlayers[key].player_number, position: hPlayers[key].position, tds: hPlayers[key].recTDs })}
       }
-      let hRecLeader = hRecLeaders.reduce((prev, current) => {return (prev.yards > current.yards) ? prev : current})
+      let hRecLeader = {
+        name: '---',
+        number: '00',
+        position: '--',
+        yards: '---'
+      }
+      if (hRecLeaders.length > 0){
+      hRecLeader = hRecLeaders.reduce((prev, current) => {return (prev.yards > current.yards) ? prev : current})
+    }
 
       //SET STATE
       await this.setState({
@@ -151,7 +167,7 @@ export default class GameLeaders extends React.Component{
         aRec: aRecLeader,
         hRec: hRecLeader
       })
-      // console.log(hRecLeader)
+      // console.log(aRushLeader)
       // console.log(this.state.aRush)
   }
 
@@ -172,7 +188,8 @@ export default class GameLeaders extends React.Component{
                   <div className='home'>
                     <p><span>{hPass.name}</span></p>
                     <p>{hPass.yards} yards</p>
-                    <p>{this.props.game.home.school} #{hPass.number}</p>
+                    <p>{hPass.tds} TD</p>
+                    <p>{hPass.position} #{hPass.number}</p>
                   </div>
                   <div className='away'>
                     <p>
@@ -181,11 +198,12 @@ export default class GameLeaders extends React.Component{
                       </span>
                     </p>
                     <p>{aPass.yards} yards</p>
-                    <p>{this.props.game.away.school} #{aPass.number}</p>
+                    <p>{aPass.tds} TD</p>
+                    <p>{aPass.position} #{aPass.number}</p>
                   </div>
                 </div>
               </div>
-              <Jersey color={this.props.game.away.color} number={aPass.number} flip={true} school='HHS'/>
+              <Jersey color={this.props.game.away.color} number={aPass.number} flip={true} school={this.props.game.away.school} />
             </div>
             {/* RUSHING LEADERS */}
             <div className='section'>
@@ -198,7 +216,8 @@ export default class GameLeaders extends React.Component{
                       <span>{hRush.name}</span>
                     </p>
                     <p>{hRush.yards} yards</p>
-                    <p>{this.props.game.home.school} #{hRush.number}</p>
+                    <p>{hRush.tds} TD</p>
+                    <p>{hRush.position} #{hRush.number}</p>
                   </div>
                   <div className='away'>
                     <p><span>
@@ -206,7 +225,8 @@ export default class GameLeaders extends React.Component{
                     </span>
                       </p>
                     <p>{aRush.yards} yards</p>
-                   <p>{this.props.game.away.school} #{aRush.number}</p>
+                    <p>{aRush.tds} TD</p>
+                   <p>{aRush.position} #{aRush.number}</p>
                   </div>
                 </div>
               </div>
@@ -228,7 +248,8 @@ export default class GameLeaders extends React.Component{
                       <span>{hRec.name}</span>
                     </p>
                     <p>{hRec.yards} yards</p>
-                    <p>{this.props.game.home.school} #{hRec.number}</p>
+                    <p>{hRec.tds} TD</p>
+                    <p>{hRec.position} #{hRec.number}</p>
                   </div>
                   <div className='away'>
                     <p><span>
@@ -236,7 +257,8 @@ export default class GameLeaders extends React.Component{
                     </span>
                       </p>
                     <p>{aRec.yards} yards</p>
-                   <p>{this.props.game.away.school} #{aRec.number}</p>
+                    <p>{aRec.tds} TD</p>
+                   <p>{aRec.position} #{aRec.number}</p>
                   </div>
                 </div>
               </div>

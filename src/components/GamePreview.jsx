@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 
 const Link2 = styled(Link)`
 text-decoration: none;
-color: black`
+color: black;`
 
 const Wrapper = styled.div`
   width: 600px;
@@ -38,11 +38,10 @@ const Wrapper = styled.div`
 export default class GamePreview extends React.Component {
   state = {}
 
-
-
   render() {
     const h = this.props.game.home
     const a = this.props.game.away
+    console.log(this.props)
     return (
       <Link2 to={`/game/${this.props.game._id}`}>
         <Wrapper >
@@ -64,9 +63,6 @@ export default class GamePreview extends React.Component {
             </div>
           </div>
 
-          {/* <div className='field-component'>
-        <Field game={this.props.game}/>
-        </div> */}
         </Wrapper>
       </Link2>
     )

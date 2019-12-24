@@ -32,17 +32,6 @@ export default class Drive extends React.Component{
 
     }
 
-// showPlays(){
-//     this.setState({
-//         showPlays: !this.state.showPlays
-//     })
-// }
-// colorChange = (id) => {
-//   let drive = document.getElementsById(id)
-//   drive.addClass('selected')
-//   this.props.setCurrentDrive(id)
-// }
-
     render(){
       
         const { drive } = this.props
