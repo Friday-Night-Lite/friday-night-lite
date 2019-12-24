@@ -232,11 +232,11 @@ export default class Admin extends React.Component {
 
       if (playType === 'run'){
         if (result === 'touchdown'){
-          // if (!playerA.rushTDs){
-            // playerA.rushTDs = 1
-          // } else {
+          if (!playerA.rushTDs){
+            playerA.rushTDs = 1
+          } else {
             playerA.rushTDs += 1
-          // }
+          }
           
         }
         if (!playerA.rushYards){
