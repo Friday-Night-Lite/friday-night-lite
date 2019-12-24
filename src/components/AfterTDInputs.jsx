@@ -10,7 +10,6 @@ export default class AfterTDInputs extends React.Component{
     render(){
         const { admin } = this.props
         return(
-            // <Wrapper>
           <>
 {/* After TD play inputs */}
 {admin.showAfterTD && (
@@ -147,7 +146,6 @@ export default class AfterTDInputs extends React.Component{
   )}
         {admin.afterTD && <SubmitButton title='End Drive' addScore={this.props.addScore}/>}
          </>         
-            // </Wrapper>
         )
     }
 }
