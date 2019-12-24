@@ -221,7 +221,7 @@ export default class Admin extends React.Component {
     let playerA
     let playerB
 
-    console.log(game[drivingTeam])
+    // console.log(game[drivingTeam])
 
     index1 = game[drivingTeam].players.findIndex(player => {
        return player1 === player.last_name
@@ -232,7 +232,12 @@ export default class Admin extends React.Component {
 
       if (playType === 'run'){
         if (result === 'touchdown'){
-          playerA.rushTDs += 1
+          if (!playerA.rushTDs){
+            playerA.rushTDs = 1
+          } else {
+            playerA.rushTDs += 1
+          }
+          
         }
         if (!playerA.rushYards){
           gainLoss === 'gain' ? playerA.rushYards = [+playDist] : playerA.rushYards = [ -(+playDist)]
@@ -263,22 +268,17 @@ export default class Admin extends React.Component {
           gainLoss === 'gain' ? playerA.passYards = [...playerA.passYards, +playDist] : playerA.passYards = [...playerA.passYards, -(+playDist)]
         }
         
-        
-        // gainLoss === 'gain' ? playerB.rushYards = [...playerB.recYards, +playDist] : playerB.recYards = [...playerB.recYards, -(+playDist)]
-
         if (!playerB.recYards){
           gainLoss === 'gain' ? playerB.recYards = [ +playDist] : playerB.recYards = [ -(+playDist)]
           } else {
             gainLoss === 'gain' ? playerB.recYards = [...playerB.recYards, +playDist] : playerB.recYards = [...playerB.recYards, -(+playDist)]
           }
         
-        
-        // teamObj = {...game[drivingTeam], players: [...game[drivingTeam].players, playerA, playerB]}
-        let updatedPlayers = [...game[drivingTeam].players]
+                let updatedPlayers = [...game[drivingTeam].players]
         teamObj = {...game[drivingTeam], players: updatedPlayers}
       }
 
-      console.log(teamObj)
+      // console.log(teamObj)
 
 
     this.setState({ game: { ...this.state.game, score: scoreObj } }, () => {
