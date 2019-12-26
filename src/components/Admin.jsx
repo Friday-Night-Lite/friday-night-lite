@@ -282,7 +282,7 @@ export default class Admin extends React.Component {
             gainLoss === 'gain' ? playerB.recYards = [...playerB.recYards, +playDist] : playerB.recYards = [...playerB.recYards, -(+playDist)]
           }
         
-                let updatedPlayers = [...game[drivingTeam].players]
+        let updatedPlayers = [...game[drivingTeam].players]
         teamObj = {...game[drivingTeam], players: updatedPlayers}
       }
 
@@ -324,9 +324,9 @@ export default class Admin extends React.Component {
     })
   }
 
-  showAfterTD = () => {
-    this.setState({ showAfterTD: true })
-  }
+  // showAfterTD = () => {
+  //   this.setState({ showAfterTD: true })
+  // }
 
   render() {
     return (

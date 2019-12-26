@@ -161,10 +161,6 @@ export default class PlayInputs extends React.Component {
           </div>
         )}
 
-        {/* INCOMPLETE PASS */}
-
-        {/* SACK */}
-
         {/* KICK */}
         {admin.playType === 'kick' && (
           <div className='run'>
