@@ -384,9 +384,9 @@ export default class Admin extends React.Component {
     })
   }
 
-  showAfterTD = () => {
-    this.setState({ showAfterTD: true })
-  }
+  // showAfterTD = () => {
+  //   this.setState({ showAfterTD: true })
+  // }
 
   setPenalty = (penObj) => {
     this.setState({
