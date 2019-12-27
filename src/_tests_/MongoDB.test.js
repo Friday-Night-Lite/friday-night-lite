@@ -38,7 +38,6 @@ describe('insert', () => {
     await games.insertOne(mockGame)
 
     const insertedGame = await games.findOne({ _id: '1234567' })
-    console.log(insertedGame.drivesArr)
     
     const mockDrive = { _id: '2345678', team: 'Home' }
     await insertedGame.drivesArr.push(mockDrive)

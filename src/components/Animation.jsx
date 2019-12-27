@@ -41,18 +41,13 @@ export default class Animation extends React.Component {
 
 
     render() {
-        console.log(this.props)
-        // console.log(this.props.game.drivesArr[5])
+   
         return (
             <Wrapper>
                 <div className='start' style={{marginLeft: `${(this.props.margins.start *6)-10}px`}}></div>
-
-
-                {this.props.game.drivesArr[this.props.selectedDrive].plays.map((line, i) => (
+                {this.props.game.drivesArr[this.props.selectedDrive - 1].plays.map((line, i) => (
                     <Line key={i} line={line}/>
                 ))}
-
-
                 <div className="arrow-container">
                 <div className="arrow-line"></div>
                 <div className="arrow"></div>

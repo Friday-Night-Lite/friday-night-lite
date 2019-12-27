@@ -26,7 +26,6 @@ align-items: center;
     height: 5px;
     border: 5px solid black;
     margin: 0 -10px;
-    /* margin-left: -10px; */
     margin-bottom: 72px;
     border-radius: 50%/100px 100px 0 0;
     height: 75px;
@@ -37,7 +36,7 @@ align-items: center;
 }`
 
 const Line = props => {
-    // console.log(props)
+ 
     return (
         <Wrapper>
             <div className={props.line.playType ? 'dot': 'none'} ></div>

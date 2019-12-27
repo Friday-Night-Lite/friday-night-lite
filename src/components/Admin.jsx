@@ -138,7 +138,6 @@ export default class Admin extends React.Component {
     let setDrive = this.state.game.drivesArr.find(drive => {
       return drive._id === id
     })
-    console.log(setDrive.plays.length)
     
     this.setState({
       playCount: setDrive.plays.length + 1,
@@ -223,7 +222,6 @@ export default class Admin extends React.Component {
     } else {
       this.submitPlay()
     }
-    console.log(this.state.playCount)
   }
 
   submitPlay = async scoreObj => {
@@ -272,8 +270,6 @@ export default class Admin extends React.Component {
     let index2
     let playerA
     let playerB
-
-    // console.log(game[drivingTeam])
 
     index1 = game[drivingTeam].players.findIndex(player => {
       return player1 === player.last_name
@@ -363,7 +359,7 @@ export default class Admin extends React.Component {
             this.setState({
               showAfterTD: true,
               showAddPlay: false,
-              playCount: playCount += 1
+              playCount: playCount + 1
             })
           }
           this.setState({

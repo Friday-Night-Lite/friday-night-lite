@@ -70,21 +70,22 @@ export default class Field extends React.Component {
 
   componentDidMount(){
     this.setState({
-      start: this.props.game.drivesArr[this.state.selectedDrive].yardLine,
+      start: this.props.game.drivesArr[(this.props.selectedDrive - 1)].yardLine,
       selectedDrive: this.props.selectedDrive
     })
   }
 
   render() {
-    console.log(this.state.selectedDrive)
-    // console.log(this.props.game)
+   
     return (
       <Wrapper>
 
 
         <div className='fieldContainer'>
         <div className='animation'>
+          {(this.props.selectedDrive > 0) &&
         <Animation margins={this.state} game={this.props.game} selectedDrive={this.props.selectedDrive}/>
+          }
         </div>
 
         <div className='fieldDiv'>
