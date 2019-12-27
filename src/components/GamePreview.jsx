@@ -41,7 +41,7 @@ export default class GamePreview extends React.Component {
   render() {
     const h = this.props.game.home
     const a = this.props.game.away
-    console.log(this.props)
+
     return (
       <Link2 to={`/game/${this.props.game._id}`}>
         <Wrapper >

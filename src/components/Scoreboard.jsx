@@ -91,7 +91,7 @@ export default class Scoreboard extends React.Component {
     as3: 0,
     as4: 0
 
-  };
+  }
 
   componentDidMount = async () => {
    await this.setState({ game: this.props.game })

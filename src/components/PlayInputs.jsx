@@ -9,14 +9,22 @@ export default class PlayInputs extends React.Component {
 
   render() {
     const admin = this.props.adminState
+    let titleVar
+    !(
+      admin.result === '1st' ||
+      admin.result === '2nd' ||
+      admin.result === '3rd' ||
+      admin.result === '4th' ||
+      admin.result === 'touchdown'
+    ) ? titleVar = 'End Drive' : admin.result === 'touchdown' ? titleVar = 'Submit TD' : titleVar = 'Submit Drive'
     return (
       <Wrapper>
         {/* RUN OR PASS*/}
-        {(admin.playType === 'run' ||
+        {(admin.playType === 'Run' ||
           admin.playType === 'pass' ||
           admin.playType === 'sack' ||
           admin.playType === 'incomplete pass') && (
-          <div className='run'>
+          <div className='Run'>
             {!(admin.playType === 'incomplete pass') && (
               <>
                 <select
@@ -51,7 +59,7 @@ export default class PlayInputs extends React.Component {
             <input
               onChange={e => this.props.handleChange(e.target)}
               name='player1'
-              placeholder={admin.playType === 'run' ? 'Runner' : 'Passer'}
+              placeholder={admin.playType === 'Run' ? 'Runner' : 'Passer'}
               list='player1'
               value={admin.player1}
             />
@@ -158,12 +166,13 @@ export default class PlayInputs extends React.Component {
               <option value='third'>3rd</option>
               <option value='fourth'>4th</option>
             </select>
+            <SubmitButton title={titleVar} addScore={this.props.addScore} />
           </div>
         )}
 
         {/* KICK */}
         {admin.playType === 'kick' && (
-          <div className='run'>
+          <div className='Run'>
             <select
               onChange={e => this.props.handleChange(e.target)}
               name='kickType'
@@ -266,6 +275,10 @@ export default class PlayInputs extends React.Component {
                   <option value='third'>3rd</option>
                   <option value='fourth'>4th</option>
                 </select>
+                <SubmitButton
+                  title='End Drive'
+                  addScore={this.props.addScore}
+                />
               </div>
             )}
           </div>
@@ -273,7 +286,7 @@ export default class PlayInputs extends React.Component {
 
         {/* BUTTONS */}
 
-        {admin.result && (
+        {/* {admin.result && (
           <>
             {(admin.result === '1st' ||
               admin.result === '2nd' ||
@@ -299,7 +312,7 @@ export default class PlayInputs extends React.Component {
               <SubmitButton title='End Drive' addScore={this.props.addScore} />
             )}
           </>
-        )}
+        )} */}
       </Wrapper>
     )
   }

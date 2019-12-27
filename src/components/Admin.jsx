@@ -4,6 +4,7 @@ import axios from 'axios'
 import PlayInputs from './PlayInputs'
 import AfterTDInputs from './AfterTDInputs'
 import SubmitButton from './SubmitButton'
+import Penalties from './Penalties'
 
 const Wrapper = styled.div`
   display: flex;
@@ -54,7 +55,11 @@ export default class Admin extends React.Component {
     afterTD: '',
     kicker: '',
     patRes: '',
-    patBlocker: ''
+    patBlocker: '',
+
+    penalty: '',
+    yards: '',
+    penTeam: ''
   }
 
   componentDidMount = () => {
@@ -106,7 +111,13 @@ export default class Admin extends React.Component {
     axios
       .put('/api/game/drive', {
         id: gameId,
-        drive: { driveCount, team, fieldSide, yardLine, plays: [] }
+        drive: {
+          driveCount,
+          team,
+          fieldSide,
+          yardLine,
+          plays: []
+        }
       })
       .then(res => {
         const idLoc = res.data.drivesArr.length - 1
@@ -118,11 +129,25 @@ export default class Admin extends React.Component {
           driveId: res.data.drivesArr[idLoc]._id,
           fieldSide: '',
           yardLine: ''
-          
         })
         this.props.updateGame(res.data)
       })
       .catch(err => console.log(err))
+  }
+  setDriveInfo = id => {
+    let setDrive = this.state.game.drivesArr.find(drive => {
+      return drive._id === id
+    })
+    
+    this.setState({
+      playCount: setDrive.plays.length + 1,
+      driveId: id,
+      team: setDrive.team,
+      drivingTeam: setDrive.team
+    })
+  }
+  resumeDrive = () => {
+    this.setState({ showAddDrive: false, showAddPlay: true })
   }
 
   addScore = () => {
@@ -130,21 +155,33 @@ export default class Admin extends React.Component {
     let { score } = this.props.game
     let points = 0
     //PAT
-    if (result === 'extra point') {
+    if (result === 'Successful PAT') {
       points = 1
-      this.setState({ showAddDrive: true, team: '', showAfterTD: false })
+      this.setState({
+        showAddDrive: true,
+        team: '',
+        showAfterTD: false
+      })
     }
 
     //2-pt
     if (result === '2 point') {
       points = 2
-      this.setState({ showAddDrive: true, team: '', showAfterTD: false })
+      this.setState({
+        showAddDrive: true,
+        team: '',
+        showAfterTD: false
+      })
     }
 
     //FG
     if (result === 'Successful') {
       points = 3
-      this.setState({ showAddDrive: true, showAddPlay: false, team: '' })
+      this.setState({
+        showAddDrive: true,
+        showAddPlay: false,
+        team: ''
+      })
     }
 
     //TD
@@ -156,7 +193,11 @@ export default class Admin extends React.Component {
     if (result === 'safety') {
       points = 2
       team === 'home' ? (team = 'away') : (team = 'home')
-      this.setState({ showAddDrive: true, showAddPlay: false, team: '' })
+      this.setState({
+        showAddDrive: true,
+        showAddPlay: false,
+        team: ''
+      })
     }
     if (
       result === 'downs' ||
@@ -179,13 +220,15 @@ export default class Admin extends React.Component {
       let newPoints = { ...score }
       this.submitPlay(newPoints)
     } else {
-      this.setState({ playCount: this.state.playCount + 1 })
       this.submitPlay()
     }
   }
 
   submitPlay = async scoreObj => {
     const {
+      penalty,
+      yards,
+      penTeam,
       game,
       gameId,
       driveId,
@@ -194,7 +237,9 @@ export default class Admin extends React.Component {
       playDist,
       player1,
       player2,
+      kicker,
       result,
+      afterTD,
       min,
       sec,
       quarter,
@@ -203,12 +248,17 @@ export default class Admin extends React.Component {
       drivingTeam
     } = this.state
     let playObj = {
+      penalty,
+      yards,
+      penTeam,
       playType,
       gainLoss,
       playDist,
       player1,
       player2,
+      kicker,
       result,
+      afterTD,
       min,
       sec,
       quarter,
@@ -221,74 +271,79 @@ export default class Admin extends React.Component {
     let playerA
     let playerB
 
-    // console.log(game[drivingTeam])
-
     index1 = game[drivingTeam].players.findIndex(player => {
-       return player1 === player.last_name
-      })
+      return player1 === player.last_name
+    })
 
-      playerA = game[drivingTeam].players[index1]
-     
+    playerA = game[drivingTeam].players[index1]
 
-      if (playType === 'run'){
-        if (result === 'touchdown'){
-          if (!playerA.rushTDs){
-            playerA.rushTDs = 1
-          } else {
-            playerA.rushTDs += 1
-          }
-          
+    if (playType === 'Run') {
+      if (result === 'touchdown') {
+        if (!playerA.rushTDs) {
+          playerA.rushTDs = 1
+        } else {
+          playerA.rushTDs += 1
         }
-        if (!playerA.rushYards){
-          gainLoss === 'gain' ? playerA.rushYards = [+playDist] : playerA.rushYards = [ -(+playDist)]
-        }
-        else {
-        gainLoss === 'gain' ? playerA.rushYards = [...playerA.rushYards, +playDist] : playerA.rushYards = [...playerA.rushYards, -(+playDist)]
-        }
-
-        let updatedPlayers = [...game[drivingTeam].players]
-
-        teamObj = {...game[drivingTeam], players: updatedPlayers}
+      }
+      if (!playerA.rushYards) {
+        gainLoss === 'gain'
+          ? (playerA.rushYards = [+playDist])
+          : (playerA.rushYards = [-+playDist])
+      } else {
+        gainLoss === 'gain'
+          ? (playerA.rushYards = [...playerA.rushYards, +playDist])
+          : (playerA.rushYards = [...playerA.rushYards, -+playDist])
       }
 
-      if (playType === 'pass'){
-        index2 = game[drivingTeam].players.findIndex(player => {
-          return player2 === player.last_name
-        })
+      let updatedPlayers = [...game[drivingTeam].players]
+
+      teamObj = { ...game[drivingTeam], players: updatedPlayers }
+    }
+
+    if (playType === 'pass') {
+      index2 = game[drivingTeam].players.findIndex(player => {
+        return player2 === player.last_name
+      })
 
       playerB = game[drivingTeam].players[index2]
 
-        if (result === 'touchdown'){
-          if (!playerA.recTDs){
-            playerA.passTDs = 1
-          } else {
-            playerA.passTDs += 1
-          }
-          if (!playerB.recTDs){
-            playerB.recTDs = 1
-          } else {
-            playerB.recTDs += 1
-          }
-        }
-        if (!playerA.passYards){
-        gainLoss === 'gain' ? playerA.passYards = [ +playDist] : playerA.passYards = [ -(+playDist)]
+      if (result === 'touchdown') {
+        if (!playerA.recTDs) {
+          playerA.passTDs = 1
         } else {
-          gainLoss === 'gain' ? playerA.passYards = [...playerA.passYards, +playDist] : playerA.passYards = [...playerA.passYards, -(+playDist)]
+          playerA.passTDs += 1
         }
-        
-        if (!playerB.recYards){
-          gainLoss === 'gain' ? playerB.recYards = [ +playDist] : playerB.recYards = [ -(+playDist)]
-          } else {
-            gainLoss === 'gain' ? playerB.recYards = [...playerB.recYards, +playDist] : playerB.recYards = [...playerB.recYards, -(+playDist)]
-          }
-        
-        let updatedPlayers = [...game[drivingTeam].players]
-        teamObj = {...game[drivingTeam], players: updatedPlayers}
+        if (!playerB.recTDs) {
+          playerB.recTDs = 1
+        } else {
+          playerB.recTDs += 1
+        }
+      }
+      if (!playerA.passYards) {
+        gainLoss === 'gain'
+          ? (playerA.passYards = [+playDist])
+          : (playerA.passYards = [-+playDist])
+      } else {
+        gainLoss === 'gain'
+          ? (playerA.passYards = [...playerA.passYards, +playDist])
+          : (playerA.passYards = [...playerA.passYards, -+playDist])
       }
 
-      // console.log(teamObj)
+      if (!playerB.recYards) {
+        gainLoss === 'gain'
+          ? (playerB.recYards = [+playDist])
+          : (playerB.recYards = [-+playDist])
+      } else {
+        gainLoss === 'gain'
+          ? (playerB.recYards = [...playerB.recYards, +playDist])
+          : (playerB.recYards = [...playerB.recYards, -+playDist])
+      }
 
-
+      let updatedPlayers = [...game[drivingTeam].players]
+      teamObj = { ...game[drivingTeam], players: updatedPlayers }
+    }else {
+      teamObj = { ...game[drivingTeam] }
+    }
     this.setState({ game: { ...this.state.game, score: scoreObj } }, () => {
       axios
         .put(`/api/game`, {
@@ -303,7 +358,8 @@ export default class Admin extends React.Component {
           if (this.state.result === 'touchdown') {
             this.setState({
               showAfterTD: true,
-              showAddPlay: false
+              showAddPlay: false,
+              playCount: playCount + 1
             })
           }
           this.setState({
@@ -327,6 +383,13 @@ export default class Admin extends React.Component {
   // showAfterTD = () => {
   //   this.setState({ showAfterTD: true })
   // }
+
+  setPenalty = (penObj) => {
+    this.setState({
+      penalty: penObj.penalty,
+      yards: penObj.yards
+    })
+  }
 
   render() {
     return (
@@ -361,7 +424,7 @@ export default class Admin extends React.Component {
             <datalist id='yard-line'>
               {[...Array(50)].map((el, i) => (
                 <option key={i} value={`${i}`}>
-                  Yards
+                  Yard Line
                 </option>
               ))}
             </datalist>
@@ -369,6 +432,23 @@ export default class Admin extends React.Component {
               disable={this.state.submitDrive}
               addScore={this.submitDrive}
               title='Add Drive'
+            />
+            <select
+              name='driveId'
+              onChange={e => this.setDriveInfo(e.target.value)}>
+              <option value=''>Select Drive</option>
+              {this.props.game.drivesArr.map(drive => {
+                return (
+                  <option key={drive.driveCount} value={drive._id}>
+                    Drive: {drive.driveCount}
+                  </option>
+                )
+              })}
+            </select>
+            <SubmitButton
+              disable={!this.state.driveId}
+              title='Resume Drive'
+              addScore={this.resumeDrive}
             />
           </div>
         )}
@@ -389,20 +469,27 @@ export default class Admin extends React.Component {
               value={this.state.playType}
               list='play-type'>
               <option>Play Type</option>
-              <option value='run'>Run</option>
+              <option value='Run'>Run</option>
               <option value='pass'>Pass</option>
-              <option value='sack'>Sack</option>
               <option value='incomplete pass'>Incomplete Pass</option>
+              <option value='sack'>Sack</option>
               <option value='kick'>Kick</option>
+              <option value='penalty'>Penalty</option>
             </select>
 
-            {this.state.playType && (
-              <PlayInputs
-                handleChange={this.handleChange}
-                adminState={this.state}
-                addScore={this.addScore}
-              />
-            )}
+            {this.state.playType === 'penalty' ? (
+                  <Penalties
+                    setPenalty={this.setPenalty}
+                    handleChange={this.handleChange}
+                    adminState={this.state}
+                    addScore={this.addScore}
+                  />) :
+                <PlayInputs
+                  handleChange={this.handleChange}
+                  adminState={this.state}
+                  addScore={this.addScore}
+                />
+            }
           </div>
         )}
       </Wrapper>

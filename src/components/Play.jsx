@@ -4,13 +4,12 @@ import { returnText } from '../functions/returnText'
 
 const Plays = styled.h1`
     display: flex;
-    justify-content: center;
     align-items: flex-start;
     font-family: sans-serif;
     font-weight: bold;
     text-align: left;
     font-size: 12px;
-    padding: 5px;
+    padding: 5px 5px 5px 15px;
     color: black;
     .play-desc {
         font-weight: 400;

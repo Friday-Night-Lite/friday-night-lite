@@ -50,7 +50,7 @@ export default class Game extends React.Component {
       <Wrapper>
         {this.state.isLoading && <h1>Loading...</h1>}
         {!(this.state.isLoading) && <Scoreboard game={this.state.gameObj} />}
-        {!(this.state.isLoading) && <Field game={this.state.gameObj} selectedDrive={this.state.selectedDrive}/>}
+        {(!this.state.isLoading && this.state.selectedDrive > 0) && <Field game={this.state.gameObj} selectedDrive={this.state.selectedDrive}/>}
         {!(this.state.isLoading) && (
           <Admin
           updateGame={this.updateGame}

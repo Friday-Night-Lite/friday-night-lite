@@ -48,11 +48,11 @@ export default class AfterTDInputs extends React.Component{
       onChange={e => this.props.handleChange(e.target)}
       name='result'>
       <option>PAT Result</option>
-      <option value='extra point'>Good</option>
-      <option value='missed'>Missed</option>
+      <option value='Successful PAT'>Good</option>
+      <option value='Missed PAT'>Missed</option>
       <option value='blocked'>Blocked</option>
     </select>
-    {admin.patRes === 'blocked' && (
+    {admin.result === 'blocked' && (
       <>
         <input
           onChange={e => this.props.handleChange(e.target)}
@@ -86,7 +86,7 @@ export default class AfterTDInputs extends React.Component{
           placeholder='Play Type'
           list='play-type'>
           <option>Play Type</option>
-          <option value='run'>Run</option>
+          <option value='Run'>Run</option>
           <option value='pass'>Pass</option>
           <option value='sack'>Sack</option>
           <option value='incompletePass'>Incomplete Pass</option>
