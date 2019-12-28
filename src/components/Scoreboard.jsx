@@ -4,13 +4,15 @@ import Helmet from "../components/Helmet";
 import "../assets/digital-7.ttf"
 
 const Wrapper = styled.div`
-border: 1px solid black;
+/* border: 1px solid #999999; */
+box-shadow: 1px 1px 2px #999999;
+background: white;
 display: flex;
-width: 700px;
+width: 900px;
 margin: 25px auto;
 border-radius: 7px;
 box-sizing: border-box;
-background: lightgray;
+padding: 10px;
 .school-info {
   display: flex;
   flex-direction: column;
@@ -23,7 +25,9 @@ background: lightgray;
 .teams {
   display: flex;
   width: 100%;
-  justify-content: space-between;
+  justify-content: space-around;
+  margin: 0 100px;
+  box-sizing: border-box;
 }
 .field-component {
   display: flex;
@@ -35,6 +39,7 @@ background: lightgray;
   font-size: 3rem;
   justify-content: center;
   background: white;
+  border: solid 1px #999999;
   border-radius: 5px;
   padding: 0 20px;
 }

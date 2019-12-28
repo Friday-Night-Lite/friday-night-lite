@@ -7,12 +7,14 @@ import SubmitButton from './SubmitButton'
 import Penalties from './Penalties'
 
 const Wrapper = styled.div`
+box-shadow: 1px 1px 2px #999999;
+background: white;
   display: flex;
   align-items: center;
   justify-content: space-around;
   margin: 15px auto;
   padding: 25px;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   border-radius: 7px;
   width: 850px;
   .new-drive {

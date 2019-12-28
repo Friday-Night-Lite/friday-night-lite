@@ -3,8 +3,10 @@ import styled from 'styled-components'
 import Drive from './Drive'
 
 const Wrapper = styled.div`
+box-shadow: 1px 1px 2px #999999;
+background: white;
 box-sizing: border-box;
-border: 1px solid black;
+/* border: 1px solid black; */
 border-radius: 7px;
 margin-left: 25px;
 height: 400px;
