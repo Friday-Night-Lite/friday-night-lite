@@ -4,18 +4,22 @@ import Helmet from "../components/Helmet";
 import "../assets/digital-7.ttf"
 
 const Wrapper = styled.div`
-border: 1px solid black;
+/* border: 1px solid #999999; */
+box-shadow: 1px 1px 2px #999999;
+background: white;
 display: flex;
-width: 700px;
+width: 900px;
 margin: 25px auto;
 border-radius: 7px;
 box-sizing: border-box;
-background: lightgray;
+padding: 10px;
 .school-info {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 150px;
+  font-size: 1.25rem;
 }
 .team {
   display: flex;
@@ -23,7 +27,10 @@ background: lightgray;
 .teams {
   display: flex;
   width: 100%;
-  justify-content: space-between;
+  justify-content: center;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  padding: 0 150px;
 }
 .field-component {
   display: flex;
@@ -35,8 +42,12 @@ background: lightgray;
   font-size: 3rem;
   justify-content: center;
   background: white;
+  border: solid 1px #999999;
   border-radius: 5px;
   padding: 0 20px;
+  margin: 0 75px;
+  width: 150px;
+  box-shadow: 1px 1px 2px #999999;
 }
 .clockContainer {
   display: flex;
@@ -57,19 +68,27 @@ background: lightgray;
   display: flex;
   padding: 3px 5px;
   margin-bottom: 3px;
+  font-family: sans-serif;
 }
 .quarter {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* justify-content: center; */
   padding: 2px;
 }
 span {
   font-weight: 700;
+  color: #999999;
+}
+.school {
+  /* color: black; */
 }
 .placeholder {
   display: flex;
   justify-content: center;
+}
+.hidden {
+  visibility: hidden;
 }`
 
 
@@ -154,10 +173,14 @@ export default class Scoreboard extends React.Component {
           hs2: newHS2,
           hs3: newHS3,
           hs4: newHS4,
+          // hs3: '-',
+          // hs4: '-',
           as1: newAS1,
           as2: newAS2,
           as3: newAS3,
           as4: newAS4
+          // as3: '-',
+          // as4: '-'
         })
 
   }
@@ -186,7 +209,7 @@ export default class Scoreboard extends React.Component {
           <div className='team'>
             <Helmet color1={home.color} />
             <div className='school-info'>
-              <h2>{home.school}</h2>
+              {/* <h2>{home.school}</h2> */}
               <h2>{home.mascot}</h2>
               {!(this.props.game.status === 'upcoming') && (
                 <h3 className='score'>{hScore.toString()}</h3>
@@ -215,14 +238,14 @@ export default class Scoreboard extends React.Component {
                 </div>
                 <div className='box-score'>
                   <div className='quarter'>
-                    <p>
-                      <span>Team</span>
+                    <p class='hidden'>
+                      <span>team</span>
                     </p>
-                    <p>Home</p>
-                    <p>Away</p>
+                    <p><span className='school'>{this.props.game.home.school}</span></p>
+                    <p><span className='school'>{this.props.game.away.school}</span></p>
                   </div>
 
-                  <div className='quarter'>
+                  <div className='quarter first'>
                     <p>
                       <span>1st</span>
                     </p>
@@ -230,7 +253,7 @@ export default class Scoreboard extends React.Component {
                     <p>{as1.toString()}</p>
                   </div>
 
-                  <div className='quarter'>
+                  <div className='quarter second'>
                     <p>
                       <span>2nd</span>
                     </p>
@@ -238,7 +261,7 @@ export default class Scoreboard extends React.Component {
                     <p>{as2.toString()}</p>
                   </div>
 
-                  <div className='quarter'>
+                  <div className='quarter third'>
                     <p>
                       <span>3rd</span>
                     </p>
@@ -246,7 +269,7 @@ export default class Scoreboard extends React.Component {
                     <p>{as3.toString()}</p>
                   </div>
 
-                  <div className='quarter'>
+                  <div className='quarter fourth'>
                     <p>
                       <span>4th</span>
                     </p>
@@ -269,7 +292,7 @@ export default class Scoreboard extends React.Component {
           <br />
           <div className='team'>
             <div className='school-info'>
-              <h2>{away.school}</h2>
+              {/* <h2>{away.school}</h2> */}
               <h2>{away.mascot}</h2>
               {!(this.props.game.status === 'upcoming') && (
                 <h3 className='score'>{aScore}</h3>

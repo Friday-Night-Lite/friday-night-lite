@@ -8,9 +8,9 @@ import GameLeaders from './GameLeaders'
 import Admin from './Admin'
 
 const Wrapper = styled.div`
-background: white;
+background: #ececec;
 padding-top: 25px;
-padding-bottom: 150px;
+padding-bottom: 50px;
 .container {
     display: flex;
     justify-content: center;
