@@ -187,7 +187,7 @@ class Penalties extends Component {
           value={admin.player1}
         />
         <datalist id='player1'>
-          {admin.team === 'home'
+          {admin.penTeam === 'home'
             ? admin.game.home.players.map((player, i) => (
                 <option key={i} value={player.last_name}>
                   {player.position}

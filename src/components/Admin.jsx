@@ -373,7 +373,10 @@ export default class Admin extends React.Component {
             afterTD: '',
             kicker: '',
             patRes: '',
-            patBlocker: ''
+            patBlocker: '',
+            penalty: '',
+            yards: '',
+            penTeam: ''
           })
           this.props.updateGame(res.data.game)
         })
