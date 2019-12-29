@@ -25,6 +25,7 @@ const Wrapper = styled.div`
   .section {
     display: flex;
     justify-content: space-between;
+    align-items: center;
   }
   .stats {
     margin: 0 -200%;
@@ -39,6 +40,10 @@ const Wrapper = styled.div`
 .home {
     margin-right: 50px;
   }
+.line {
+  height: 100%;
+  border: solid #999999;
+}
 `
 
 export default class GameLeaders extends React.Component {
@@ -56,7 +61,6 @@ export default class GameLeaders extends React.Component {
   }
 
   async findLeaders() {
-    //needs update
     const aPlayers = this.props.game.away.players
     const hPlayers = this.props.game.home.players
 
@@ -273,7 +277,9 @@ export default class GameLeaders extends React.Component {
                   <span>{hPass.name}</span>
                 </p>
                 <p>{hPass.yards} yards</p>
-                <p>{hPass.tds} TD</p>
+                {(hPass.tds > 0) &&
+                <p>{hPass.tds} TD</p>}
+
                 <p>
                   {hPass.position} #{hPass.number}
                 </p>
@@ -283,7 +289,8 @@ export default class GameLeaders extends React.Component {
                   <span>{aPass.name}</span>
                 </p>
                 <p>{aPass.yards} yards</p>
-                <p>{aPass.tds} TD</p>
+                {(aPass.tds > 0) &&
+                  <p>{aPass.tds} TD</p>}
                 <p>
                   {aPass.position} #{aPass.number}
                 </p>
@@ -312,7 +319,8 @@ export default class GameLeaders extends React.Component {
                   <span>{hRush.name}</span>
                 </p>
                 <p>{hRush.yards} yards</p>
-                <p>{hRush.tds} TD</p>
+                {(hPass.tds > 0) &&
+                <p>{hPass.tds} TD</p>}
                 <p>
                   {hRush.position} #{hRush.number}
                 </p>
@@ -322,7 +330,8 @@ export default class GameLeaders extends React.Component {
                   <span>{aRush.name}</span>
                 </p>
                 <p>{aRush.yards} yards</p>
-                <p>{aRush.tds} TD</p>
+                {(aRush.tds > 0) &&
+                <p>{aRush.tds} TD</p>}
                 <p>
                   {aRush.position} #{aRush.number}
                 </p>
@@ -351,7 +360,8 @@ export default class GameLeaders extends React.Component {
                   <span>{hRec.name}</span>
                 </p>
                 <p>{hRec.yards} yards</p>
-                <p>{hRec.tds} TD</p>
+                {(hPass.tds > 0) &&
+                <p>{hPass.tds} TD</p>}
                 <p>
                   {hRec.position} #{hRec.number}
                 </p>
@@ -361,7 +371,8 @@ export default class GameLeaders extends React.Component {
                   <span>{aRec.name}</span>
                 </p>
                 <p>{aRec.yards} yards</p>
-                <p>{aRec.tds} TD</p>
+                {(aRec.tds > 0) &&
+                <p>{aRec.tds} TD</p>}
                 <p>
                   {aRec.position} #{aRec.number}
                 </p>
