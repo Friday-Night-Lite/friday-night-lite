@@ -9,7 +9,6 @@ export default class PlayInputs extends React.Component {
 
   render() {
     const admin = this.props.adminState
-    console.log(admin.sec)
     let titleVar
     !(
       admin.result === '1st' ||
@@ -17,7 +16,7 @@ export default class PlayInputs extends React.Component {
       admin.result === '3rd' ||
       admin.result === '4th' ||
       admin.result === 'touchdown'
-    ) ? titleVar = 'End Drive' : admin.result === 'touchdown' ? titleVar = 'Submit TD' : titleVar = 'Submit Drive'
+    ) ? titleVar = 'End Drive' : admin.result === 'touchdown' ? titleVar = 'Submit TD' : titleVar = 'Submit Play'
     return (
       <Wrapper>
         {/* RUN OR PASS*/}
@@ -167,7 +166,7 @@ export default class PlayInputs extends React.Component {
               <option value='third'>3rd</option>
               <option value='fourth'>4th</option>
             </select>
-            <SubmitButton title={titleVar} addScore={this.props.addScore} />
+            <SubmitButton title={titleVar} addScore={this.props.addScore} disable={this.props.submitPlay}/>
           </div>
         )}
 
@@ -285,35 +284,6 @@ export default class PlayInputs extends React.Component {
           </div>
         )}
 
-        {/* BUTTONS */}
-
-        {/* {admin.result && (
-          <>
-            {(admin.result === '1st' ||
-              admin.result === '2nd' ||
-              admin.result === '3rd' ||
-              admin.result === '4th') && (
-              <SubmitButton
-                title='Submit Play'
-                addScore={this.props.addScore}
-              />
-            )}
-
-            {admin.result === 'touchdown' && (
-              <SubmitButton title='Submit TD' addScore={this.props.addScore} />
-            )}
-
-            {!(
-              admin.result === '1st' ||
-              admin.result === '2nd' ||
-              admin.result === '3rd' ||
-              admin.result === '4th' ||
-              admin.result === 'touchdown'
-            ) && (
-              <SubmitButton title='End Drive' addScore={this.props.addScore} />
-            )}
-          </>
-        )} */}
       </Wrapper>
     )
   }

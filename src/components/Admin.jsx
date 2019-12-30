@@ -100,7 +100,7 @@ export default class Admin extends React.Component {
     if (playType && gainLoss && playDist && player1 && result && min && sec) {
       this.setState({ submitPlay: false })
     }
-    if (playType || gainLoss || playDist || player1 || result || min || sec) {
+    if (!playType || !gainLoss || !playDist || !player1 || !result || !min || !sec) {
       this.setState({ submitPlay: true })
     }
   }
@@ -361,7 +361,7 @@ export default class Admin extends React.Component {
     this.setState(
       { game: { ...this.state.game, score: scoreObj }, yardTracker: newYards },
       () => {
-        console.log(newYards)
+        // console.log(newYards)
 
         axios
           .put(`/api/game`, {
@@ -498,6 +498,7 @@ export default class Admin extends React.Component {
                     addScore={this.addScore}
                   />) :
                 <PlayInputs
+                  submitPlay={this.state.submitPlay}
                   handleChange={this.handleChange}
                   adminState={this.state}
                   addScore={this.addScore}

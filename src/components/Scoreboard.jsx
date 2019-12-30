@@ -4,7 +4,6 @@ import Helmet from "../components/Helmet";
 import "../assets/digital-7.ttf"
 
 const Wrapper = styled.div`
-/* border: 1px solid #999999; */
 box-shadow: 1px 1px 2px #999999;
 background: white;
 display: flex;
@@ -97,32 +96,39 @@ span {
 export default class Scoreboard extends React.Component {
   state = {
     gameObj: {},
+    quarter: '',
     hScore: 0,
     aScore: 0,
-    hs1: 0,
-    hs2: 0,
-    hs3: 0,
-    hs4: 0,
-    as1: 0,
-    as2: 0,
-    as3: 0,
-    as4: 0
+    hs1: '-',
+    hs2: '-',
+    hs3: '-',
+    hs4: '-',
+    as1: '-',
+    as2: '-',
+    as3: '-',
+    as4: '-'
 
   }
 
   componentDidMount = async () => {
-    await this.setState({ game: this.props.game })
+    await this.setState({ 
+      game: this.props.game,
+      quarter: this.props.quarter
+    })
     this.calculateScore()
     this.props.findTime()
   }
   
   componentDidUpdate = (prevProps) => {
     if (this.props.game !== prevProps.game) {
+      console.log('fred')
       this.setState({ gameObj: this.props.game }, () => {
         this.calculateScore()
       })
     }
   }
+
+
 
 
   calculateScore = async () => {
@@ -153,6 +159,10 @@ export default class Scoreboard extends React.Component {
     let newHS4 = await home.fourth.reduce((acc, num) => {
       return acc + num
     })
+    
+    
+    
+    
     //away score
     let newAScore = 0
     newAScore = newAS1 + newAS2 + newAS3 + newAS4
@@ -162,23 +172,20 @@ export default class Scoreboard extends React.Component {
     newHScore = newHS1 + newHS2 + newHS3 + newHS4
 
 
+
+
+
         this.setState({
-          // min: '15',
-          // sec: '00',
           hScore: newHScore,
           aScore: newAScore,
           hs1: newHS1,
           hs2: newHS2,
           hs3: newHS3,
           hs4: newHS4,
-          // hs3: '-',
-          // hs4: '-',
           as1: newAS1,
           as2: newAS2,
           as3: newAS3,
           as4: newAS4
-          // as3: '-',
-          // as4: '-'
         })
 
   }
@@ -206,7 +213,7 @@ export default class Scoreboard extends React.Component {
       as4 } = this.state
 
     return (
-      <Wrapper>
+      <Wrapper quarter={this.state.quarter}>
         <div className='teams'>
           <div className='team'>
             <Helmet color1={home.color} />
