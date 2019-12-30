@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import Animation from './Animation'
 import './Field.css'
 import goal from '../assets/goal.png'
-import referee from '../assets/referee.jpg'
 
 
 const Wrapper = styled.div`
@@ -82,7 +81,6 @@ const RightZone = styled.div`
 export default class Field extends React.Component {
   state = {
     start: 0,
-    //selectedDrive logic...
     selectedDrive: 0
   }
 
@@ -120,6 +118,11 @@ export default class Field extends React.Component {
     }
     }
     let result = this.props.game.drivesArr[currentDrive].plays[this.props.game.drivesArr[currentDrive].plays.length-1].result
+
+    if (result === '1st' || result === '2nd' || result === '3rd' || result === '4th'){
+      return 'in progress'
+    }
+
     return result
   }
   }
@@ -144,7 +147,7 @@ export default class Field extends React.Component {
         <div className='fieldContainer'>
           <div className='animation'>
             {(this.props.selectedDrive > 0) &&
-              <Animation margins={this.state} game={this.props.game} selectedDrive={this.props.selectedDrive} />
+              <Animation margins={this.state} game={this.props.game} selectedDrive={this.props.selectedDrive} driveResult={this.driveResult}/>
             }
           </div>
 
@@ -161,7 +164,6 @@ export default class Field extends React.Component {
 
 
             <img className='goal-post-right' src={goal} alt='' height='100' />
-            <img className='referee' src={referee} alt="" height='75'/>
           </div>
 
         </div>

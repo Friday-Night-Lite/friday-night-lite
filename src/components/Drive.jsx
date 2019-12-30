@@ -62,6 +62,12 @@ export default class Drive extends React.Component {
     }
 
     let result = this.props.drive.plays[this.props.drive.plays.length-1].result
+
+
+    if (result === '1st' || result === '2nd' || result === '3rd' || result === '4th'){
+      return 'in progress'
+    }
+    
     return result}
   }
 
