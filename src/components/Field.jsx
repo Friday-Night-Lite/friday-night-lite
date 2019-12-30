@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import Animation from './Animation'
 import './Field.css'
 import goal from '../assets/goal.png'
+import referee from '../assets/referee.jpg'
 
 
 const Wrapper = styled.div`
@@ -144,6 +145,7 @@ export default class Field extends React.Component {
 
 
             <img className='goal-post-right' src={goal} alt='' height='100' />
+            <img className='referee' src={referee} alt="" height='75'/>
           </div>
 
         </div>
