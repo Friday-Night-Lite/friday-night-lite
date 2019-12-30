@@ -6,6 +6,7 @@ import Scoreboard from './Scoreboard'
 import Drives from './Drives'
 import GameLeaders from './GameLeaders'
 import Admin from './Admin'
+import {withRouter} from "react-router-dom"
 
 const Wrapper = styled.div`
 background: #ececec;
@@ -16,13 +17,12 @@ padding-bottom: 50px;
     justify-content: center;
 }`
 
-export default class Game extends React.Component {
+class Game extends React.Component {
   state = {
     isLoading: true,
     gameObj: {},
     gameId: '',
     selectedDrive: 0,
-    isAdmin: false
   }
 
     componentDidMount(){
@@ -44,11 +44,6 @@ export default class Game extends React.Component {
         selectedDrive: id
     })
   }
-  login = _ => {
-    this.setState({
-      isAdmin: !this.state.isAdmin
-    })
-  }
   render() {
  
     return (
@@ -56,13 +51,14 @@ export default class Game extends React.Component {
         {this.state.isLoading && <h1>Loading...</h1>}
         {!(this.state.isLoading) && <Scoreboard game={this.state.gameObj} />}
         {(!this.state.isLoading && this.state.selectedDrive > 0) && <Field game={this.state.gameObj} selectedDrive={this.state.selectedDrive}/>}
-        {!(this.state.isLoading) && (
-          null
-          // <Admin
-          // updateGame={this.updateGame}
-          //   game={this.state.gameObj}
-          // />
-        )}
+        {!(this.state.isLoading) && ( null )}
+         {this.props.show &&  
+        !this.state.isLoading && <Admin 
+          updateGame={this.updateGame}
+            game={this.state.gameObj}
+          />
+         }
+     
         {!this.state.isLoading && (
           <div className='container'>
             <GameLeaders game={this.state.gameObj} />
@@ -73,3 +69,5 @@ export default class Game extends React.Component {
     )
   }
 }
+
+export default withRouter(Game)

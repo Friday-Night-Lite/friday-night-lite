@@ -77,6 +77,7 @@ class Header extends React.Component {
         this.setState({
             toggle: !this.state.toggle
         })
+        this.props.toggle()
     }
     render() {
 
