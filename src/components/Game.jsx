@@ -23,12 +23,9 @@ class Game extends React.Component {
     gameObj: {},
     gameId: '',
     selectedDrive: 0,
-<<<<<<< HEAD
-=======
     min: '15',
     sec: '00',
     quarter: ''
->>>>>>> master
   }
 
     componentDidMount(){
