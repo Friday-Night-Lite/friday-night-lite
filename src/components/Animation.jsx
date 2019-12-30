@@ -48,8 +48,8 @@ const Wrapper = styled.div`
     /* margin-left: -1px; */
   }
   .referee {
-    position: relative;
-    left: 150px;
+    position: absolute;
+    right: -80px;
     top: 25px;
   }
 `
