@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import Line from './Line'
+import referee from '../assets/referee33.gif'
+import referee2 from '../assets/referee24.gif'
 
 const Wrapper = styled.div`
   z-index: 1;
@@ -45,6 +47,11 @@ const Wrapper = styled.div`
     min-width: 5px;
     /* margin-left: -1px; */
   }
+  .referee {
+    position: relative;
+    left: 150px;
+    top: 25px;
+  }
 `
 
 export default class Animation extends React.Component {
@@ -65,6 +72,13 @@ export default class Animation extends React.Component {
                 <div className="arrow-line"/>
                 <div className="arrow"/>
                 </div> */}
+
+                {(this.props.driveResult() === 'touchdown' || this.props.driveResult() === 'Successful') &&
+                <img className='referee' src={referee} alt="" height='100'/>}
+
+                {(this.props.driveResult() === 'Failed') &&
+                <img className='referee2' src={referee} alt="" height='100'/>}
+
             </Wrapper>
         )
     }
