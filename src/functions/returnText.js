@@ -21,7 +21,7 @@ export const returnText = play => {
   if (playType === 'Run') {
     return (<p>{`${playType} by ${player1} with a ${gainLoss} of ${playDist} 
       yards, resulting in a ${result}.(${min}: ${sec.length === 1 ? `0${sec})` : `${sec})`}`}</p>)
-  } else if (playType === 'pass') {
+  } else if (playType === 'Pass') {
     return (
       <p>{`${playType} by ${player1} to ${player2} with a ${gainLoss} of ${playDist} yards, resulting 
       in a ${result}.(${min}:${sec.length === 1 ? `0${sec})` : `${sec})`}`}</p>

@@ -1,5 +1,4 @@
 const { GameModel } = require('../models/game-model')
-// const DriveSchema = require('../models/drive-model')
 const DriveModel = require('../models/drive-model')
 
 module.exports = {
@@ -54,6 +53,7 @@ module.exports = {
       .then(async result => {
         if (body.playObj) {
           let drive = await result.drivesArr.id(body.driveId)
+          drive.yardTracker = body.yardTracker
           let currentPlays = drive.plays
           currentPlays.push(body.playObj)
           let newDrive = { ...drive, plays: [...currentPlays, body.playObj] }
@@ -95,6 +95,7 @@ module.exports = {
   },
   updateDrives: (req, res) => {
     const { id, drive } = req.body
+    
     GameModel.findOne({ _id: id }, async (err, gameRes) => {
       if (err) {
         return res.status(404).json({
