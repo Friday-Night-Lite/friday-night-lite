@@ -8,7 +8,7 @@ const Wrapper = styled.div`
     padding: 5px 10px;
     border-top: 1px solid lightgray;
     border-bottom: 1px solid lightgray;
-    font-size: 1.25rem;
+    font-size: 1.1rem;
     font-weight: bold;
     font-family: sans-serif;
     color: #999999;
@@ -21,10 +21,16 @@ const Wrapper = styled.div`
     text-align: left;
     padding: 5px 10px;
     border: 1px solid lightgray;
-    font-size: 1.25rem;
+    font-size: 1.1rem;
     font-weight: bold;
     font-family: sans-serif;
     color: black;
+  }
+  .drive-title {
+    /* font-size: 1rem; */
+  }
+  span {
+
   }
 `
 
@@ -32,7 +38,7 @@ export default class Drive extends React.Component {
   state = {}
 
   addDriveYards = () => {
-    let driveYards = []
+    let driveYards = [0]
     this.props.drive.plays.map(play => {
       if (play.gainLoss === 'loss'){
       return driveYards.push(+(-play.playDist))
@@ -46,16 +52,30 @@ export default class Drive extends React.Component {
     return total
   }
 
+  driveResult = () => {
+    if(this.props.drive.plays.length){
+
+      if(this.props.drive.plays.length > 1){
+    if (this.props.drive.plays[this.props.drive.plays.length-2].result === 'touchdown'){
+      return 'touchdown'
+    }
+    }
+
+    let result = this.props.drive.plays[this.props.drive.plays.length-1].result
+    return result}
+  }
+
   render() {
     const { drive } = this.props
     return (
       <Wrapper selected={this.props.selectedDrive}>
-        <p
+        <p className='drive-title'
           id={drive.driveCount}
           onClick={() => this.props.setCurrentDrive(drive.driveCount)}
           className={this.props.selectedDrive === drive.driveCount ? 'selected-drive' : 'drive'} >
-          Drive {drive.driveCount}: {this.props.teamObj.school}{' '}
-          {this.props.teamObj.mascot}  ({drive.plays.length} {(drive.plays.length === 1 ? 'play' : 'plays')}, {`${this.addDriveYards()}`} yards)
+          Drive {drive.driveCount}: {' '}
+          {this.props.teamObj.mascot}  ({drive.plays.length} {(drive.plays.length === 1 ? 'play' : 'plays')}, {`${this.addDriveYards()}`} yards){' '}
+          <span>{this.driveResult()}</span>
             </p>
         {this.props.selectedDrive === drive.driveCount && (
           <div className='plays'>

@@ -20,11 +20,11 @@ export const returnText = play => {
   
   if (playType === 'Run') {
     return (<p>{`${playType} by ${player1} with a ${gainLoss} of ${playDist} 
-      yards, resulting in a ${result}.(${min}: ${sec.length === 1 ? `0${sec})` : `${sec})`}`}</p>)
-  } else if (playType === 'pass') {
+      yards, resulting in a ${result}.(${min.length === 1 ? `0${min}` : `${min}`}: ${sec.length === 1 ? `0${sec})` : `${sec})`}`}</p>)
+  } else if (playType === 'Pass') {
     return (
       <p>{`${playType} by ${player1} to ${player2} with a ${gainLoss} of ${playDist} yards, resulting 
-      in a ${result}.(${min}:${sec.length === 1 ? `0${sec})` : `${sec})`}`}</p>
+      in a ${result}.(${min.length === 1 ? `0${min}` : `${min}`}:${sec.length === 1 ? `0${sec})` : `${sec})`}`}</p>
     )
   } else if (kickType === 'field goal attempt')
     {return <p>{`${result} ${playDist} yard ${kickType} by ${player1}`}</p>

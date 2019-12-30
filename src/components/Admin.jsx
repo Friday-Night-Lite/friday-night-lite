@@ -52,6 +52,7 @@ export default class Admin extends React.Component {
     kickType: '',
     playCount: 1,
     drivingTeam: '',
+    yardTracker: 0,
 
     showAfterTD: false,
     afterTD: '',
@@ -81,7 +82,6 @@ export default class Admin extends React.Component {
   enableButtons = () => {
     const {
       team,
-      fieldSide,
       yardLine,
       playType,
       gainLoss,
@@ -91,24 +91,26 @@ export default class Admin extends React.Component {
       min,
       sec
     } = this.state
-    if (team && fieldSide && yardLine) {
+    if (team && yardLine) {
       this.setState({ submitDrive: false })
     }
-    if (!team || !fieldSide || !yardLine) {
+    if (!team || !yardLine) {
       this.setState({ submitDrive: true })
     }
     if (playType && gainLoss && playDist && player1 && result && min && sec) {
       this.setState({ submitPlay: false })
     }
-    if (playType || gainLoss || playDist || player1 || result || min || sec) {
+    if (!playType || !gainLoss || !playDist || !player1 || !result || !min || !sec) {
       this.setState({ submitPlay: true })
     }
   }
 
   submitDrive = () => {
-    const { gameId, driveCount, team, fieldSide, yardLine } = this.state
+    // console.log('hit')
+    const { gameId, driveCount, team, yardLine } = this.state
     this.setState({
-      drivingTeam: team
+      drivingTeam: team,
+      yardTracker: yardLine
     })
     axios
       .put('/api/game/drive', {
@@ -116,8 +118,8 @@ export default class Admin extends React.Component {
         drive: {
           driveCount,
           team,
-          fieldSide,
           yardLine,
+          yardTracker: yardLine,
           plays: []
         }
       })
@@ -129,7 +131,6 @@ export default class Admin extends React.Component {
           showAddPlay: true,
           game: res.data,
           driveId: res.data.drivesArr[idLoc]._id,
-          fieldSide: '',
           yardLine: ''
         })
         this.props.updateGame(res.data)
@@ -145,7 +146,8 @@ export default class Admin extends React.Component {
       playCount: setDrive.plays.length + 1,
       driveId: id,
       team: setDrive.team,
-      drivingTeam: setDrive.team
+      drivingTeam: setDrive.team,
+      yardTracker: setDrive.yardTracker
     })
   }
   resumeDrive = () => {
@@ -247,7 +249,8 @@ export default class Admin extends React.Component {
       quarter,
       kickType,
       playCount,
-      drivingTeam
+      drivingTeam,
+      yardTracker
     } = this.state
     let playObj = {
       penalty,
@@ -267,6 +270,15 @@ export default class Admin extends React.Component {
       kickType,
       playCount
     }
+    // setRemainingYards()
+    let newYards = this.state.yardTracker
+     if (this.state.playType === 'penalty') {
+       this.state.drivingTeam !== penTeam
+         ? newYards += yards
+         : newYards -= yards
+     } else if (this.state.playType !== 'kick') {
+       this.state.gainLoss === 'gain' ? (newYards += +playDist) : newYards -= +playDist
+     }
     let teamObj = {}
     let index1
     let index2
@@ -302,7 +314,7 @@ export default class Admin extends React.Component {
       teamObj = { ...game[drivingTeam], players: updatedPlayers }
     }
 
-    if (playType === 'pass') {
+    if (playType === 'Pass') {
       index2 = game[drivingTeam].players.findIndex(player => {
         return player2 === player.last_name
       })
@@ -323,12 +335,12 @@ export default class Admin extends React.Component {
       }
       if (!playerA.passYards) {
         gainLoss === 'gain'
-          ? (playerA.passYards = [+playDist])
+          ? (playerA.passYards = [+playDist]) 
           : (playerA.passYards = [-+playDist])
       } else {
-        gainLoss === 'gain'
-          ? (playerA.passYards = [...playerA.passYards, +playDist])
-          : (playerA.passYards = [...playerA.passYards, -+playDist])
+        gainLoss === 'gain' ? 
+        playerA.passYards = [...playerA.passYards, (+playDist)]
+        : playerA.passYards = [...playerA.passYards, -+playDist]
       }
 
       if (!playerB.recYards) {
@@ -346,48 +358,52 @@ export default class Admin extends React.Component {
     }else {
       teamObj = { ...game[drivingTeam] }
     }
-    this.setState({ game: { ...this.state.game, score: scoreObj } }, () => {
-      axios
-        .put(`/api/game`, {
-          driveId,
-          gameId,
-          playObj,
-          scoreObj,
-          teamObj,
-          drivingTeam
-        })
-        .then(res => {
-          if (this.state.result === 'touchdown') {
-            this.setState({
-              showAfterTD: true,
-              showAddPlay: false,
-              playCount: playCount + 1
-            })
-          }
-          this.setState({
-            playType: '',
-            gainLoss: '',
-            playDist: '',
-            player1: '',
-            player2: '',
-            result: '',
-            kickType: '',
-            afterTD: '',
-            kicker: '',
-            patRes: '',
-            patBlocker: '',
-            penalty: '',
-            yards: '',
-            penTeam: ''
+    this.setState(
+      { game: { ...this.state.game, score: scoreObj }, yardTracker: newYards },
+      () => {
+        // console.log(newYards)
+
+        axios
+          .put(`/api/game`, {
+            yardTracker: newYards,
+            driveId,
+            gameId,
+            playObj,
+            scoreObj,
+            teamObj,
+            drivingTeam
           })
-          this.props.updateGame(res.data.game)
-        })
-    })
+          .then(res => {
+            if (this.state.result === 'touchdown') {
+              this.setState({
+                showAfterTD: true,
+                showAddPlay: false,
+              })
+            }
+            this.setState({
+              playCount: playCount + 1,
+              playType: '',
+              gainLoss: '',
+              playDist: '',
+              player1: '',
+              player2: '',
+              result: '',
+              kickType: '',
+              afterTD: '',
+              kicker: '',
+              patRes: '',
+              patBlocker: '',
+              penalty: '',
+              yards: '',
+              penTeam: ''
+            })
+            this.props.updateGame(res.data.game)
+          })
+      }
+    )
   }
 
-  // showAfterTD = () => {
-  //   this.setState({ showAfterTD: true })
-  // }
+  
 
   setPenalty = (penObj) => {
     this.setState({
@@ -411,14 +427,6 @@ export default class Admin extends React.Component {
               <option value='home'>Home</option>
               <option value='away'>Away</option>
             </select>
-            <select
-              required={true}
-              onChange={e => this.handleChange(e.target)}
-              name='fieldSide'>
-              <option value=''>Field Side</option>
-              <option value='home'>Home</option>
-              <option value='away'>Away</option>
-            </select>
             <input
               required={true}
               onChange={e => this.handleChange(e.target)}
@@ -427,9 +435,9 @@ export default class Admin extends React.Component {
               list='yard-line'
             />
             <datalist id='yard-line'>
-              {[...Array(50)].map((el, i) => (
-                <option key={i} value={`${i}`}>
-                  Yard Line
+              {[...Array(99)].map((el, i) => (
+                <option key={i} value={`${i + 1}`}>
+                  {99 - i} Yards To Go
                 </option>
               ))}
             </datalist>
@@ -475,8 +483,8 @@ export default class Admin extends React.Component {
               list='play-type'>
               <option>Play Type</option>
               <option value='Run'>Run</option>
-              <option value='pass'>Pass</option>
-              <option value='incomplete pass'>Incomplete Pass</option>
+              <option value='Pass'>Pass</option>
+              <option value='incomplete Pass'>Incomplete Pass</option>
               <option value='sack'>Sack</option>
               <option value='kick'>Kick</option>
               <option value='penalty'>Penalty</option>
@@ -490,6 +498,7 @@ export default class Admin extends React.Component {
                     addScore={this.addScore}
                   />) :
                 <PlayInputs
+                  submitPlay={this.state.submitPlay}
                   handleChange={this.handleChange}
                   adminState={this.state}
                   addScore={this.addScore}

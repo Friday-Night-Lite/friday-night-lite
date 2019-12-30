@@ -31,8 +31,9 @@ const Button = styled.button`
 
 const SubmitButton = props => {
   return (
-    <Button disabled={props.disable} onClick={() => props.addScore()}>
-      {props.title}
+    <Button disabled={props.disable} 
+    onClick={() => props.addScore()}>
+    {props.title}
     </Button>
   )
 }

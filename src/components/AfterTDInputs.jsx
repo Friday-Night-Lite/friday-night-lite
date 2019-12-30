@@ -87,7 +87,7 @@ export default class AfterTDInputs extends React.Component{
           list='play-type'>
           <option>Play Type</option>
           <option value='Run'>Run</option>
-          <option value='pass'>Pass</option>
+          <option value='Pass'>Pass</option>
           <option value='sack'>Sack</option>
           <option value='incompletePass'>Incomplete Pass</option>
           <option value='kick'>Kick</option>
@@ -96,7 +96,7 @@ export default class AfterTDInputs extends React.Component{
           onChange={e => this.props.handleChange(e.target)}
           name='player1'
           placeholder={
-            admin.playType === 'pass' ? 'Passer' : 'Runner'
+            admin.playType === 'Pass' ? 'Passer' : 'Runner'
           }
           list='player1'
         />
@@ -113,7 +113,7 @@ export default class AfterTDInputs extends React.Component{
               </option>
             ))}
         </datalist>
-        {admin.playType === 'pass' && (
+        {admin.playType === 'Pass' && (
           <>
             <input
               onChange={e => this.props.handleChange(e.target)}

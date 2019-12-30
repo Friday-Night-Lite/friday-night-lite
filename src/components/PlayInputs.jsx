@@ -16,12 +16,12 @@ export default class PlayInputs extends React.Component {
       admin.result === '3rd' ||
       admin.result === '4th' ||
       admin.result === 'touchdown'
-    ) ? titleVar = 'End Drive' : admin.result === 'touchdown' ? titleVar = 'Submit TD' : titleVar = 'Submit Drive'
+    ) ? titleVar = 'End Drive' : admin.result === 'touchdown' ? titleVar = 'Submit TD' : titleVar = 'Submit Play'
     return (
       <Wrapper>
         {/* RUN OR PASS*/}
         {(admin.playType === 'Run' ||
-          admin.playType === 'pass' ||
+          admin.playType === 'Pass' ||
           admin.playType === 'sack' ||
           admin.playType === 'incomplete pass') && (
           <div className='Run'>
@@ -47,7 +47,7 @@ export default class PlayInputs extends React.Component {
                   list='play-distance'
                 />
                 <datalist id='play-distance'>
-                  {[...Array(100)].map((el, i) => (
+                  {[...Array(100 - admin.yardTracker)].map((el, i) => (
                     <option value={i} key={i}>
                       Yards
                     </option>
@@ -76,14 +76,14 @@ export default class PlayInputs extends React.Component {
                     </option>
                   ))}
             </datalist>
-            {(admin.playType === 'pass' ||
+            {(admin.playType === 'Pass' ||
               admin.playType === 'incomplete pass') && (
               <>
                 <input
                   onChange={e => this.props.handleChange(e.target)}
                   name='player2'
                   placeholder={
-                    admin.playType === 'pass' ? 'Receiver' : 'Intended Receiver'
+                    admin.playType === 'Pass' ? 'Receiver' : 'Intended Receiver'
                   }
                   list='player2'
                   value={admin.player2}
@@ -128,34 +128,34 @@ export default class PlayInputs extends React.Component {
                 </>
               )}
             </select>
-            <input
+            <select
               placeholder='Minutes'
               value={admin.min}
               onChange={e => this.props.handleChange(e.target)}
               name='min'
               list='min'
-            />
-            <datalist id='min'>
+            >
+              <option>Minutes</option>
               {[...Array(15)].map((el, i) => (
                 <option key={i} value={i}>
-                  Minutes
+                  {i} Minutes
                 </option>
               ))}
-            </datalist>
-            <input
+            </select>
+            <select
               placeholder='Seconds'
               onChange={e => this.props.handleChange(e.target)}
               name='sec'
               list='sec'
               value={admin.sec}
-            />
-            <datalist id='sec'>
+            >
+              <option>Seconds</option>
               {[...Array(60)].map((el, i) => (
                 <option key={i} value={i}>
-                  Seconds
+                  {i} Seconds
                 </option>
               ))}
-            </datalist>
+            </select>
             <select
               name='quarter'
               onChange={e => this.props.handleChange(e.target)}
@@ -166,7 +166,7 @@ export default class PlayInputs extends React.Component {
               <option value='third'>3rd</option>
               <option value='fourth'>4th</option>
             </select>
-            <SubmitButton title={titleVar} addScore={this.props.addScore} />
+            <SubmitButton title={titleVar} addScore={this.props.addScore} disable={this.props.submitPlay}/>
           </div>
         )}
 
@@ -284,35 +284,6 @@ export default class PlayInputs extends React.Component {
           </div>
         )}
 
-        {/* BUTTONS */}
-
-        {/* {admin.result && (
-          <>
-            {(admin.result === '1st' ||
-              admin.result === '2nd' ||
-              admin.result === '3rd' ||
-              admin.result === '4th') && (
-              <SubmitButton
-                title='Submit Play'
-                addScore={this.props.addScore}
-              />
-            )}
-
-            {admin.result === 'touchdown' && (
-              <SubmitButton title='Submit TD' addScore={this.props.addScore} />
-            )}
-
-            {!(
-              admin.result === '1st' ||
-              admin.result === '2nd' ||
-              admin.result === '3rd' ||
-              admin.result === '4th' ||
-              admin.result === 'touchdown'
-            ) && (
-              <SubmitButton title='End Drive' addScore={this.props.addScore} />
-            )}
-          </>
-        )} */}
       </Wrapper>
     )
   }
