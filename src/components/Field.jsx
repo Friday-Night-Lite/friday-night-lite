@@ -118,6 +118,11 @@ export default class Field extends React.Component {
     }
     }
     let result = this.props.game.drivesArr[currentDrive].plays[this.props.game.drivesArr[currentDrive].plays.length-1].result
+
+    if (result === '1st' || result === '2nd' || result === '3rd' || result === '4th'){
+      return 'in progress'
+    }
+
     return result
   }
   }
