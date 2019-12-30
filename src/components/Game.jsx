@@ -21,7 +21,8 @@ export default class Game extends React.Component {
     isLoading: true,
     gameObj: {},
     gameId: '',
-    selectedDrive: 0
+    selectedDrive: 0,
+    isAdmin: false
   }
 
     componentDidMount(){
@@ -43,7 +44,11 @@ export default class Game extends React.Component {
         selectedDrive: id
     })
   }
-
+  login = _ => {
+    this.setState({
+      isAdmin: !this.state.isAdmin
+    })
+  }
   render() {
  
     return (
@@ -52,10 +57,11 @@ export default class Game extends React.Component {
         {!(this.state.isLoading) && <Scoreboard game={this.state.gameObj} />}
         {(!this.state.isLoading && this.state.selectedDrive > 0) && <Field game={this.state.gameObj} selectedDrive={this.state.selectedDrive}/>}
         {!(this.state.isLoading) && (
-          <Admin
-          updateGame={this.updateGame}
-            game={this.state.gameObj}
-          />
+          null
+          // <Admin
+          // updateGame={this.updateGame}
+          //   game={this.state.gameObj}
+          // />
         )}
         {!this.state.isLoading && (
           <div className='container'>

@@ -68,32 +68,54 @@ button {
 const Link2 = styled(Link)`
 text-decoration: none;`
 
-const Header = () => {
-    return (
-        <Wrapper>
-            <div className='container'>
+class Header extends React.Component {
+    state= {
+        toggle: true
+    }
 
-            <div className='logoLeft'>
-                <img className='lights' src={lights} alt="stadium lights"/>
-            </div>
-                <Link2 to='/'>
-                    <h1>FRIDAY NIGHT LITE</h1>
-                </Link2>
-            
-            <div className='logoRight lights'>
-                <img className='lights' src={lights} alt="stadium lights"/>
-            </div>
+    click = _ => {
+        this.setState({
+            toggle: !this.state.toggle
+        })
+    }
+    render() {
 
-            
-            
-            </div>
-            
-            <div className='buttons'>
-                {/* <Link2 to='/'><button>home</button></Link2> */}
-                <button>login</button>
+        return (
+            <Wrapper>
+                <div className='container'>
+    
+                <div className='logoLeft'>
+                    <img className='lights' src={lights} alt="stadium lights"/>
                 </div>
-        </Wrapper>
-    )
-}
+                    <Link2 to='/'>
+                        <h1>FRIDAY NIGHT LITE</h1>
+                    </Link2>
+                
+                <div className='logoRight lights'>
+                    <img className='lights' src={lights} alt="stadium lights"/>
+                </div>
+    
+                
+                
+                </div>
+                
+                <div className='buttons'>
+                    {/* <Link2 to='/'><button>home</button></Link2> */}
+                    {/* <button>login</button> */}
+                    {this.state.toggle ? (
+                        <div>
+                            <button onClick={() => {this.click()}}>login</button>
+                        </div>
+                    ) : (
+                        <div>
+                            <button>Logout</button>
+                        </div>
+                    )}
+                    </div>
+            </Wrapper>
+        )
+    }
+    }
 
 export default Header
+
