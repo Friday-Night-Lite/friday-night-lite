@@ -9,6 +9,7 @@ export default class PlayInputs extends React.Component {
 
   render() {
     const admin = this.props.adminState
+    console.log(admin.sec)
     let titleVar
     !(
       admin.result === '1st' ||
@@ -135,7 +136,7 @@ export default class PlayInputs extends React.Component {
               name='min'
               list='min'
             >
-            
+              <option>Minutes</option>
               {[...Array(15)].map((el, i) => (
                 <option key={i} value={i}>
                   {i} Minutes
@@ -149,6 +150,7 @@ export default class PlayInputs extends React.Component {
               list='sec'
               value={admin.sec}
             >
+              <option>Seconds</option>
               {[...Array(60)].map((el, i) => (
                 <option key={i} value={i}>
                   {i} Seconds

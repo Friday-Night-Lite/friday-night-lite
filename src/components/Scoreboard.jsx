@@ -97,8 +97,6 @@ span {
 export default class Scoreboard extends React.Component {
   state = {
     gameObj: {},
-    min: '15',
-    sec: '00',
     hScore: 0,
     aScore: 0,
     hs1: 0,
@@ -113,16 +111,16 @@ export default class Scoreboard extends React.Component {
   }
 
   componentDidMount = async () => {
-   await this.setState({ game: this.props.game })
+    await this.setState({ game: this.props.game })
     this.calculateScore()
+    this.props.findTime()
   }
-
+  
   componentDidUpdate = (prevProps) => {
     if (this.props.game !== prevProps.game) {
       this.setState({ gameObj: this.props.game }, () => {
         this.calculateScore()
       })
-
     }
   }
 
@@ -165,8 +163,8 @@ export default class Scoreboard extends React.Component {
 
 
         this.setState({
-          min: '15',
-          sec: '00',
+          // min: '15',
+          // sec: '00',
           hScore: newHScore,
           aScore: newAScore,
           hs1: newHS1,
@@ -191,6 +189,10 @@ export default class Scoreboard extends React.Component {
       away,
       home
     } = this.props.game
+    const {
+      min,
+      sec
+    } = this.props
     const {
       hScore,
       aScore,
@@ -226,14 +228,14 @@ export default class Scoreboard extends React.Component {
                 <div className='clock'>
                   <div className='numbers'>
                     <p className='hours'></p>
-                    <p className='placeholder'>{this.state.min}</p>
+                    <p className='placeholder'>{min.length === 1 ? `0${min}` : `${min}`}</p>
                   </div>
                   <div className='colon'>
                     <p>:</p>
                   </div>
                   <div className='numbers'>
                     <p className='minutes'></p>
-                    <p className='placeholder'>{this.state.sec}</p>
+                    <p className='placeholder'>{sec.length === 1 ? `0${sec}` : `${sec}`}</p>
                   </div>
                 </div>
                 <div className='box-score'>

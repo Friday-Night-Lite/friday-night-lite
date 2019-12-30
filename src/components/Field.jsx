@@ -94,6 +94,7 @@ export default class Field extends React.Component {
   }
 
   addDriveYards = () => {
+    
     let driveYards = [0]
     this.props.game.drivesArr[this.props.selectedDrive -1].plays.map(play => {
       if (play.gainLoss === 'loss'){
@@ -108,6 +109,21 @@ export default class Field extends React.Component {
     return total
   }
 
+  driveResult = () => {
+    const { selectedDrive } = this.props
+    let currentDrive = selectedDrive -1
+    if(this.props.game.drivesArr[currentDrive].plays.length){
+    
+      if(this.props.game.drivesArr[currentDrive].plays.length > 1){
+      if (this.props.game.drivesArr[currentDrive].plays[this.props.game.drivesArr[currentDrive].plays.length-2].result === 'touchdown'){
+      return 'touchdown'
+    }
+    }
+    let result = this.props.game.drivesArr[currentDrive].plays[this.props.game.drivesArr[currentDrive].plays.length-1].result
+    return result
+  }
+  }
+
   render() {
     const { selectedDrive } = this.props
     let currentDrive = selectedDrive -1
@@ -119,7 +135,7 @@ export default class Field extends React.Component {
 
         <div className="caption">
 
-  <h1>Drive {selectedDrive}: {this.props.game[drivesArr[currentDrive].team].school} {this.props.game[drivesArr[currentDrive].team].mascot} ({drivesArr[currentDrive].plays.length} {(drivesArr[currentDrive].plays.length === 1 ? 'play' : 'plays')}, {`${this.addDriveYards()}`} yards)</h1>
+    <h1>Drive {selectedDrive}: {this.props.game[drivesArr[currentDrive].team].school} {this.props.game[drivesArr[currentDrive].team].mascot} ({drivesArr[currentDrive].plays.length} {(drivesArr[currentDrive].plays.length === 1 ? 'play' : 'plays')}, {`${this.addDriveYards()}`} yards) {this.driveResult()}</h1>
     
         
         </div>

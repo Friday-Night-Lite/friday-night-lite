@@ -190,11 +190,10 @@ const Line = props => {
         i = index
       }
       while (i > 0 && (drive.plays[i].gainLoss === 'loss')) {
-        console.log(drive.plays[i].gainLoss)
         lossYards += (+drive.plays[i].playDist)
         i--
       }
-      console.log(lossYards);
+
       
       return lossYards
     } 
