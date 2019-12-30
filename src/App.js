@@ -6,22 +6,38 @@ import Game from './components/Game'
 import Header from './components/Header'
 import Footer from './components/Footer'
 
-function App() {
+class App extends React.Component {
+  state = {
+    show: false
+  }
+
+  toggle = _ => {
+    this.setState({
+      show: !this.state.show
+    })
+  }
+  render() {
+    console.log(this.state.show)
+  
+
   return (
     <div className="App">
+      
 
 
     <Router>
-    <Header />
+    <Header toggle={this.toggle} />
       <Switch>
         <Route path='/' exact component={Map}/>
-        <Route path='/game/:id' component={Game}/>
+        <Route path='/game/:id' component={() => (
+        <Game show={this.state.show}/>)}/>
       </Switch>
     <Footer />
     </Router>
 
     </div>
   );
+}
 }
 
 export default App;
