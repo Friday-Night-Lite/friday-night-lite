@@ -21,7 +21,10 @@ export default class Game extends React.Component {
     isLoading: true,
     gameObj: {},
     gameId: '',
-    selectedDrive: 0
+    selectedDrive: 0,
+    min: '15',
+    sec: '00',
+    quarter: ''
   }
 
     componentDidMount(){
@@ -34,6 +37,8 @@ export default class Game extends React.Component {
             })
         })
   }
+
+
   updateGame = (game) => {
       this.setState({ gameObj: game });
   }
@@ -41,15 +46,33 @@ export default class Game extends React.Component {
   setCurrentDrive = id => {
     this.setState({
         selectedDrive: id
+    }, () => this.findTime())
+  }
+
+  findTime = () => {
+    if (!this.state.selectedDrive && this.state.gameObj.drivesArr.length > 0){
+      const {drivesArr} = this.state.gameObj
+      const { plays } = drivesArr[drivesArr.length -1]
+
+    let min = plays[plays.length -1].min
+    let sec = plays[plays.length -1].sec
+    let quarter = plays[plays.length -1].quarter
+    this.setState({
+      min: min, 
+      sec: sec,
+      quarter: quarter
     })
+    return quarter
+    } 
   }
 
   render() {
- 
+
     return (
       <Wrapper>
         {this.state.isLoading && <h1>Loading...</h1>}
-        {!(this.state.isLoading) && <Scoreboard game={this.state.gameObj} />}
+        {!(this.state.isLoading) && <Scoreboard game={this.state.gameObj} selectedDrive={this.state.selectedDrive} 
+        findTime={this.findTime} min={this.state.min} sec={this.state.sec} quarter={this.state.quarter}/>}
         {(!this.state.isLoading && this.state.selectedDrive > 0) && <Field game={this.state.gameObj} selectedDrive={this.state.selectedDrive}/>}
         {!(this.state.isLoading) && (
           <Admin

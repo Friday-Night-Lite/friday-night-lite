@@ -82,7 +82,6 @@ export default class Admin extends React.Component {
   enableButtons = () => {
     const {
       team,
-      fieldSide,
       yardLine,
       playType,
       gainLoss,
@@ -92,22 +91,23 @@ export default class Admin extends React.Component {
       min,
       sec
     } = this.state
-    if (team && fieldSide && yardLine) {
+    if (team && yardLine) {
       this.setState({ submitDrive: false })
     }
-    if (!team || !fieldSide || !yardLine) {
+    if (!team || !yardLine) {
       this.setState({ submitDrive: true })
     }
     if (playType && gainLoss && playDist && player1 && result && min && sec) {
       this.setState({ submitPlay: false })
     }
-    if (playType || gainLoss || playDist || player1 || result || min || sec) {
+    if (!playType || !gainLoss || !playDist || !player1 || !result || !min || !sec) {
       this.setState({ submitPlay: true })
     }
   }
 
   submitDrive = () => {
-    const { gameId, driveCount, team, fieldSide, yardLine } = this.state
+    // console.log('hit')
+    const { gameId, driveCount, team, yardLine } = this.state
     this.setState({
       drivingTeam: team,
       yardTracker: yardLine
@@ -118,7 +118,6 @@ export default class Admin extends React.Component {
         drive: {
           driveCount,
           team,
-          fieldSide,
           yardLine,
           yardTracker: yardLine,
           plays: []
@@ -132,7 +131,6 @@ export default class Admin extends React.Component {
           showAddPlay: true,
           game: res.data,
           driveId: res.data.drivesArr[idLoc]._id,
-          fieldSide: '',
           yardLine: ''
         })
         this.props.updateGame(res.data)
@@ -363,7 +361,7 @@ export default class Admin extends React.Component {
     this.setState(
       { game: { ...this.state.game, score: scoreObj }, yardTracker: newYards },
       () => {
-        console.log(newYards)
+        // console.log(newYards)
 
         axios
           .put(`/api/game`, {
@@ -415,7 +413,6 @@ export default class Admin extends React.Component {
   }
 
   render() {
-    console.log(this.state.playCount)
     return (
       <Wrapper>
         {/* Add drive inputs */}
@@ -427,14 +424,6 @@ export default class Admin extends React.Component {
               name='team'
               className='team-select'>
               <option value=''>Select Team</option>
-              <option value='home'>Home</option>
-              <option value='away'>Away</option>
-            </select>
-            <select
-              required={true}
-              onChange={e => this.handleChange(e.target)}
-              name='fieldSide'>
-              <option value=''>Field Side</option>
               <option value='home'>Home</option>
               <option value='away'>Away</option>
             </select>
@@ -509,6 +498,7 @@ export default class Admin extends React.Component {
                     addScore={this.addScore}
                   />) :
                 <PlayInputs
+                  submitPlay={this.state.submitPlay}
                   handleChange={this.handleChange}
                   adminState={this.state}
                   addScore={this.addScore}
