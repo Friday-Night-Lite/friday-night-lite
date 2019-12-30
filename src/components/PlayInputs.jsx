@@ -21,7 +21,7 @@ export default class PlayInputs extends React.Component {
       <Wrapper>
         {/* RUN OR PASS*/}
         {(admin.playType === 'Run' ||
-          admin.playType === 'pass' ||
+          admin.playType === 'Pass' ||
           admin.playType === 'sack' ||
           admin.playType === 'incomplete pass') && (
           <div className='Run'>
@@ -47,7 +47,7 @@ export default class PlayInputs extends React.Component {
                   list='play-distance'
                 />
                 <datalist id='play-distance'>
-                  {[...Array(100)].map((el, i) => (
+                  {[...Array(100 - admin.yardTracker)].map((el, i) => (
                     <option value={i} key={i}>
                       Yards
                     </option>
@@ -76,14 +76,14 @@ export default class PlayInputs extends React.Component {
                     </option>
                   ))}
             </datalist>
-            {(admin.playType === 'pass' ||
+            {(admin.playType === 'Pass' ||
               admin.playType === 'incomplete pass') && (
               <>
                 <input
                   onChange={e => this.props.handleChange(e.target)}
                   name='player2'
                   placeholder={
-                    admin.playType === 'pass' ? 'Receiver' : 'Intended Receiver'
+                    admin.playType === 'Pass' ? 'Receiver' : 'Intended Receiver'
                   }
                   list='player2'
                   value={admin.player2}
@@ -128,34 +128,33 @@ export default class PlayInputs extends React.Component {
                 </>
               )}
             </select>
-            <input
+            <select
               placeholder='Minutes'
               value={admin.min}
               onChange={e => this.props.handleChange(e.target)}
               name='min'
               list='min'
-            />
-            <datalist id='min'>
+            >
+            
               {[...Array(15)].map((el, i) => (
                 <option key={i} value={i}>
-                  Minutes
+                  {i} Minutes
                 </option>
               ))}
-            </datalist>
-            <input
+            </select>
+            <select
               placeholder='Seconds'
               onChange={e => this.props.handleChange(e.target)}
               name='sec'
               list='sec'
               value={admin.sec}
-            />
-            <datalist id='sec'>
+            >
               {[...Array(60)].map((el, i) => (
                 <option key={i} value={i}>
-                  Seconds
+                  {i} Seconds
                 </option>
               ))}
-            </datalist>
+            </select>
             <select
               name='quarter'
               onChange={e => this.props.handleChange(e.target)}

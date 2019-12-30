@@ -238,7 +238,7 @@ export default class Scoreboard extends React.Component {
                 </div>
                 <div className='box-score'>
                   <div className='quarter'>
-                    <p class='hidden'>
+                    <p className='hidden'>
                       <span>team</span>
                     </p>
                     <p><span className='school'>{this.props.game.home.school}</span></p>

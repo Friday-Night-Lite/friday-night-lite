@@ -3,8 +3,7 @@ import styled from 'styled-components'
 import Line from './Line'
 
 const Wrapper = styled.div`
-
-  z-index: 10;
+  z-index: 1;
   height: 75%;
   width: 610px;
   padding-bottom: 50px;
@@ -13,6 +12,10 @@ const Wrapper = styled.div`
   align-items: flex-end;
   box-sizing: border-box;
   display: flex;
+  overflow-x: visible;
+  .start {
+      height: 100%;
+  }
   .start-dot {
     height: 11px;
     width: 11px;
@@ -22,7 +25,7 @@ const Wrapper = styled.div`
     background: black;
     box-sizing: border-box;
   }
-  
+
   .arrow-container {
     display: flex;
     align-items: center;
@@ -53,7 +56,7 @@ export default class Animation extends React.Component {
    
         return (
             <Wrapper>
-                <div className='start' style={{marginLeft: `${this.props.margins.start}%`}}/>
+                <div className='start' style={{width: `${this.props.margins.start}%`}}/>
                 {/* <div className='start-dot' /> */}
                 {this.props.game.drivesArr[this.props.selectedDrive - 1].plays.map((line, i) => (
                     <Line index={i} drive={this.props.game.drivesArr[this.props.selectedDrive - 1]} key={i} line={line}/>

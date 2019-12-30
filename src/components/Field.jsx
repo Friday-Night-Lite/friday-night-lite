@@ -93,7 +93,7 @@ export default class Field extends React.Component {
   }
 
   addDriveYards = () => {
-    let driveYards = []
+    let driveYards = [0]
     this.props.game.drivesArr[this.props.selectedDrive -1].plays.map(play => {
       if (play.gainLoss === 'loss'){
       return driveYards.push(+(-play.playDist))
