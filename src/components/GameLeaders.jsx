@@ -342,7 +342,7 @@ export default class GameLeaders extends React.Component {
             color={this.props.game.away.color}
             number={aRush.number}
             flip={true}
-            school='HHS'
+            school={this.props.game.away.school}
           />
         </div>
         {/* RECEIVING LEADERS */}
@@ -381,9 +381,9 @@ export default class GameLeaders extends React.Component {
           </div>
           <Jersey
             color={this.props.game.away.color}
-            number={aRec.number}
+            number="7"
             flip={true}
-            school='HHS'
+            school={this.props.game.away.school}
           />
         </div>
       </Wrapper>
