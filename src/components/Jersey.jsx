@@ -399,11 +399,11 @@ const JerseyStyle = styled.svg`
 			<text x="193" y="275" fontFamily="Verdana" fontSize="50" fill={props.flip ? props.color : 'white'} {...props.flip && {transform:"scale(-1,1) translate(-490)"}}> 
        			 {props.school}
     		</text>
-			<text x="190" y="365" fontFamily="sans-serif" fontSize="100" fontWeight='bold' fill={props.flip ? props.color : 'white'}  {...props.flip && {transform:"scale(-1,1) translate(-490)"}}>
+			
+			 <text x={props.number < 10 ? "226" : "190"} y="365" fontFamily="sans-serif" textAllign="center" fontSize="100" fontWeight='bold' fill={props.flip ? props.color : 'white'}  {...props.flip && {transform:"scale(-1,1) translate(-490)"}}>
 				{props.number}
 			</text>
 		</g>
-
 
 	 <path className="st0" d="M241.6,417.8c-1.8,0-3.5,0-5.2-0.1l-71-18.1l0.2-11.2c0.3-12.8,0.5-26,0.8-35.9c-6-30-4.5-54.9-3.5-71.4
 		c-11.2-20.6-23.9-42-33.7-45.6l-0.1-0.1c-5-4.2-9.7-2.5-12-1.1c-4.2,2.5-7.1,7.4-6.4,10.9l0.2,0.9l-0.8-0.3
