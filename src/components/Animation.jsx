@@ -7,23 +7,23 @@ import referee2 from '../assets/referee24.gif'
 const Wrapper = styled.div`
   z-index: 1;
   height: 75%;
-  width: 610px;
+  width: 605px;
   padding-bottom: 50px;
-  margin: 0 53px;
+  margin: 0 55px;
   display: flex;
   align-items: flex-end;
   box-sizing: border-box;
   display: flex;
-  overflow-x: visible;
   .start {
       height: 100%;
   }
   .start-dot {
     height: 11px;
     width: 11px;
+    margin-right: -10px;
     min-width: 10px;
-    border: solid 1px black;
-    border-radius: 50px;
+    /* border: solid 1px black; */
+    border-radius: 50%;
     background: black;
     box-sizing: border-box;
   }
@@ -49,8 +49,8 @@ const Wrapper = styled.div`
   }
   .referee {
     position: absolute;
-    right: -80px;
-    top: 25px;
+    right: -45px;
+    top: 80px;
   }
 `
 
@@ -74,10 +74,10 @@ export default class Animation extends React.Component {
                 </div> */}
 
                 {(this.props.driveResult() === 'touchdown' || this.props.driveResult() === 'Successful') &&
-                <img className='referee' src={referee} alt="" height='100'/>}
+                <img className='referee' src={referee} alt="" height='60'/>}
 
                 {(this.props.driveResult() === 'Failed') &&
-                <img className='referee2' src={referee} alt="" height='100'/>}
+                <img className='referee2' src={referee} alt="" height='60'/>}
 
             </Wrapper>
         )

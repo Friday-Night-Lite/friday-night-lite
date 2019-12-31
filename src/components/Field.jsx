@@ -94,11 +94,11 @@ export default class Field extends React.Component {
   addDriveYards = () => {
     
     let driveYards = [0]
-    this.props.game.drivesArr[this.props.selectedDrive -1].plays.map(play => {
+    this.props.game.drivesArr[this.props.selectedDrive -1].plays.forEach(play => {
       if (play.gainLoss === 'loss'){
-      return driveYards.push(+(-play.playDist))
+        driveYards.push(-(+play.playDist))
     } else if (play.gainLoss){
-      return driveYards.push(+play.playDist)
+        driveYards.push(+play.playDist)
     }
     })
     let total = driveYards.reduce((acc, yards) => {
