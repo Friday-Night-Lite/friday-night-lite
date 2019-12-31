@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Helmet from "../components/Helmet";
 import "../assets/digital-7.ttf"
+import football from '../assets/football.jpg'
 
 const Wrapper = styled.div`
 box-shadow: 1px 1px 2px #999999;
@@ -79,8 +80,13 @@ span {
   font-weight: 700;
   color: #999999;
 }
-.school {
-  /* color: black; */
+.poss {
+  height: 25px;
+  margin: 0 15px;
+}
+.school-score {
+  display: flex;
+  align-items: center;
 }
 .placeholder {
   display: flex;
@@ -128,7 +134,12 @@ export default class Scoreboard extends React.Component {
     }
   }
 
-
+  teamBall = () => {
+    const { drivesArr } = this.props.game
+    // console.log(this.props)
+    let teamBall = drivesArr[drivesArr.length -1 ].team
+    return teamBall
+  }
 
 
   calculateScore = async () => {
@@ -191,6 +202,8 @@ export default class Scoreboard extends React.Component {
   }
 
   render() {
+
+    // this.teamBall()
     
     const {
       away,
@@ -220,9 +233,13 @@ export default class Scoreboard extends React.Component {
             <div className='school-info'>
               {/* <h2>{home.school}</h2> */}
               <h2>{home.mascot}</h2>
-              {!(this.props.game.status === 'upcoming') && (
+              {!(this.props.game.status === 'upcoming') && 
+              (<div className='school-score'>
                 <h3 className='score'>{hScore.toString()}</h3>
-              )}
+                { this.teamBall() === 'home' &&
+                  <img className='poss' src={football} alt="football"/>}
+                </div>)
+              }
             </div>
           </div>
 
@@ -304,7 +321,11 @@ export default class Scoreboard extends React.Component {
               {/* <h2>{away.school}</h2> */}
               <h2>{away.mascot}</h2>
               {!(this.props.game.status === 'upcoming') && (
-                <h3 className='score'>{aScore}</h3>
+                (<div className='school-score'>
+                 { this.teamBall() === 'away' &&
+                <img className='poss' src={football} alt="football"/>}
+                <h3 className='score'>{aScore.toString()}</h3>
+                </div>)
               )}
             </div>
             <Helmet rightHelmet={true} color1={away.color} />
