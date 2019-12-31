@@ -119,7 +119,7 @@ export default class Admin extends React.Component {
             driveCount,
             team,
             yardLine,
-            yardTracker,
+            yardTracker: +yardLine,
             plays: []
           }
         })

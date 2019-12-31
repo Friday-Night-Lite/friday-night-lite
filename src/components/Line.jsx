@@ -3,113 +3,98 @@ import styled from 'styled-components'
 import football from '../assets/football.jpg'
 
 const PostDot = styled.div`
-  &.dot {
     height: 11px;
     width: 11px;
     border-radius: 50%;
     background: black;
     box-sizing: border-box;
-    z-index: ${props => `${props.index}`};
-  }
-  &.post-pass {
     margin: 0 -5.5px;
     z-index: ${props => `${props.index}`};
+`
+const Play = styled.div`
+  &.run {
+    height: 5px;
+    background: black;
+    margin: 0 0 2.8px 0;
+    z-index: ${props => `${props.index}`};
   }
-  &.post-run {
-    margin: 0 -5.5px;
+  &.penalty-run {
+    height: 5px;
+    background: black;
+    margin: ${props => `0 -1px 2.8px -${props.penaltyYards}%`};
+    z-index: ${props => `${props.index}`};
+  }
+  &.loss-run {
+    height: 5px;
+    background: black;
+    opacity: 0.6;
+    margin: ${props => `0 -1px 2.8px -${props.lossYards}%`};
+    z-index: ${props => `${props.index}`};
+  }
+  &.td-run {
+    position: absolute;
+    right: -25px;
+    bottom: 52.8px;
+    height: 5px;
+    background: black;
+    z-index: ${props => `${props.index}`};
+  }
+  &.pass {
+    border: 4px solid black;
+    border-radius: 50%/100% 100% 0 0;
+    height: ${props => props.passArch}%;
+    border-color: black transparent transparent transparent;
+    z-index: ${props => `${props.index}`};
+  }
+  &.penalty-pass {
+    border: 4px solid black;
+    border-radius: 50%/100% 100% 0 0;
+    margin: ${props => `0 0 0 -${props.penaltyYards}%`};
+    height: ${props => props.passArch}%;
+    border-color: black transparent transparent transparent;
+    z-index: ${props => `${props.index}`};
+  }
+  &.loss-pass {
+    border: 4px solid black;
+    border-radius: 50%/100% 100% 0 0;
+    margin: ${props => `0 0 0 -${props.lossYards}%`};
+    height: ${props => props.passArch}%;
+    border-color: black transparent transparent transparent;
+    z-index: ${props => `${props.index}`};
+  }
+  &.td-pass {
+    position: absolute;
+    right: -25px;
+    border: 4px solid black;
+    border-radius: 50%/100% 100% 0 0;
+    /* border-radius: ${props => `50%/100% 100% 0 0`}; */
+    height: ${props => props.passArch * 1.2}%;
+    border-color: black transparent transparent transparent;
+    z-index: ${props => `${props.index}`};
+  }
+  &.kick {
+    border: 4px dashed green;
+    border-radius: 50%/100% 100% 0 0;
+    margin: 0 0 0 -10px;
+    height: ${props => props.passArch}%;
+    border-color: green transparent transparent transparent;
     z-index: ${props => `${props.index}`};
   }
 `
-const Play = styled.div`
-    &.run {
-      height: 5px;
-      background: black;
-      margin: 0 0 2.8px 0;
-      z-index: ${props => `${props.index}`};
-    }
-    &.penalty-run {
-      height: 5px;
-      background: black;
-      margin: ${props => `0 -1px 2.8px -${props.penaltyYards}%`};
-      z-index: ${props => `${props.index}`};
-    }
-    &.loss-run {
-      height: 5px;
-      background: black;
-      opacity: .6;
-      margin: ${props => `0 -1px 2.8px -${props.lossYards}%`};
-      z-index: ${props => `${props.index}`};
-    }
-    &.td-run {
-      position: absolute;
-      right: 30px;
-      height: 5px;
-      background: black;
-      margin: 0 -1px 2.8px -5px;
-      z-index: ${props => `${props.index}`};
-    }
-    &.pass {
-      border: 4px solid black;
-      border-radius: ${props =>
-        `50%/${props.passArch * 1.25}px ${props.passArch * 1.25}px 0 0`};
-      height: ${props => props.passArch / 1.3}%;
-      border-color: black transparent transparent transparent;
-      z-index: ${props => `${props.index}`};
-    }
-    &.penalty-pass {
-      border: 4px solid black;
-      border-radius: ${props =>
-        `50%/${props.passArch}px ${props.passArch}px 0 0`};
-      margin: ${props => `0 0 0 -${props.penaltyYards}%`};
-      height: ${props => props.passArch / 1.5}%;
-      border-color: black transparent transparent transparent;
-      z-index: ${props => `${props.index}`};
-    }
-    &.loss-pass {
-      border: 4px solid black;
-      border-radius: ${props =>
-        `50%/${props.passArch}px ${props.passArch}px 0 0`};
-      margin: ${props => `0 0 0 -${props.lossYards}%`};
-      height: ${props => props.passArch / 1.5}%;
-      border-color: black transparent transparent transparent;
-      z-index: ${props => `${props.index}`};
-    }
-    &.td-pass {
-      position: absolute;
-      right: 30px;
-      border: 4px solid black;
-      border-radius: ${props =>
-        `50%/${props.passArch + 10}px ${props.passArch + 10}px 0 0`};
-      height: ${props => props.passArch / 2}%;
-      border-color: black transparent transparent transparent;
-      z-index: ${props => `${props.index}`};
-    }
-    &.kick {
-      border: 4px dashed green;
-      border-radius: ${props =>
-        `50%/${props.passArch}px ${props.passArch}px 0 0`};
-      margin: 0 0 0 -10px;
-      height: ${props => props.passArch / 2}%;
-      border-color: green transparent transparent transparent;
-      z-index: ${props => `${props.index}`};
-    }
-  `
 const PenDot = styled.div`
     height: 11px;
     width: 11px;
     min-width: 10px;
     border-radius: 50%;
     box-sizing: border-box;
-    z-index: ${props => `${props.index}`};
+    z-index: ${props => `${props.index + 2}`};
     &.loss {
     background: red;
     margin: ${props => `0 -5.5px 0 calc(-${props.penaltyMargin}% - 5.5px)`};
-    z-index: ${props => `${props.index + 2}`};
     }
     &.gain {
     margin: 0 -5.5px;
     background: white;
-    z-index: ${props => `${props.index + 2}`};
     }
 `
 
@@ -143,13 +128,13 @@ const Loss = styled.div`
 const Football = styled.img`
   height: 15px;
   position: absolute;
-  right: 20px;
+  right: -35px;
   z-index: ${props => `${props.index + 5}`};
 `
 
 const Line = props => {
   const { playDist, playType, penTeam, yards, result, gainLoss } = props.line
-  const passArch = playDist * 1.6
+  const passArch = playDist * 1.8
   const { drive, index } = props
   let penaltyYards = 0
   let lossYards = 0
@@ -206,7 +191,7 @@ const Line = props => {
             index={index}
             playDist={playDist}
             className='td-run'
-            style={{ width: `calc(${playDist}% + 20px)` }}
+            style={{ width: `calc(${playDist}% + 25px)` }}
           />
         )
       } else if (playType === 'Pass') {
@@ -216,7 +201,7 @@ const Line = props => {
             playDist={playDist}
             passArch={passArch}
             className='td-pass'
-            style={{ width: `calc(${playDist}% + 20px)` }}
+            style={{ width: `calc(${playDist}% + 25px)` }}
           />
         )
       }
@@ -248,7 +233,7 @@ const Line = props => {
             }
             style={{ width: `${playDist}%` }}
           />
-          <PostDot index={index} className='post-run dot' />
+          <PostDot index={index} />
         </>
       )
     } else if (playType === 'Pass') {
@@ -266,7 +251,7 @@ const Line = props => {
             }
             style={{ width: `calc(${playDist}% - 8px)` }}
           />
-          <PostDot index={index} className='post-pass dot' />
+          <PostDot index={index} />
         </>
       )
     } else if (playType === 'penalty') {

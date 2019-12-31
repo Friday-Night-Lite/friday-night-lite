@@ -47,7 +47,7 @@ export default class PlayInputs extends React.Component {
                   list='play-distance'
                 />
                 <datalist id='play-distance'>
-                  {[...Array(100 - admin.yardTracker)].map((el, i) => (
+                  {[...Array(101 - admin.yardTracker)].map((el, i) => (
                     <option value={i} key={i}>
                       Yards
                     </option>
