@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import Animation from './Animation'
 import './Field.css'
 import goal from '../assets/goal.png'
+import upright from '../assets/upright.png'
 
 const Wrapper = styled.div`
   display: flex;
@@ -175,6 +176,9 @@ export default class Field extends React.Component {
                     ? 'play'
                     : 'plays'}
                   , {`${this.addDriveYards()}`} yards) {this.driveResult()}
+                  {(this.driveResult() === 'Successful' ||
+                    this.driveResult() === 'Failed') &&
+                    ' FG'}
                 </h1>
               ) : (
                 <h1>
@@ -186,6 +190,9 @@ export default class Field extends React.Component {
                     ? 'play'
                     : 'plays'}
                   , {`${this.addDriveYards()}`} yards) {this.driveResult()}
+                  {(this.driveResult() === 'Successful' ||
+                    this.driveResult() === 'Failed') &&
+                    ' FG'}
                 </h1>
               )
             ) : (
@@ -197,10 +204,7 @@ export default class Field extends React.Component {
             <div className='animation'>
               {drivesArr.length > 0 && (
                 <Animation
-                  margins={
-                    this.props.game.drivesArr[currentDrive]
-                      .yardLine
-                  }
+                  margins={this.props.game.drivesArr[currentDrive].yardLine}
                   game={this.props.game}
                   selectedDrive={currentDrive}
                   driveResult={this.driveResult}
@@ -220,6 +224,16 @@ export default class Field extends React.Component {
               </RightZone>
 
               <img className='goal-post-right' src={goal} alt='' height='100' />
+              {this.props.game.drivesArr[currentDrive].plays[
+                this.props.game.drivesArr[currentDrive].plays.length - 1
+              ].result === 'Successful' && (
+                <img
+                  className='goal-post-right-right'
+                  src={upright}
+                  alt=''
+                  height='65'
+                />
+              )}
             </div>
           </div>
         </div>
