@@ -12,7 +12,7 @@ background: white;
   display: flex;
   align-items: center;
   justify-content: space-around;
-  margin: 15px auto;
+  margin: 25px auto;
   padding: 25px;
   /* border: 1px solid black; */
   border-radius: 7px;
