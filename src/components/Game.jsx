@@ -80,7 +80,11 @@ class Game extends React.Component {
   findTime = () => {
     if (!this.state.selectedDrive && this.state.gameObj.drivesArr.length > 0){
       const {drivesArr} = this.state.gameObj
-      const { plays } = drivesArr[drivesArr.length -1]
+      let { plays } = drivesArr[drivesArr.length -1]
+
+    if (plays.length === 0){
+      plays = drivesArr[drivesArr.length -2].plays
+    }
 
     let min = plays[plays.length -1].min
     let sec = plays[plays.length -1].sec
