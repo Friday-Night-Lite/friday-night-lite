@@ -10,7 +10,7 @@ const Wrapper = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  /* border: 1px solid black; */
+  margin-bottom: 25px;
   .fieldContainer {
   position: relative;
   top: 0;

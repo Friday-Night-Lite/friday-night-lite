@@ -17,7 +17,7 @@ class App extends React.Component {
     })
   }
   render() {
-    console.log(this.state.show)
+    // console.log(this.state.show)
   
 
   return (

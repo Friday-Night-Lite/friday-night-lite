@@ -109,7 +109,7 @@ class Header extends React.Component {
                         </div>
                     ) : (
                         <div>
-                            <button onClick={() => {this.click()}}>Logout</button>
+                            <button onClick={() => {this.click()}}>logout</button>
                         </div>
                     )}
                     </div>
