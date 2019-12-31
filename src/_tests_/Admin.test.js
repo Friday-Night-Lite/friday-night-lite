@@ -1,5 +1,5 @@
 import React from 'react'
-import Admin from './Admin'
+import Admin from '../components/Admin'
 import { render } from '@testing-library/react'
 
 //Chaz's test #1
