@@ -78,6 +78,9 @@ class Game extends React.Component {
   }
 
   findTime = () => {
+    let min
+    let sec
+    let quarter
     if (!this.state.selectedDrive && this.state.gameObj.drivesArr.length > 0){
       const {drivesArr} = this.state.gameObj
       let { plays } = drivesArr[drivesArr.length -1]
@@ -112,7 +115,7 @@ class Game extends React.Component {
 
         {!(this.state.isLoading) && <Scoreboard game={this.state.gameObj} selectedDrive={this.state.selectedDrive} 
         findTime={this.findTime} min={this.state.min} sec={this.state.sec} quarter={this.state.quarter}/>}
-        {(!this.state.isLoading && this.state.selectedDrive > 0) && <Field game={this.state.gameObj} selectedDrive={this.state.selectedDrive}/>}
+        {!this.state.isLoading && <Field game={this.state.gameObj} selectedDrive={this.state.selectedDrive}/>}
         {!(this.state.isLoading) && ( null )}
          {this.props.show &&  
         !this.state.isLoading && <Admin 

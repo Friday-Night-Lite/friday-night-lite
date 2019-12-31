@@ -6,6 +6,7 @@ import referee2 from '../assets/referee24.gif'
 
 const Wrapper = styled.div`
   z-index: 1;
+  position: absolute;
   height: 75%;
   width: 605px;
   padding-bottom: 50px;
@@ -49,7 +50,7 @@ const Wrapper = styled.div`
   }
   .referee {
     position: absolute;
-    right: -45px;
+    right: -100px;
     top: 80px;
   }
 `
@@ -60,13 +61,13 @@ export default class Animation extends React.Component {
 
 
     render() {
-   
+  
         return (
             <Wrapper>
-                <div className='start' style={{width: `${this.props.margins.start}%`}}/>
+                <div className='start' style={{width: `${this.props.margins}%`}}/>
                 {/* <div className='start-dot' /> */}
-                {this.props.game.drivesArr[this.props.selectedDrive - 1].plays.map((line, i) => (
-                    <Line index={i} drive={this.props.game.drivesArr[this.props.selectedDrive - 1]} key={i} line={line}/>
+                {this.props.game.drivesArr[this.props.selectedDrive].plays.map((line, i) => (
+                    <Line index={i} drive={this.props.game.drivesArr[this.props.selectedDrive]} key={i} line={line}/>
                 ))}
                 {/* <div className="arrow-container">
                 <div className="arrow-line"/>
@@ -77,7 +78,7 @@ export default class Animation extends React.Component {
                 <img className='referee' src={referee} alt="" height='60'/>}
 
                 {(this.props.driveResult() === 'Failed') &&
-                <img className='referee2' src={referee} alt="" height='60'/>}
+                <img className='referee' src={referee2} alt="" height='60'/>}
 
             </Wrapper>
         )
