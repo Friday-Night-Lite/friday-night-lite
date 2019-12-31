@@ -182,10 +182,6 @@ export default class Scoreboard extends React.Component {
     let newHScore = 0
     newHScore = newHS1 + newHS2 + newHS3 + newHS4
 
-
-
-
-
         this.setState({
           hScore: newHScore,
           aScore: newAScore,
