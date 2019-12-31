@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import cat from '../assets/cat.png'
 
-const Wrapper = styled.div`
+export const Wrapper = styled.div`
 @import url('https://fonts.googleapis.com/css?family=Bungee+Shade|Frijole&display=swap');
 display: flex;
 align-items: center;
