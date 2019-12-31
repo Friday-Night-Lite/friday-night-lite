@@ -95,6 +95,7 @@ module.exports = {
   },
   updateDrives: (req, res) => {
     const { id, drive } = req.body
+    console.log(drive)
     
     GameModel.findOne({ _id: id }, async (err, gameRes) => {
       if (err) {

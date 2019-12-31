@@ -39,11 +39,11 @@ export default class Drive extends React.Component {
 
   addDriveYards = () => {
     let driveYards = [0]
-    this.props.drive.plays.map(play => {
+    this.props.drive.plays.forEach(play => {
       if (play.gainLoss === 'loss'){
-      return driveYards.push(+(-play.playDist))
+        driveYards.push(-(+play.playDist))
     } else if (play.gainLoss){
-      return driveYards.push(+play.playDist)
+        driveYards.push(+play.playDist)
     }
     })
     let total = driveYards.reduce((acc, yards) => {
@@ -75,10 +75,10 @@ export default class Drive extends React.Component {
     const { drive } = this.props
     return (
       <Wrapper selected={this.props.selectedDrive}>
-        <p className='drive-title'
+        <p 
           id={drive.driveCount}
           onClick={() => this.props.setCurrentDrive(drive.driveCount)}
-          className={this.props.selectedDrive === drive.driveCount ? 'selected-drive' : 'drive'} >
+          className={this.props.selectedDrive === drive.driveCount ? 'drive-title selected-drive' : 'drive-title drive'} >
           Drive {drive.driveCount}: {' '}
           {this.props.teamObj.mascot}  ({drive.plays.length} {(drive.plays.length === 1 ? 'play' : 'plays')}, {`${this.addDriveYards()}`} yards){' '}
           <span>{this.driveResult()}</span>

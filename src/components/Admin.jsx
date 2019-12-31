@@ -106,36 +106,37 @@ export default class Admin extends React.Component {
   }
 
   submitDrive = () => {
-    // console.log('hit')
-    const { gameId, driveCount, team, yardLine } = this.state
+    console.log('hit')
+    const { gameId, driveCount, team, yardLine, yardTracker } = this.state
     this.setState({
       drivingTeam: team,
-      yardTracker: yardLine
-    })
-    axios
-      .put('/api/game/drive', {
-        id: gameId,
-        drive: {
-          driveCount,
-          team,
-          yardLine,
-          yardTracker: yardLine,
-          plays: []
-        }
-      })
-      .then(res => {
-        const idLoc = res.data.drivesArr.length - 1
-        this.setState({
-          driveCount: driveCount + 1,
-          showAddDrive: false,
-          showAddPlay: true,
-          game: res.data,
-          driveId: res.data.drivesArr[idLoc]._id,
-          yardLine: ''
+      yardTracker: +yardLine
+    }, () => {
+      axios
+        .put('/api/game/drive', {
+          id: gameId,
+          drive: {
+            driveCount,
+            team,
+            yardLine,
+            yardTracker,
+            plays: []
+          }
         })
-        this.props.updateGame(res.data)
-      })
-      .catch(err => console.log(err))
+        .then(res => {
+          const idLoc = res.data.drivesArr.length - 1
+          this.setState({
+            driveCount: driveCount + 1,
+            showAddDrive: false,
+            showAddPlay: true,
+            game: res.data,
+            driveId: res.data.drivesArr[idLoc]._id,
+            yardLine: ''
+          })
+          this.props.updateGame(res.data)
+        })
+        .catch(err => console.log(err))
+    })
   }
   setDriveInfo = id => {
     let setDrive = this.state.game.drivesArr.find(drive => {
@@ -249,8 +250,7 @@ export default class Admin extends React.Component {
       quarter,
       kickType,
       playCount,
-      drivingTeam,
-      yardTracker
+      drivingTeam
     } = this.state
     let playObj = {
       penalty,
