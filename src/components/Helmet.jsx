@@ -1060,6 +1060,6 @@ const Helmet = props => {
 
 export default Helmet
 
-const HelmetWrapper = styled.svg`
+export const HelmetWrapper = styled.svg`
   transform: ${props => (props.rightHelmet ? 'scale(-1, 1)' : null)};
 `
