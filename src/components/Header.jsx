@@ -105,11 +105,11 @@ class Header extends React.Component {
                     {/* <button>login</button> */}
                     {this.state.toggle ? (
                         <div>
-                            <button onClick={() => {this.click()}}>login</button>
+                            <button onClick={() => {this.click()}}>Login</button>
                         </div>
                     ) : (
                         <div>
-                            <button onClick={() => {this.click()}}>logout</button>
+                            <button onClick={() => {this.click()}}>Logout</button>
                         </div>
                     )}
                     </div>

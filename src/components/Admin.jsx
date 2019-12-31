@@ -7,8 +7,8 @@ import SubmitButton from './SubmitButton'
 import Penalties from './Penalties'
 
 const Wrapper = styled.div`
-box-shadow: 1px 1px 2px #999999;
-background: white;
+  box-shadow: 1px 1px 2px #999999;
+  background: white;
   display: flex;
   align-items: center;
   justify-content: space-around;
@@ -87,6 +87,7 @@ export default class Admin extends React.Component {
       gainLoss,
       playDist,
       player1,
+      player2,
       result,
       min,
       sec
@@ -97,10 +98,23 @@ export default class Admin extends React.Component {
     if (!team || !yardLine) {
       this.setState({ submitDrive: true })
     }
+    if (playType === 'Incomplete pass') {
+      if (playType && player1 && player2 && result && min && sec) {
+        return this.setState({ submitPlay: false })
+      }
+    }
     if (playType && gainLoss && playDist && player1 && result && min && sec) {
       this.setState({ submitPlay: false })
     }
-    if (!playType || !gainLoss || !playDist || !player1 || !result || !min || !sec) {
+    if (
+      !playType ||
+      !gainLoss ||
+      !playDist ||
+      !player1 ||
+      !result ||
+      !min ||
+      !sec
+    ) {
       this.setState({ submitPlay: true })
     }
   }
@@ -108,41 +122,44 @@ export default class Admin extends React.Component {
   submitDrive = () => {
     console.log('hit')
     const { gameId, driveCount, team, yardLine, yardTracker } = this.state
-    this.setState({
-      drivingTeam: team,
-      yardTracker: +yardLine
-    }, () => {
-      axios
-        .put('/api/game/drive', {
-          id: gameId,
-          drive: {
-            driveCount,
-            team,
-            yardLine,
-            yardTracker: +yardLine,
-            plays: []
-          }
-        })
-        .then(res => {
-          const idLoc = res.data.drivesArr.length - 1
-          this.setState({
-            driveCount: driveCount + 1,
-            showAddDrive: false,
-            showAddPlay: true,
-            game: res.data,
-            driveId: res.data.drivesArr[idLoc]._id,
-            yardLine: ''
+    this.setState(
+      {
+        drivingTeam: team,
+        yardTracker: +yardLine
+      },
+      () => {
+        axios
+          .put('/api/game/drive', {
+            id: gameId,
+            drive: {
+              driveCount,
+              team,
+              yardLine,
+              yardTracker: +yardLine,
+              plays: []
+            }
           })
-          this.props.updateGame(res.data)
-        })
-        .catch(err => console.log(err))
-    })
+          .then(res => {
+            const idLoc = res.data.drivesArr.length - 1
+            this.setState({
+              driveCount: driveCount + 1,
+              showAddDrive: false,
+              showAddPlay: true,
+              game: res.data,
+              driveId: res.data.drivesArr[idLoc]._id,
+              yardLine: ''
+            })
+            this.props.updateGame(res.data)
+          })
+          .catch(err => console.log(err))
+      }
+    )
   }
   setDriveInfo = id => {
     let setDrive = this.state.game.drivesArr.find(drive => {
       return drive._id === id
     })
-    
+
     this.setState({
       playCount: setDrive.plays.length + 1,
       driveId: id,
@@ -272,13 +289,15 @@ export default class Admin extends React.Component {
     }
     // setRemainingYards()
     let newYards = this.state.yardTracker
-     if (this.state.playType === 'penalty') {
-       this.state.drivingTeam !== penTeam
-         ? newYards += yards
-         : newYards -= yards
-     } else if (this.state.playType !== 'kick') {
-       this.state.gainLoss === 'gain' ? (newYards += +playDist) : newYards -= +playDist
-     }
+    if (this.state.playType === 'penalty') {
+      this.state.drivingTeam !== penTeam
+        ? (newYards += yards)
+        : (newYards -= yards)
+    } else if (this.state.playType !== 'kick') {
+      this.state.gainLoss === 'gain'
+        ? (newYards += +playDist)
+        : (newYards -= +playDist)
+    }
     let teamObj = {}
     let index1
     let index2
@@ -291,7 +310,7 @@ export default class Admin extends React.Component {
 
     playerA = game[drivingTeam].players[index1]
 
-    if (playType === 'Run') {
+    if (playType === 'Run' || playType === 'Kick return') {
       if (result === 'touchdown') {
         if (!playerA.rushTDs) {
           playerA.rushTDs = 1
@@ -335,12 +354,12 @@ export default class Admin extends React.Component {
       }
       if (!playerA.passYards) {
         gainLoss === 'gain'
-          ? (playerA.passYards = [+playDist]) 
+          ? (playerA.passYards = [+playDist])
           : (playerA.passYards = [-+playDist])
       } else {
-        gainLoss === 'gain' ? 
-        playerA.passYards = [...playerA.passYards, (+playDist)]
-        : playerA.passYards = [...playerA.passYards, -+playDist]
+        gainLoss === 'gain'
+          ? (playerA.passYards = [...playerA.passYards, +playDist])
+          : (playerA.passYards = [...playerA.passYards, -+playDist])
       }
 
       if (!playerB.recYards) {
@@ -355,7 +374,7 @@ export default class Admin extends React.Component {
 
       let updatedPlayers = [...game[drivingTeam].players]
       teamObj = { ...game[drivingTeam], players: updatedPlayers }
-    }else {
+    } else {
       teamObj = { ...game[drivingTeam] }
     }
     this.setState(
@@ -377,7 +396,7 @@ export default class Admin extends React.Component {
             if (this.state.result === 'touchdown') {
               this.setState({
                 showAfterTD: true,
-                showAddPlay: false,
+                showAddPlay: false
               })
             }
             this.setState({
@@ -403,9 +422,7 @@ export default class Admin extends React.Component {
     )
   }
 
-  
-
-  setPenalty = (penObj) => {
+  setPenalty = penObj => {
     this.setState({
       penalty: penObj.penalty,
       yards: penObj.yards
@@ -484,26 +501,28 @@ export default class Admin extends React.Component {
               <option>Play Type</option>
               <option value='Run'>Run</option>
               <option value='Pass'>Pass</option>
-              <option value='incomplete Pass'>Incomplete Pass</option>
+              <option value='Incomplete pass'>Incomplete Pass</option>
               <option value='sack'>Sack</option>
               <option value='kick'>Kick</option>
+              <option value='Kick return'>Kick Return</option>
               <option value='penalty'>Penalty</option>
             </select>
 
             {this.state.playType === 'penalty' ? (
-                  <Penalties
-                    setPenalty={this.setPenalty}
-                    handleChange={this.handleChange}
-                    adminState={this.state}
-                    addScore={this.addScore}
-                  />) :
-                <PlayInputs
-                  submitPlay={this.state.submitPlay}
-                  handleChange={this.handleChange}
-                  adminState={this.state}
-                  addScore={this.addScore}
-                />
-            }
+              <Penalties
+                setPenalty={this.setPenalty}
+                handleChange={this.handleChange}
+                adminState={this.state}
+                addScore={this.addScore}
+              />
+            ) : (
+              <PlayInputs
+                submitPlay={this.state.submitPlay}
+                handleChange={this.handleChange}
+                adminState={this.state}
+                addScore={this.addScore}
+              />
+            )}
           </div>
         )}
       </Wrapper>

@@ -3,25 +3,22 @@ import styled from 'styled-components'
 import football from '../assets/football.jpg'
 
 const PostDot = styled.div`
-    height: 11px;
-    width: 11px;
-    border-radius: 50%;
-    background: black;
-    box-sizing: border-box;
-    margin: 0 -5.5px;
-    z-index: ${props => `${props.index}`};
+  height: 11px;
+  width: 11px;
+  border-radius: 50%;
+  background: black;
+  box-sizing: border-box;
+  margin: 0 -5.5px;
+  z-index: 1;
+  &.punt {
+    background: orange;
+  }
 `
 const Play = styled.div`
   &.run {
     height: 5px;
     background: black;
     margin: 0 0 2.8px 0;
-    z-index: ${props => `${props.index}`};
-  }
-  &.penalty-run {
-    height: 5px;
-    background: black;
-    margin: ${props => `0 -1px 2.8px -${props.penaltyYards}%`};
     z-index: ${props => `${props.index}`};
   }
   &.loss-run {
@@ -46,14 +43,6 @@ const Play = styled.div`
     border-color: black transparent transparent transparent;
     z-index: ${props => `${props.index}`};
   }
-  &.penalty-pass {
-    border: 4px solid black;
-    border-radius: 50%/100% 100% 0 0;
-    margin: ${props => `0 0 0 -${props.penaltyYards}%`};
-    height: ${props => props.passArch}%;
-    border-color: black transparent transparent transparent;
-    z-index: ${props => `${props.index}`};
-  }
   &.loss-pass {
     border: 4px solid black;
     border-radius: 50%/100% 100% 0 0;
@@ -72,30 +61,60 @@ const Play = styled.div`
     border-color: black transparent transparent transparent;
     z-index: ${props => `${props.index}`};
   }
-  &.kick {
-    border: 4px dashed green;
+  &.punt {
+    border: 4px solid orange;
     border-radius: 50%/100% 100% 0 0;
     margin: 0 0 0 -10px;
     height: ${props => props.passArch}%;
-    border-color: green transparent transparent transparent;
+    border-color: orange transparent transparent transparent;
     z-index: ${props => `${props.index}`};
+  }
+  &.loss-punt {
+    border: 4px solid orange;
+    border-radius: 50%/100% 100% 0 0;
+    margin: ${props => `0 0 0 -${props.lossYards}%`};
+    height: ${props => props.passArch}%;
+    border-color: orange transparent transparent transparent;
+    z-index: ${props => `${props.index}`};
+  }
+  &.FG {
+    position: absolute;
+    right: -110px;
+    border: 4px solid;
+    border-radius: 50%/100% 100% 0 0;
+    /* margin: 0 0 0 -10px; */
+    height: ${props => props.passArch * 1.2}%;
+    /* z-index: ${props => `${props.index}`}; */
+  }
+  &.loss-FG {
+    border: 4px solid;
+    border-radius: 50%/100% 100% 0 0;
+    margin: ${props => `0 0 0 -${props.lossYards}%`};
+    height: ${props => props.passArch}%;
+    z-index: ${props => `${props.index}`};
+  }
+  &#failed {
+    border-color: red transparent transparent transparent;
+  }
+  &#success {
+    border-color: green transparent transparent transparent;
   }
 `
 const PenDot = styled.div`
-    height: 11px;
-    width: 11px;
-    min-width: 10px;
-    border-radius: 50%;
-    box-sizing: border-box;
-    z-index: ${props => `${props.index + 2}`};
-    &.loss {
+  height: 11px;
+  width: 11px;
+  min-width: 10px;
+  border-radius: 50%;
+  box-sizing: border-box;
+  z-index: ${props => `${props.index + 2}`};
+  &.loss {
     background: red;
     margin: ${props => `0 -5.5px 0 calc(-${props.penaltyMargin}% - 5.5px)`};
-    }
-    &.gain {
+  }
+  &.gain {
     margin: 0 -5.5px;
     background: white;
-    }
+  }
 `
 
 const Penalty = styled.div`
@@ -133,7 +152,15 @@ const Football = styled.img`
 `
 
 const Line = props => {
-  const { playDist, playType, penTeam, yards, result, gainLoss } = props.line
+  const {
+    playDist,
+    playType,
+    penTeam,
+    yards,
+    result,
+    gainLoss,
+    kickType
+  } = props.line
   const passArch = playDist * 1.8
   const { drive, index } = props
   let penaltyYards = 0
@@ -175,17 +202,21 @@ const Line = props => {
     if (gainLoss === 'loss') {
       i = index
     }
-    while (i > 0 && drive.plays[i].gainLoss === 'loss') {
+    if (i === 0 && drive.plays[i].gainLoss === 'loss') {
+      return (lossYards = +drive.plays[i].playDist)
+    }
+    while (i >= 0 && drive.plays[i].gainLoss === 'loss') {
       lossYards += +drive.plays[i].playDist
       i--
     }
+    console.log(lossYards)
 
     return lossYards
   }
 
   function elementType() {
     if (result === 'touchdown') {
-      if (playType === 'Run') {
+      if (playType === 'Run' || playType === 'Kick return') {
         return (
           <Play
             index={index}
@@ -219,7 +250,7 @@ const Line = props => {
         </>
       )
     }
-    if (playType === 'Run') {
+    if (playType === 'Run' || playType === 'Kick return') {
       checkPenalties()
       checkLoss()
       return (
@@ -229,7 +260,7 @@ const Line = props => {
             lossYards={lossYards}
             penaltyYards={penaltyYards}
             className={
-              penaltyYards ? 'penalty-run' : lossYards ? 'loss-run' : 'run'
+              penaltyYards ? 'loss-run' : lossYards ? 'loss-run' : 'run'
             }
             style={{ width: `${playDist}%` }}
           />
@@ -247,7 +278,7 @@ const Line = props => {
             lossYards={lossYards}
             penaltyYards={penaltyYards}
             className={
-              penaltyYards ? 'penalty-pass' : lossYards ? 'loss-pass' : 'pass'
+              penaltyYards ? 'loss-pass' : lossYards ? 'loss-pass' : 'pass'
             }
             style={{ width: `calc(${playDist}% - 8px)` }}
           />
@@ -309,21 +340,50 @@ const Line = props => {
         )
       }
     } else if (playType === 'kick') {
-      return (
-        <Play
-          index={index}
-          className='kick'
-          style={{ width: `${playDist}%` }}
-          passArch={passArch}
-        />
-      )
-    } else {
+      checkPenalties()
+      checkLoss()
+      if (kickType === 'punt') {
+        return (
+          <>
+            <Play
+              index={index}
+              passArch={passArch}
+              lossYards={lossYards}
+              penaltyYards={penaltyYards}
+              className={
+                penaltyYards ? 'loss-punt' : lossYards ? 'loss-punt' : 'punt'
+              }
+              style={{ width: `${playDist}%` }}
+            />
+            {result === 'punt' && <PostDot index={index} className='punt' />}
+          </>
+        )
+      }
+      if (kickType === 'field goal attempt') {
+        return (
+          <>
+            <Play
+              index={index}
+              passArch={passArch}
+              lossYards={lossYards}
+              penaltyYards={penaltyYards}
+              id={result === 'Failed' ? 'failed' : 'success'}
+              className={
+                penaltyYards ? 'loss-FG' : lossYards ? 'loss-FG' : 'FG'
+              }
+              style={{ width: `calc(${playDist}% + 100px)` }}
+            />
+            {/* {result === 'field' && <PostDot index={index} className='FG' />} */}
+          </>
+        )
+      }
     }
   }
+  
 
   return (
     <>
-      {index === 0 ? <div className='start-dot' /> : null}
+      {index === 0 ? <PostDot className='start-dot' index={index} /> : null}
       {playDist !== '0' ? elementType() : null}
       {result === 'touchdown' && <Football index={index} src={football} />}
     </>
