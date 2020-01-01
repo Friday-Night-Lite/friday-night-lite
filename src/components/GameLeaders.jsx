@@ -36,7 +36,7 @@ const Wrapper = styled.div`
 .home, .away {
     font-family: sans-serif;
     color: #999999;
-    width: 100px;
+    width: 110px;
     padding: 2px;
 }
 .home {
@@ -361,8 +361,8 @@ export default class GameLeaders extends React.Component {
                   <span>{hRec.name}</span>
                 </p>
                 <p>{hRec.yards} yards</p>
-                {(hPass.tds > 0) &&
-                <p>{hPass.tds} TD</p>}
+                {(hRec.tds > 0) &&
+                <p>{hRec.tds} TD</p>}
                 <p>
                   {hRec.position} #{hRec.number}
                 </p>
