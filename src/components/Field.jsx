@@ -196,7 +196,7 @@ export default class Field extends React.Component {
                 </h1>
               )
             ) : (
-              <h1>Start Time: ${start_time}</h1>
+              <h1>Start Time: {start_time}</h1>
             )}
           </div>
 
@@ -224,7 +224,10 @@ export default class Field extends React.Component {
               </RightZone>
 
               <img className='goal-post-right' src={goal} alt='' height='100' />
-              {this.props.game.drivesArr[currentDrive].plays[
+              
+              {this.props.game.drivesArr.length > 0 &&
+              this.props.game.drivesArr[currentDrive].plays > 0  ?
+              this.props.game.drivesArr[currentDrive].plays[
                 this.props.game.drivesArr[currentDrive].plays.length - 1
               ].result === 'Successful' && (
                 <img
@@ -233,7 +236,7 @@ export default class Field extends React.Component {
                   alt=''
                   height='65'
                 />
-              )}
+              ) : null}
             </div>
           </div>
         </div>
