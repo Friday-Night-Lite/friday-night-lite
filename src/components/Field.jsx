@@ -36,7 +36,7 @@ const Wrapper = styled.div`
     justify-content: center;
     flex-direction: column;
     border-radius: 7px;
-    background: white;
+    background: grey;
     box-shadow: 1px 1px 2px #999999;
   }
 `
@@ -56,6 +56,8 @@ const Away = styled.p`
 `
 
 const LeftZone = styled.div`
+border: solid white;
+  border-width: 10px 0 10px 10px;
   display: flex;
   align-items: center;
   margin-top: 9px;
@@ -66,6 +68,8 @@ const LeftZone = styled.div`
 `
 
 const RightZone = styled.div`
+  border: solid white;
+  border-width: 10px 10px 10px 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -218,7 +222,19 @@ export default class Field extends React.Component {
               <LeftZone color={this.props.game.home.color}>
                 <Home>{this.props.game.home.school}</Home>
               </LeftZone>
-              <div className='trapezoid'></div>
+              <div className='trapezoid'>
+                <div className='line' />
+                <div className='line' />
+                <div className='line' />
+                <div className='line' />
+                <div className='line' />
+                <div className='line' />
+                <div className='line' />
+                <div className='line' />
+                <div className='line' />
+                <div className='line' />
+                <div className='line' />
+              </div>
               <RightZone color={this.props.game.away.color}>
                 <Away>{this.props.game.away.school}</Away>
               </RightZone>

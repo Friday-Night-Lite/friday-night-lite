@@ -11,7 +11,7 @@ const Wrapper = styled.div`
   height: 75%;
   width: 605px;
   padding-bottom: 50px;
-  margin: 0 55px;
+  margin: 0 65px;
   display: flex;
   align-items: flex-end;
   box-sizing: border-box;
@@ -51,7 +51,7 @@ const Wrapper = styled.div`
   }
   .referee {
     position: absolute;
-    right: -100px;
+    right: -110px;
     top: 80px;
   }
   .safety-ref {
