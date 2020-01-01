@@ -70,7 +70,7 @@ export default class Animation extends React.Component {
   
         return (
           <Wrapper>
-            {this.props.driveResult() === 'safety' && (
+            {this.props.driveResult() === 'SAFETY' && (
               <img className='safety-ref' src={referee3} alt='' height='60' />
             )}
             <div

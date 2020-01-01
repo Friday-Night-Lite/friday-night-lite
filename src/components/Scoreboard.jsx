@@ -134,7 +134,6 @@ export default class Scoreboard extends React.Component {
   
   componentDidUpdate = (prevProps) => {
     if (this.props.game !== prevProps.game) {
-      console.log('fred')
       this.setState({ gameObj: this.props.game }, () => {
         this.calculateScore()
       })
