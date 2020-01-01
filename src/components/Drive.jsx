@@ -81,7 +81,7 @@ export default class Drive extends React.Component {
           className={this.props.selectedDrive === drive.driveCount ? 'drive-title selected-drive' : 'drive-title drive'} >
           Drive {drive.driveCount}: {' '}
           {this.props.teamObj.mascot}  ({drive.plays.length} {(drive.plays.length === 1 ? 'play' : 'plays')}, {`${this.addDriveYards()}`} yards){' '}
-          <span>{this.driveResult()}</span>
+    <span>{this.driveResult()} {(this.driveResult() === 'Successful' || this.driveResult() === 'Failed') && 'FG'}</span>
             </p>
         {this.props.selectedDrive === drive.driveCount && (
           <div className='plays'>

@@ -16,16 +16,21 @@ export default class PlayInputs extends React.Component {
       admin.result === '3rd' ||
       admin.result === '4th' ||
       admin.result === 'touchdown'
-    ) ? titleVar = 'End Drive' : admin.result === 'touchdown' ? titleVar = 'Submit TD' : titleVar = 'Submit Play'
+    )
+      ? (titleVar = 'End Drive')
+      : admin.result === 'touchdown'
+      ? (titleVar = 'Submit TD')
+      : (titleVar = 'Submit Play')
     return (
       <Wrapper>
         {/* RUN OR PASS*/}
         {(admin.playType === 'Run' ||
           admin.playType === 'Pass' ||
           admin.playType === 'sack' ||
-          admin.playType === 'incomplete pass') && (
+          admin.playType === 'Kick return' ||
+          admin.playType === 'Incomplete pass') && (
           <div className='Run'>
-            {!(admin.playType === 'incomplete pass') && (
+            {!(admin.playType === 'Incomplete pass') && (
               <>
                 <select
                   onChange={e => this.props.handleChange(e.target)}
@@ -47,7 +52,7 @@ export default class PlayInputs extends React.Component {
                   list='play-distance'
                 />
                 <datalist id='play-distance'>
-                  {[...Array(100 - admin.yardTracker)].map((el, i) => (
+                  {[...Array(101 - admin.yardTracker)].map((el, i) => (
                     <option value={i} key={i}>
                       Yards
                     </option>
@@ -59,7 +64,7 @@ export default class PlayInputs extends React.Component {
             <input
               onChange={e => this.props.handleChange(e.target)}
               name='player1'
-              placeholder={admin.playType === 'Run' ? 'Runner' : 'Passer'}
+              placeholder={admin.playType === 'Kick return' ? 'Kick Returner' : admin.playType === 'Run' ? 'Runner' : 'Passer'}
               list='player1'
               value={admin.player1}
             />
@@ -77,7 +82,7 @@ export default class PlayInputs extends React.Component {
                   ))}
             </datalist>
             {(admin.playType === 'Pass' ||
-              admin.playType === 'incomplete pass') && (
+              admin.playType === 'Incomplete pass') && (
               <>
                 <input
                   onChange={e => this.props.handleChange(e.target)}
@@ -89,8 +94,8 @@ export default class PlayInputs extends React.Component {
                   value={admin.player2}
                 />
                 <datalist id='player2'>
-                  {admin.playType === 'incomplete pass' && (
-                    <option value='NA'>N/A</option>
+                  {admin.playType === 'Incomplete pass' && (
+                    <option value={`N/A`}>N/A</option>
                   )}
                   {admin.team === 'home'
                     ? admin.game.home.players.map((player, i) => (
@@ -110,18 +115,26 @@ export default class PlayInputs extends React.Component {
               onChange={e => this.props.handleChange(e.target)}
               name='result'
               value={admin.result}>
-              <option>Play Result</option>
-              {!(admin.playType === 'sack') && (
-                <option value='1st'>1st Down</option>
-              )}
+              <option value=''>Play Result</option>
+              {!(
+                admin.playType === 'sack' ||
+                admin.playType === 'Incomplete pass'
+              ) && <option value='1st'>1st Down</option>}
               <option value='2nd'>2nd Down</option>
               <option value='3rd'>3rd Down</option>
               <option value='4th'>4th Down</option>
               <option value='downs'>Turnover On Downs</option>
-              <option value='fumble'>Fumble</option>
-              <option value='safety'>Safety</option>
               <option value='time expires'>Time Expires</option>
-              {!(admin.playType === 'sack') && (
+              {!(admin.playType === 'Incomplete pass') && (
+                <>
+                  <option value='fumble'>Fumble</option>
+                  <option value='safety'>Safety</option>
+                </>
+              )}
+              {!(
+                admin.playType === 'sack' ||
+                admin.playType === 'Incomplete pass'
+              ) && (
                 <>
                   <option value='interception'>Interception</option>
                   <option value='touchdown'>Touchdown</option>
@@ -133,9 +146,8 @@ export default class PlayInputs extends React.Component {
               value={admin.min}
               onChange={e => this.props.handleChange(e.target)}
               name='min'
-              list='min'
-            >
-              <option>Minutes</option>
+              list='min'>
+              <option value=''>Minutes</option>
               {[...Array(15)].map((el, i) => (
                 <option key={i} value={i}>
                   {i} Minutes
@@ -147,9 +159,8 @@ export default class PlayInputs extends React.Component {
               onChange={e => this.props.handleChange(e.target)}
               name='sec'
               list='sec'
-              value={admin.sec}
-            >
-              <option>Seconds</option>
+              value={admin.sec}>
+              <option value=''>Seconds</option>
               {[...Array(60)].map((el, i) => (
                 <option key={i} value={i}>
                   {i} Seconds
@@ -160,46 +171,46 @@ export default class PlayInputs extends React.Component {
               name='quarter'
               onChange={e => this.props.handleChange(e.target)}
               value={admin.quarter}>
-              <option>Select Quarter</option>
+              <option value=''>Select Quarter</option>
               <option value='first'>1st</option>
               <option value='second'>2nd</option>
               <option value='third'>3rd</option>
               <option value='fourth'>4th</option>
             </select>
-            <SubmitButton title={titleVar} addScore={this.props.addScore} disable={this.props.submitPlay}/>
+            <SubmitButton
+              title={titleVar}
+              addScore={this.props.addScore}
+              disable={this.props.submitPlay}
+            />
           </div>
         )}
 
         {/* KICK */}
         {admin.playType === 'kick' && (
-          <div className='Run'>
+          <div className='kick'>
             <select
               onChange={e => this.props.handleChange(e.target)}
               name='kickType'
               value={admin.kickType}
               placeholder='Kick Type'
               list='kick-type'>
-              <option>Kick Type</option>
+              <option value=''>Kick Type</option>
               <option value='field goal attempt'>FG Attempt</option>
               <option value='punt'>Punt</option>
             </select>
 
             {admin.kickType && (
               <div className='fg-attempt'>
-                <input
+                <select
                   onChange={e => this.props.handleChange(e.target)}
                   name='playDist'
-                  value={admin.playDist}
-                  placeholder='Play Distance'
-                  list='play-distance'
-                />
-                <datalist id='play-distance'>
-                  {[...Array(100)].map((el, i) => (
+                  value={admin.playDist}>
+                  {[...Array(101 - admin.yardTracker)].map((el, i) => (
                     <option value={i} key={i}>
-                      Yards
+                     {i} Yards
                     </option>
                   ))}
-                </datalist>
+                </select>
 
                 <input
                   onChange={e => this.props.handleChange(e.target)}
@@ -226,14 +237,15 @@ export default class PlayInputs extends React.Component {
                   onChange={e => this.props.handleChange(e.target)}
                   name='result'
                   value={admin.result}>
-                  <option>Play Result</option>
+                  <option value=''>Play Result</option>
 
                   <option value='Successful'>Field Goal (Made)</option>
                   <option value='Failed'>Field Goal (Missed) </option>
                   <option value='blocked'>Blocked </option>
-                  <option value='punt'>Punt</option>
+                  <option value='returned'>Returned</option>
+                  <option value='fair catch'>Fair Catch</option>
+                  <option value='touchback'>Touchback</option>
                   <option value='fumble'>Fumble</option>
-                  <option value='interception'>Interception</option>
                   <option value='safety'>Safety</option>
                   <option value='Time expires'>Time Expires</option>
                 </select>
@@ -269,7 +281,7 @@ export default class PlayInputs extends React.Component {
                   name='quarter'
                   onChange={e => this.props.handleChange(e.target)}
                   value={admin.quarter}>
-                  <option>Select Quarter</option>
+                  <option value=''>Select Quarter</option>
                   <option value='first'>1st</option>
                   <option value='second'>2nd</option>
                   <option value='third'>3rd</option>
@@ -283,7 +295,6 @@ export default class PlayInputs extends React.Component {
             )}
           </div>
         )}
-
       </Wrapper>
     )
   }
