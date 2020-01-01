@@ -49,6 +49,13 @@ padding: 10px;
   width: 150px;
   box-shadow: 1px 1px 2px #999999;
 }
+.clock span { 
+  font-size: 2rem;
+  margin: 10px;
+  font-family: sans-serif;
+  /* color: black; */
+  font-weight: 500;
+}
 .clockContainer {
   display: flex;
   flex-direction: column;
@@ -127,7 +134,6 @@ export default class Scoreboard extends React.Component {
   
   componentDidUpdate = (prevProps) => {
     if (this.props.game !== prevProps.game) {
-      console.log('fred')
       this.setState({ gameObj: this.props.game }, () => {
         this.calculateScore()
       })
@@ -302,7 +308,8 @@ export default class Scoreboard extends React.Component {
             {this.props.game.status === 'upcoming' && (
               <div>
                 <h1 id='title'>Kickoff at:</h1>
-                <h1 className='clock'>{this.props.game.start_time}</h1>
+                <h1 className='clock'>{this.props.game.start_time.substring(0, this.props.game.start_time.length-2)}<span>{this.props.game.start_time.substring(this.props.game.start_time.length-2)}</span></h1> 
+               
               </div>
             )}
 

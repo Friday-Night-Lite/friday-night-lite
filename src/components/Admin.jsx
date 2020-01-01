@@ -341,7 +341,7 @@ export default class Admin extends React.Component {
       playerB = game[drivingTeam].players[index2]
 
       if (result === 'touchdown') {
-        if (!playerA.recTDs) {
+        if (!playerA.passTDs) {
           playerA.passTDs = 1
         } else {
           playerA.passTDs += 1
