@@ -111,6 +111,12 @@ export default class Field extends React.Component {
     const { selectedDrive, game } = this.props
     const { drivesArr } = game
     let currentDrive
+
+    if (!drivesArr[0]){
+      return
+    }
+
+
     if (selectedDrive > 0) {
       currentDrive = selectedDrive - 1
     } else{

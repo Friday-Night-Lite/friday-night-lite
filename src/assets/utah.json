@@ -3,7 +3,7 @@
         "$oid": "5e0bf11dc9f92d7d33644d5f"
     },
     "away": {
-        "school": "UTH",
+        "school": "UTAH",
         "color": "#cc0000",
         "mascot": "Utes",
         "players": [
@@ -683,7 +683,7 @@
             }
         ]
     },
-    "status": "inProgress",
+    "status": "FINAL",
     "home": {
         "school": "TEX",
         "color": "#bf5700",
