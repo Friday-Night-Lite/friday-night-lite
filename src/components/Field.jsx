@@ -140,6 +140,14 @@ export default class Field extends React.Component {
       ].result
 
       if (
+        result === 'returned' ||
+        result === 'touchback' ||
+        result === 'fair catch' 
+      ){
+        return 'PUNT'
+      }
+
+      if (
         result === '1st' ||
         result === '2nd' ||
         result === '3rd' ||
