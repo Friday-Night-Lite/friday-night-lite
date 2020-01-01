@@ -132,7 +132,7 @@ export default class Field extends React.Component {
             this.props.game.drivesArr[currentDrive].plays.length - 2
           ].result === 'touchdown'
         ) {
-          return 'touchdown'
+          return 'TOUCHDOWN'
         }
       }
       let result = this.props.game.drivesArr[currentDrive].plays[
@@ -156,7 +156,7 @@ export default class Field extends React.Component {
         return 'in progress'
       }
 
-      return result
+      return result.toUpperCase()
     }
   }
 
@@ -184,8 +184,8 @@ export default class Field extends React.Component {
                     ? 'play'
                     : 'plays'}
                   , {`${this.addDriveYards()}`} yards) {this.driveResult()}
-                  {(this.driveResult() === 'Successful' ||
-                    this.driveResult() === 'Failed') &&
+                  {(this.driveResult() === 'SUCCESSFUL' ||
+                    this.driveResult() === 'FAILED') &&
                     ' FG'}
                 </h1>
               ) : (
@@ -198,8 +198,8 @@ export default class Field extends React.Component {
                     ? 'play'
                     : 'plays'}
                   , {`${this.addDriveYards()}`} yards) {this.driveResult()}
-                  {(this.driveResult() === 'Successful' ||
-                    this.driveResult() === 'Failed') &&
+                  {(this.driveResult() === 'SUCCESSFUL' ||
+                    this.driveResult() === 'FAILED') &&
                     ' FG'}
                 </h1>
               )
