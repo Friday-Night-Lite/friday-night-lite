@@ -135,10 +135,10 @@ export default class Scoreboard extends React.Component {
   }
 
   teamBall = () => {
+    if (this.props.game.drivesArr.length > 0) {
     const { drivesArr } = this.props.game
-    // console.log(this.props)
     let teamBall = drivesArr[drivesArr.length -1 ].team
-    return teamBall
+    return teamBall}
   }
 
 
@@ -170,9 +170,6 @@ export default class Scoreboard extends React.Component {
     let newHS4 = await home.fourth.reduce((acc, num) => {
       return acc + num
     })
-    
-    
-    
     
     //away score
     let newAScore = 0

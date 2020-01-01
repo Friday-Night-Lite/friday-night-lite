@@ -1,0 +1,682 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Admin.js function tests matches snapshot 1`] = `
+<div
+  className="sc-htpNat cMOiqA"
+>
+  <div
+    className="new-drive"
+  >
+    <select
+      className="team-select"
+      name="team"
+      onChange={[Function]}
+      required={true}
+    >
+      <option
+        value=""
+      >
+        Select Team
+      </option>
+      <option
+        value="home"
+      >
+        Home
+      </option>
+      <option
+        value="away"
+      >
+        Away
+      </option>
+    </select>
+    <input
+      list="yard-line"
+      name="yardLine"
+      onChange={[Function]}
+      placeholder="Yard Line"
+      required={true}
+    />
+    <datalist
+      id="yard-line"
+    >
+      <option
+        value="1"
+      >
+        99
+         Yards To Go
+      </option>
+      <option
+        value="2"
+      >
+        98
+         Yards To Go
+      </option>
+      <option
+        value="3"
+      >
+        97
+         Yards To Go
+      </option>
+      <option
+        value="4"
+      >
+        96
+         Yards To Go
+      </option>
+      <option
+        value="5"
+      >
+        95
+         Yards To Go
+      </option>
+      <option
+        value="6"
+      >
+        94
+         Yards To Go
+      </option>
+      <option
+        value="7"
+      >
+        93
+         Yards To Go
+      </option>
+      <option
+        value="8"
+      >
+        92
+         Yards To Go
+      </option>
+      <option
+        value="9"
+      >
+        91
+         Yards To Go
+      </option>
+      <option
+        value="10"
+      >
+        90
+         Yards To Go
+      </option>
+      <option
+        value="11"
+      >
+        89
+         Yards To Go
+      </option>
+      <option
+        value="12"
+      >
+        88
+         Yards To Go
+      </option>
+      <option
+        value="13"
+      >
+        87
+         Yards To Go
+      </option>
+      <option
+        value="14"
+      >
+        86
+         Yards To Go
+      </option>
+      <option
+        value="15"
+      >
+        85
+         Yards To Go
+      </option>
+      <option
+        value="16"
+      >
+        84
+         Yards To Go
+      </option>
+      <option
+        value="17"
+      >
+        83
+         Yards To Go
+      </option>
+      <option
+        value="18"
+      >
+        82
+         Yards To Go
+      </option>
+      <option
+        value="19"
+      >
+        81
+         Yards To Go
+      </option>
+      <option
+        value="20"
+      >
+        80
+         Yards To Go
+      </option>
+      <option
+        value="21"
+      >
+        79
+         Yards To Go
+      </option>
+      <option
+        value="22"
+      >
+        78
+         Yards To Go
+      </option>
+      <option
+        value="23"
+      >
+        77
+         Yards To Go
+      </option>
+      <option
+        value="24"
+      >
+        76
+         Yards To Go
+      </option>
+      <option
+        value="25"
+      >
+        75
+         Yards To Go
+      </option>
+      <option
+        value="26"
+      >
+        74
+         Yards To Go
+      </option>
+      <option
+        value="27"
+      >
+        73
+         Yards To Go
+      </option>
+      <option
+        value="28"
+      >
+        72
+         Yards To Go
+      </option>
+      <option
+        value="29"
+      >
+        71
+         Yards To Go
+      </option>
+      <option
+        value="30"
+      >
+        70
+         Yards To Go
+      </option>
+      <option
+        value="31"
+      >
+        69
+         Yards To Go
+      </option>
+      <option
+        value="32"
+      >
+        68
+         Yards To Go
+      </option>
+      <option
+        value="33"
+      >
+        67
+         Yards To Go
+      </option>
+      <option
+        value="34"
+      >
+        66
+         Yards To Go
+      </option>
+      <option
+        value="35"
+      >
+        65
+         Yards To Go
+      </option>
+      <option
+        value="36"
+      >
+        64
+         Yards To Go
+      </option>
+      <option
+        value="37"
+      >
+        63
+         Yards To Go
+      </option>
+      <option
+        value="38"
+      >
+        62
+         Yards To Go
+      </option>
+      <option
+        value="39"
+      >
+        61
+         Yards To Go
+      </option>
+      <option
+        value="40"
+      >
+        60
+         Yards To Go
+      </option>
+      <option
+        value="41"
+      >
+        59
+         Yards To Go
+      </option>
+      <option
+        value="42"
+      >
+        58
+         Yards To Go
+      </option>
+      <option
+        value="43"
+      >
+        57
+         Yards To Go
+      </option>
+      <option
+        value="44"
+      >
+        56
+         Yards To Go
+      </option>
+      <option
+        value="45"
+      >
+        55
+         Yards To Go
+      </option>
+      <option
+        value="46"
+      >
+        54
+         Yards To Go
+      </option>
+      <option
+        value="47"
+      >
+        53
+         Yards To Go
+      </option>
+      <option
+        value="48"
+      >
+        52
+         Yards To Go
+      </option>
+      <option
+        value="49"
+      >
+        51
+         Yards To Go
+      </option>
+      <option
+        value="50"
+      >
+        50
+         Yards To Go
+      </option>
+      <option
+        value="51"
+      >
+        49
+         Yards To Go
+      </option>
+      <option
+        value="52"
+      >
+        48
+         Yards To Go
+      </option>
+      <option
+        value="53"
+      >
+        47
+         Yards To Go
+      </option>
+      <option
+        value="54"
+      >
+        46
+         Yards To Go
+      </option>
+      <option
+        value="55"
+      >
+        45
+         Yards To Go
+      </option>
+      <option
+        value="56"
+      >
+        44
+         Yards To Go
+      </option>
+      <option
+        value="57"
+      >
+        43
+         Yards To Go
+      </option>
+      <option
+        value="58"
+      >
+        42
+         Yards To Go
+      </option>
+      <option
+        value="59"
+      >
+        41
+         Yards To Go
+      </option>
+      <option
+        value="60"
+      >
+        40
+         Yards To Go
+      </option>
+      <option
+        value="61"
+      >
+        39
+         Yards To Go
+      </option>
+      <option
+        value="62"
+      >
+        38
+         Yards To Go
+      </option>
+      <option
+        value="63"
+      >
+        37
+         Yards To Go
+      </option>
+      <option
+        value="64"
+      >
+        36
+         Yards To Go
+      </option>
+      <option
+        value="65"
+      >
+        35
+         Yards To Go
+      </option>
+      <option
+        value="66"
+      >
+        34
+         Yards To Go
+      </option>
+      <option
+        value="67"
+      >
+        33
+         Yards To Go
+      </option>
+      <option
+        value="68"
+      >
+        32
+         Yards To Go
+      </option>
+      <option
+        value="69"
+      >
+        31
+         Yards To Go
+      </option>
+      <option
+        value="70"
+      >
+        30
+         Yards To Go
+      </option>
+      <option
+        value="71"
+      >
+        29
+         Yards To Go
+      </option>
+      <option
+        value="72"
+      >
+        28
+         Yards To Go
+      </option>
+      <option
+        value="73"
+      >
+        27
+         Yards To Go
+      </option>
+      <option
+        value="74"
+      >
+        26
+         Yards To Go
+      </option>
+      <option
+        value="75"
+      >
+        25
+         Yards To Go
+      </option>
+      <option
+        value="76"
+      >
+        24
+         Yards To Go
+      </option>
+      <option
+        value="77"
+      >
+        23
+         Yards To Go
+      </option>
+      <option
+        value="78"
+      >
+        22
+         Yards To Go
+      </option>
+      <option
+        value="79"
+      >
+        21
+         Yards To Go
+      </option>
+      <option
+        value="80"
+      >
+        20
+         Yards To Go
+      </option>
+      <option
+        value="81"
+      >
+        19
+         Yards To Go
+      </option>
+      <option
+        value="82"
+      >
+        18
+         Yards To Go
+      </option>
+      <option
+        value="83"
+      >
+        17
+         Yards To Go
+      </option>
+      <option
+        value="84"
+      >
+        16
+         Yards To Go
+      </option>
+      <option
+        value="85"
+      >
+        15
+         Yards To Go
+      </option>
+      <option
+        value="86"
+      >
+        14
+         Yards To Go
+      </option>
+      <option
+        value="87"
+      >
+        13
+         Yards To Go
+      </option>
+      <option
+        value="88"
+      >
+        12
+         Yards To Go
+      </option>
+      <option
+        value="89"
+      >
+        11
+         Yards To Go
+      </option>
+      <option
+        value="90"
+      >
+        10
+         Yards To Go
+      </option>
+      <option
+        value="91"
+      >
+        9
+         Yards To Go
+      </option>
+      <option
+        value="92"
+      >
+        8
+         Yards To Go
+      </option>
+      <option
+        value="93"
+      >
+        7
+         Yards To Go
+      </option>
+      <option
+        value="94"
+      >
+        6
+         Yards To Go
+      </option>
+      <option
+        value="95"
+      >
+        5
+         Yards To Go
+      </option>
+      <option
+        value="96"
+      >
+        4
+         Yards To Go
+      </option>
+      <option
+        value="97"
+      >
+        3
+         Yards To Go
+      </option>
+      <option
+        value="98"
+      >
+        2
+         Yards To Go
+      </option>
+      <option
+        value="99"
+      >
+        1
+         Yards To Go
+      </option>
+    </datalist>
+    <button
+      className="sc-bdVaJa gCPjME"
+      disabled={true}
+      onClick={[Function]}
+    >
+      Add Drive
+    </button>
+    <select
+      name="driveId"
+      onChange={[Function]}
+    >
+      <option
+        value=""
+      >
+        Select Drive
+      </option>
+      <option>
+        Drive: 
+      </option>
+      <option>
+        Drive: 
+      </option>
+      <option>
+        Drive: 
+      </option>
+      <option>
+        Drive: 
+      </option>
+      <option>
+        Drive: 
+      </option>
+      <option>
+        Drive: 
+      </option>
+    </select>
+    <button
+      className="sc-bdVaJa gCPjME"
+      disabled={true}
+      onClick={[Function]}
+    >
+      Resume Drive
+    </button>
+  </div>
+  
+</div>
+`;
