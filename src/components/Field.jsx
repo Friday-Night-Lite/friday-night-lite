@@ -82,15 +82,6 @@ export default class Field extends React.Component {
     selectedDrive: 0
   }
 
-  // componentDidMount() {
-  //   if (this.props.selectedDrive > 0) {
-  //   this.setState({
-  //     start: this.props.game.drivesArr[(this.props.selectedDrive - 1)].yardLine,
-  //     selectedDrive: this.props.selectedDrive
-  //   })
-  // }
-  // }
-
   addDriveYards = () => {
     let driveYards = [0]
     const { selectedDrive, game } = this.props
@@ -233,7 +224,7 @@ export default class Field extends React.Component {
 
               <img className='goal-post-right' src={goal} alt='' height='100' />
               
-              {this.props.game.drivesArr.length > 0 &&
+              {/* {this.props.game.drivesArr.length > 0 &&
               this.props.game.drivesArr[currentDrive].plays > 0  ?
               this.props.game.drivesArr[currentDrive].plays[
                 this.props.game.drivesArr[currentDrive].plays.length - 1
@@ -244,7 +235,14 @@ export default class Field extends React.Component {
                   alt=''
                   height='65'
                 />
-              ) : null}
+              ) : null} */}
+
+                {this.driveResult() === 'SUCCESSFUL' &&   <img className='goal-post-right-right'
+                  src={upright}
+                  alt=''
+                  height='65'
+                />}
+
             </div>
           </div>
         </div>
