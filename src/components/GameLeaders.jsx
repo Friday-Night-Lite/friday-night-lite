@@ -15,7 +15,7 @@ const Wrapper = styled.div`
     font-size: 1.25rem;
     font-family: sans-serif;
     font-weight: 600;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid #999999;
     color: black;
   }
   span {
@@ -36,15 +36,16 @@ const Wrapper = styled.div`
 .home, .away {
     font-family: sans-serif;
     color: #999999;
+    width: 100px;
+    padding: 2px;
 }
 .home {
-    margin-right: 50px;
+  border-right: 1px solid #999999;
   }
 .line {
   height: 100%;
   border: solid #999999;
-}
-`
+}`
 
 export default class GameLeaders extends React.Component {
   state = {

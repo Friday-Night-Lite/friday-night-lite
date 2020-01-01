@@ -209,7 +209,7 @@ const Line = props => {
       lossYards += +drive.plays[i].playDist
       i--
     }
-    console.log(lossYards)
+    // console.log(lossYards)
 
     return lossYards
   }

@@ -171,9 +171,6 @@ export default class Scoreboard extends React.Component {
       return acc + num
     })
     
-    
-    
-    
     //away score
     let newAScore = 0
     newAScore = newAS1 + newAS2 + newAS3 + newAS4
