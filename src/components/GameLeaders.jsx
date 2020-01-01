@@ -15,7 +15,7 @@ const Wrapper = styled.div`
     font-size: 1.25rem;
     font-family: sans-serif;
     font-weight: 600;
-    border-bottom: 1px solid black;
+    border-bottom: 1px dotted #999999;
     color: black;
   }
   span {
@@ -36,15 +36,15 @@ const Wrapper = styled.div`
 .home, .away {
     font-family: sans-serif;
     color: #999999;
+    width: 100px;
 }
 .home {
-    margin-right: 50px;
+  border-right: 1px dotted #999999;
   }
 .line {
   height: 100%;
   border: solid #999999;
-}
-`
+}`
 
 export default class GameLeaders extends React.Component {
   state = {
@@ -84,7 +84,7 @@ export default class GameLeaders extends React.Component {
     }
     let aPassLeader = {
       name: '---',
-      number: '00',
+      number: '0',
       position: '--',
       yards: '---'
     }
@@ -113,7 +113,7 @@ export default class GameLeaders extends React.Component {
     }
     let hPassLeader = {
       name: '---',
-      number: '00',
+      number: '0',
       position: '--',
       yards: '---'
     }
@@ -142,7 +142,7 @@ export default class GameLeaders extends React.Component {
     }
     let aRushLeader = {
       name: '---',
-      number: '00',
+      number: '0',
       position: '--',
       yards: '---'
     }
@@ -171,7 +171,7 @@ export default class GameLeaders extends React.Component {
     }
     let hRushLeader = {
       name: '---',
-      number: '00',
+      number: '0',
       position: '--',
       yards: '---'
     }
@@ -198,7 +198,7 @@ export default class GameLeaders extends React.Component {
     }
     let aRecLeader = {
       name: '---',
-      number: '00',
+      number: '0',
       position: '--',
       yards: '---'
     }
@@ -225,7 +225,7 @@ export default class GameLeaders extends React.Component {
     }
     let hRecLeader = {
       name: '---',
-      number: '00',
+      number: '0',
       position: '--',
       yards: '---'
     }
@@ -381,7 +381,7 @@ export default class GameLeaders extends React.Component {
           </div>
           <Jersey
             color={this.props.game.away.color}
-            number="7"
+            number={aRec.number}
             flip={true}
             school={this.props.game.away.school}
           />
