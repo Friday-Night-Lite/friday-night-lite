@@ -53,7 +53,7 @@ padding: 10px;
   font-size: 2rem;
   margin: 10px;
   font-family: sans-serif;
-  /* color: black; */
+  color: black;
   font-weight: 500;
 }
 .clockContainer {
@@ -206,7 +206,8 @@ export default class Scoreboard extends React.Component {
     
     const {
       away,
-      home
+      home,
+      status
     } = this.props.game
     const {
       min,
@@ -235,7 +236,7 @@ export default class Scoreboard extends React.Component {
               {!(this.props.game.status === 'upcoming') && 
               (<div className='school-score'>
                 <h3 className='score'>{hScore.toString()}</h3>
-                { this.teamBall() === 'home' &&
+                { (status === 'inProgress' && this.teamBall() === 'away') &&
                   <img className='poss' src={football} alt="football"/>}
                 </div>)
               }
@@ -243,10 +244,13 @@ export default class Scoreboard extends React.Component {
           </div>
 
           <div className='clockContainer'>
-            {this.props.game.status === 'inProgress' && (
+            {!(status === 'upcoming') && (
               <>
+                {status === 'inProgress' &&
+                <h1 id='title'>Time Remaining:</h1>}
+                {status === 'FINAL' &&
+                  <h1 id='title'>FINAL</h1>}
 
-                <h1 id='title'>Time Remaining:</h1>
 
                 <div className='clock'>
                   <div className='numbers'>
@@ -320,10 +324,12 @@ export default class Scoreboard extends React.Component {
             <div className='school-info'>
               {/* <h2>{away.school}</h2> */}
               <h2>{away.mascot}</h2>
-              {!(this.props.game.status === 'upcoming') && (
+              {!(status === 'upcoming') && (
                 (<div className='school-score'>
-                 { this.teamBall() === 'away' &&
+
+                 { (status === 'inProgress' && this.teamBall() === 'away') &&
                 <img className='poss' src={football} alt="football"/>}
+
                 <h3 className='score'>{aScore.toString()}</h3>
                 </div>)
               )}
