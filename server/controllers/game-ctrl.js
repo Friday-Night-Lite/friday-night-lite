@@ -12,7 +12,8 @@ module.exports = {
         'away.color': 1,
         'away.school': 1,
         'away.mascot': 1,
-        start_time: 1
+        start_time: 1,
+        score: 1,
       },
 
       (err, games) => {
