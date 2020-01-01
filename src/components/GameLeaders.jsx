@@ -320,8 +320,8 @@ export default class GameLeaders extends React.Component {
                   <span>{hRush.name}</span>
                 </p>
                 <p>{hRush.yards} yards</p>
-                {(hPass.tds > 0) &&
-                <p>{hPass.tds} TD</p>}
+                {(hRush.tds > 0) &&
+                <p>{hRush.tds} TD</p>}
                 <p>
                   {hRush.position} #{hRush.number}
                 </p>
