@@ -82,7 +82,7 @@ class Game extends React.Component {
     let min
     let sec
     let quarter
-    if (!this.state.selectedDrive && this.state.gameObj.drivesArr.length > 0) {
+    if (!this.state.selectedDrive && this.state.gameObj.drivesArr.length > 0 && this.state.gameObj.drivesArr[0].plays.length > 0 ) {
       const { drivesArr } = this.state.gameObj
       const { plays } = drivesArr[drivesArr.length - 1]
 
