@@ -60,7 +60,7 @@ animation: show 1000ms cubic-bezier(0.250, 0.100, 0.250, 1.000);
     border: 4px solid black;
     border-radius: 50%/100% 100% 0 0;
     /* border-radius: ${props => `50%/100% 100% 0 0`}; */
-    height: ${props => props.passArch * 1.2}%;
+    height: ${props => props.passArch}%;
     border-color: black transparent transparent transparent;
     z-index: ${props => `${props.index}`};
   }

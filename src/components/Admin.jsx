@@ -393,7 +393,7 @@ export default class Admin extends React.Component {
     // }
 
     this.setState(
-      { game: { ...this.state.game, score: scoreObj} },
+      { game: { ...this.state.game, score: scoreObj}, yardTracker: newYards },
       () => {
 
         axios
