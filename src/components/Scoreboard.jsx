@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Helmet from "../components/Helmet";
+import NewHelmet from "../components/NewHelmet";
 import "../assets/digital-7.ttf"
 import football from '../assets/football.jpg'
 
@@ -45,9 +45,16 @@ padding: 10px;
   border: solid 1px #999999;
   border-radius: 5px;
   padding: 0 20px;
-  margin: 0 75px;
+  margin: 0 55px;
   width: 150px;
   box-shadow: 1px 1px 2px #999999;
+}
+.clock span { 
+  font-size: 2rem;
+  margin: 10px;
+  font-family: sans-serif;
+  color: black;
+  font-weight: 500;
 }
 .clockContainer {
   display: flex;
@@ -127,7 +134,6 @@ export default class Scoreboard extends React.Component {
   
   componentDidUpdate = (prevProps) => {
     if (this.props.game !== prevProps.game) {
-      console.log('fred')
       this.setState({ gameObj: this.props.game }, () => {
         this.calculateScore()
       })
@@ -135,10 +141,10 @@ export default class Scoreboard extends React.Component {
   }
 
   teamBall = () => {
+    if (this.props.game.drivesArr.length > 0) {
     const { drivesArr } = this.props.game
-    // console.log(this.props)
     let teamBall = drivesArr[drivesArr.length -1 ].team
-    return teamBall
+    return teamBall}
   }
 
 
@@ -171,9 +177,6 @@ export default class Scoreboard extends React.Component {
       return acc + num
     })
     
-    
-    
-    
     //away score
     let newAScore = 0
     newAScore = newAS1 + newAS2 + newAS3 + newAS4
@@ -181,10 +184,6 @@ export default class Scoreboard extends React.Component {
     //home score
     let newHScore = 0
     newHScore = newHS1 + newHS2 + newHS3 + newHS4
-
-
-
-
 
         this.setState({
           hScore: newHScore,
@@ -207,7 +206,8 @@ export default class Scoreboard extends React.Component {
     
     const {
       away,
-      home
+      home,
+      status
     } = this.props.game
     const {
       min,
@@ -229,14 +229,14 @@ export default class Scoreboard extends React.Component {
       <Wrapper quarter={this.state.quarter}>
         <div className='teams'>
           <div className='team'>
-            <Helmet color1={home.color} />
+            <NewHelmet helmHeight={120} color={home.color} />
             <div className='school-info'>
               {/* <h2>{home.school}</h2> */}
               <h2>{home.mascot}</h2>
               {!(this.props.game.status === 'upcoming') && 
               (<div className='school-score'>
                 <h3 className='score'>{hScore.toString()}</h3>
-                { this.teamBall() === 'home' &&
+                { (status === 'inProgress' && this.teamBall() === 'away') &&
                   <img className='poss' src={football} alt="football"/>}
                 </div>)
               }
@@ -244,10 +244,13 @@ export default class Scoreboard extends React.Component {
           </div>
 
           <div className='clockContainer'>
-            {this.props.game.status === 'inProgress' && (
+            {!(status === 'upcoming') && (
               <>
+                {status === 'inProgress' &&
+                <h1 id='title'>Time Remaining:</h1>}
+                {status === 'FINAL' &&
+                  <h1 id='title'>FINAL</h1>}
 
-                <h1 id='title'>Time Remaining:</h1>
 
                 <div className='clock'>
                   <div className='numbers'>
@@ -309,7 +312,8 @@ export default class Scoreboard extends React.Component {
             {this.props.game.status === 'upcoming' && (
               <div>
                 <h1 id='title'>Kickoff at:</h1>
-                <h1 className='clock'>{this.props.game.start_time}</h1>
+                <h1 className='clock'>{this.props.game.start_time.substring(0, this.props.game.start_time.length-2)}<span>{this.props.game.start_time.substring(this.props.game.start_time.length-2)}</span></h1> 
+               
               </div>
             )}
 
@@ -320,15 +324,17 @@ export default class Scoreboard extends React.Component {
             <div className='school-info'>
               {/* <h2>{away.school}</h2> */}
               <h2>{away.mascot}</h2>
-              {!(this.props.game.status === 'upcoming') && (
+              {!(status === 'upcoming') && (
                 (<div className='school-score'>
-                 { this.teamBall() === 'away' &&
+
+                 { (status === 'inProgress' && this.teamBall() === 'away') &&
                 <img className='poss' src={football} alt="football"/>}
+
                 <h3 className='score'>{aScore.toString()}</h3>
                 </div>)
               )}
             </div>
-            <Helmet rightHelmet={true} color1={away.color} />
+            <NewHelmet helmHeight={120} flip={true} color={away.color} />
           </div>
         </div>
       </Wrapper>

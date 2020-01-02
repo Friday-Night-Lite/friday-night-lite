@@ -15,7 +15,7 @@ const Wrapper = styled.div`
     font-size: 1.25rem;
     font-family: sans-serif;
     font-weight: 600;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid #999999;
     color: black;
   }
   span {
@@ -36,15 +36,16 @@ const Wrapper = styled.div`
 .home, .away {
     font-family: sans-serif;
     color: #999999;
+    width: 110px;
+    padding: 2px;
 }
 .home {
-    margin-right: 50px;
+  border-right: 1px solid #999999;
   }
 .line {
   height: 100%;
   border: solid #999999;
-}
-`
+}`
 
 export default class GameLeaders extends React.Component {
   state = {
@@ -84,7 +85,7 @@ export default class GameLeaders extends React.Component {
     }
     let aPassLeader = {
       name: '---',
-      number: '00',
+      number: '0',
       position: '--',
       yards: '---'
     }
@@ -113,7 +114,7 @@ export default class GameLeaders extends React.Component {
     }
     let hPassLeader = {
       name: '---',
-      number: '00',
+      number: '0',
       position: '--',
       yards: '---'
     }
@@ -142,7 +143,7 @@ export default class GameLeaders extends React.Component {
     }
     let aRushLeader = {
       name: '---',
-      number: '00',
+      number: '0',
       position: '--',
       yards: '---'
     }
@@ -171,7 +172,7 @@ export default class GameLeaders extends React.Component {
     }
     let hRushLeader = {
       name: '---',
-      number: '00',
+      number: '0',
       position: '--',
       yards: '---'
     }
@@ -198,7 +199,7 @@ export default class GameLeaders extends React.Component {
     }
     let aRecLeader = {
       name: '---',
-      number: '00',
+      number: '0',
       position: '--',
       yards: '---'
     }
@@ -225,7 +226,7 @@ export default class GameLeaders extends React.Component {
     }
     let hRecLeader = {
       name: '---',
-      number: '00',
+      number: '0',
       position: '--',
       yards: '---'
     }
@@ -319,8 +320,8 @@ export default class GameLeaders extends React.Component {
                   <span>{hRush.name}</span>
                 </p>
                 <p>{hRush.yards} yards</p>
-                {(hPass.tds > 0) &&
-                <p>{hPass.tds} TD</p>}
+                {(hRush.tds > 0) &&
+                <p>{hRush.tds} TD</p>}
                 <p>
                   {hRush.position} #{hRush.number}
                 </p>
@@ -360,8 +361,8 @@ export default class GameLeaders extends React.Component {
                   <span>{hRec.name}</span>
                 </p>
                 <p>{hRec.yards} yards</p>
-                {(hPass.tds > 0) &&
-                <p>{hPass.tds} TD</p>}
+                {(hRec.tds > 0) &&
+                <p>{hRec.tds} TD</p>}
                 <p>
                   {hRec.position} #{hRec.number}
                 </p>
@@ -381,7 +382,7 @@ export default class GameLeaders extends React.Component {
           </div>
           <Jersey
             color={this.props.game.away.color}
-            number="7"
+            number={aRec.number}
             flip={true}
             school={this.props.game.away.school}
           />

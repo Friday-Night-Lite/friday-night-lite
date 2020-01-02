@@ -3,26 +3,27 @@ import styled from 'styled-components'
 import Line from './Line'
 import referee from '../assets/referee33.gif'
 import referee2 from '../assets/referee24.gif'
+import referee3 from '../assets/referee29.gif'
 
 const Wrapper = styled.div`
   z-index: 1;
+  position: absolute;
   height: 75%;
   width: 605px;
   padding-bottom: 50px;
-  margin: 0 55px;
+  margin: 0 65px;
   display: flex;
   align-items: flex-end;
   box-sizing: border-box;
   display: flex;
   .start {
-      height: 100%;
+    height: 100%;
   }
   .start-dot {
     height: 11px;
     width: 11px;
-    margin-right: -10px;
+    margin: 0 -5.5px 0 -3.5px;
     min-width: 10px;
-    /* border: solid 1px black; */
     border-radius: 50%;
     background: black;
     box-sizing: border-box;
@@ -49,7 +50,12 @@ const Wrapper = styled.div`
   }
   .referee {
     position: absolute;
-    right: -45px;
+    right: -110px;
+    top: 80px;
+  }
+  .safety-ref {
+    position: absolute;
+    left: -100px;
     top: 80px;
   }
 `
@@ -60,26 +66,35 @@ export default class Animation extends React.Component {
 
 
     render() {
-   
+  
         return (
-            <Wrapper>
-                <div className='start' style={{width: `${this.props.margins.start}%`}}/>
-                {/* <div className='start-dot' /> */}
-                {this.props.game.drivesArr[this.props.selectedDrive - 1].plays.map((line, i) => (
-                    <Line index={i} drive={this.props.game.drivesArr[this.props.selectedDrive - 1]} key={i} line={line}/>
-                ))}
-                {/* <div className="arrow-container">
-                <div className="arrow-line"/>
-                <div className="arrow"/>
-                </div> */}
+          <Wrapper>
+            {this.props.driveResult() === 'SAFETY' && (
+              <img className='safety-ref' src={referee3} alt='' height='60' />
+            )}
+            <div
+              className='start'
+              style={{ width: `${this.props.margins}%` }}
+            />
+            {this.props.game.drivesArr[this.props.selectedDrive].plays.map(
+              (play, i) => { return <Line
+                  index={i}
+                  drive={this.props.game.drivesArr[this.props.selectedDrive]}
+                  key={i}
+                  line={play}
+                />
+            })}
+          
 
-                {(this.props.driveResult() === 'touchdown' || this.props.driveResult() === 'Successful') &&
-                <img className='referee' src={referee} alt="" height='60'/>}
+            {(this.props.driveResult() === 'TOUCHDOWN' ||
+              this.props.driveResult() === 'SUCCESSFUL') && (
+              <img className='referee' src={referee} alt='' height='60' />
+            )}
 
-                {(this.props.driveResult() === 'Failed') &&
-                <img className='referee2' src={referee} alt="" height='60'/>}
-
-            </Wrapper>
+            {this.props.driveResult() === 'FAILED' && (
+              <img className='referee' src={referee2} alt='' height='60' />
+            )}
+          </Wrapper>
         )
     }
 }

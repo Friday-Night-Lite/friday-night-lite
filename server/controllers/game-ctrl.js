@@ -1,5 +1,4 @@
 const { GameModel } = require('../models/game-model')
-const DriveModel = require('../models/drive-model')
 
 module.exports = {
   getGames: async (req, res) => {
@@ -13,7 +12,10 @@ module.exports = {
         'away.color': 1,
         'away.school': 1,
         'away.mascot': 1,
-        start_time: 1
+        start_time: 1,
+        score: 1,
+        city: 1,
+        state: 1
       },
 
       (err, games) => {
@@ -95,7 +97,6 @@ module.exports = {
   },
   updateDrives: (req, res) => {
     const { id, drive } = req.body
-    console.log(drive)
     
     GameModel.findOne({ _id: id }, async (err, gameRes) => {
       if (err) {

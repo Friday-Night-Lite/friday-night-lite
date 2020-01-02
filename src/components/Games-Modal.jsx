@@ -1,9 +1,9 @@
 import React from "react";
 import axios from "axios";
-
-import GamePreview from "./GamePreview";
-
 import styled from "styled-components";
+import GamePreview from "./GamePreview";
+// import Scoreboard from './Scoreboard'
+
 
 const ModalBackdrop = styled.div`
    background:  rgba(000, 000, 000, 0.80);
@@ -54,7 +54,6 @@ export default class Modal extends React.Component {
       <ModalBackdrop
       id='grey-back'
         onClick={this.props.closeMenu}
-       
       >
         <div className="modal-outer"  ref={element => {
           this.props.assignElement(element);

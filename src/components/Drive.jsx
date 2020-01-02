@@ -40,11 +40,11 @@ export default class Drive extends React.Component {
   addDriveYards = () => {
     let driveYards = [0]
     this.props.drive.plays.forEach(play => {
-      if (play.gainLoss === 'loss'){
+      if (play.gainLoss === 'loss') {
         driveYards.push(-(+play.playDist))
-    } else if (play.gainLoss){
+      } else if (play.gainLoss) {
         driveYards.push(+play.playDist)
-    }
+      }
     })
     let total = driveYards.reduce((acc, yards) => {
       return acc + yards
@@ -53,36 +53,45 @@ export default class Drive extends React.Component {
   }
 
   driveResult = () => {
-    if(this.props.drive.plays.length){
+    if (this.props.drive.plays.length) {
 
-      if(this.props.drive.plays.length > 1){
-    if (this.props.drive.plays[this.props.drive.plays.length-2].result === 'touchdown'){
-      return 'touchdown'
+      if (this.props.drive.plays.length > 1) {
+        if (this.props.drive.plays[this.props.drive.plays.length - 2].result === 'touchdown') {
+          return 'TOUCHDOWN'
+        }
+      }
+
+      let result = this.props.drive.plays[this.props.drive.plays.length - 1].result
+
+      if (
+        result === 'returned' ||
+        result === 'touchback' ||
+        result === 'fair catch'
+      ) {
+        return 'PUNT'
+      }
+
+
+      if (result === '1st' || result === '2nd' || result === '3rd' || result === '4th') {
+        return 'in progress'
+      }
+
+      return result.toUpperCase()
     }
-    }
-
-    let result = this.props.drive.plays[this.props.drive.plays.length-1].result
-
-
-    if (result === '1st' || result === '2nd' || result === '3rd' || result === '4th'){
-      return 'in progress'
-    }
-    
-    return result}
   }
 
   render() {
     const { drive } = this.props
     return (
       <Wrapper selected={this.props.selectedDrive}>
-        <p 
+        <p
           id={drive.driveCount}
           onClick={() => this.props.setCurrentDrive(drive.driveCount)}
           className={this.props.selectedDrive === drive.driveCount ? 'drive-title selected-drive' : 'drive-title drive'} >
           Drive {drive.driveCount}: {' '}
           {this.props.teamObj.mascot}  ({drive.plays.length} {(drive.plays.length === 1 ? 'play' : 'plays')}, {`${this.addDriveYards()}`} yards){' '}
-          <span>{this.driveResult()}</span>
-            </p>
+          <span>{this.driveResult()} {(this.driveResult() === 'SUCCESSFUL' || this.driveResult() === 'FAILED') && 'FG'}</span>
+        </p>
         {this.props.selectedDrive === drive.driveCount && (
           <div className='plays'>
             {drive.plays.map((play, i) => (
