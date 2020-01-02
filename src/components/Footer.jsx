@@ -9,6 +9,9 @@ align-items: center;
 justify-content: center;
 height: 100px;
 background: #262626;
+position: sticky;
+width: 100%;
+bottom: -100px;
 .container {
     width: 1200px;
     display: flex;

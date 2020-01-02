@@ -136,6 +136,7 @@ export default class Scoreboard extends React.Component {
     if (this.props.game !== prevProps.game) {
       this.setState({ gameObj: this.props.game }, () => {
         this.calculateScore()
+        this.props.findTime()
       })
     }
   }
@@ -236,7 +237,7 @@ export default class Scoreboard extends React.Component {
               {!(this.props.game.status === 'upcoming') && 
               (<div className='school-score'>
                 <h3 className='score'>{hScore.toString()}</h3>
-                { (status === 'inProgress' && this.teamBall() === 'away') &&
+                { (status === 'inProgress' && this.teamBall() === 'home') &&
                   <img className='poss' src={football} alt="football"/>}
                 </div>)
               }

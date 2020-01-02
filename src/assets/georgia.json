@@ -1,0 +1,2172 @@
+{
+    "_id": {
+        "$oid": "5e0c2379c9f92d7d33644d62"
+    },
+    "away": {
+        "school": "BAY",
+        "color": "#003015",
+        "mascot": "Bears",
+        "players": [
+            {
+                "last_name": "B. Bass",
+                "player_number": {
+                    "$numberInt": "18"
+                },
+                "position": "QB"
+            },
+            {
+                "last_name": "G. Bohanon",
+                "player_number": {
+                    "$numberInt": "11"
+                },
+                "position": "QB"
+            },
+            {
+                "last_name": "B. Brewer",
+                "player_number": {
+                    "$numberInt": "16"
+                },
+                "position": "QB"
+            },
+            {
+                "last_name": "C. Brewer",
+                "player_number": {
+                    "$numberInt": "12"
+                },
+                "position": "QB",
+                "passYards": [
+                    {
+                        "$numberInt": "2"
+                    },
+                    {
+                        "$numberInt": "4"
+                    },
+                    {
+                        "$numberInt": "0"
+                    },
+                    {
+                        "$numberInt": "11"
+                    },
+                    {
+                        "$numberInt": "0"
+                    },
+                    {
+                        "$numberInt": "8"
+                    }
+                ],
+                "rushYards": [
+                    {
+                        "$numberInt": "-4"
+                    },
+                    {
+                        "$numberInt": "2"
+                    }
+                ],
+                "recYards": [
+                    {
+                        "$numberInt": "0"
+                    }
+                ]
+            },
+            {
+                "last_name": "G. McGuire",
+                "player_number": {
+                    "$numberInt": "17"
+                },
+                "position": "QB"
+            },
+            {
+                "last_name": "J. Zeno",
+                "player_number": {
+                    "$numberInt": "14"
+                },
+                "position": "QB"
+            },
+            {
+                "last_name": "J. Clarke",
+                "player_number": {
+                    "$numberInt": "31"
+                },
+                "position": "RB"
+            },
+            {
+                "last_name": "D. Dixon",
+                "player_number": {
+                    "$numberInt": "44"
+                },
+                "position": "RB"
+            },
+            {
+                "last_name": "T. Ebner",
+                "player_number": {
+                    "$numberInt": "25"
+                },
+                "position": "RB",
+                "recYards": [
+                    {
+                        "$numberInt": "4"
+                    }
+                ],
+                "rushYards": [
+                    {
+                        "$numberInt": "1"
+                    }
+                ]
+            },
+            {
+                "last_name": "J. Hasty",
+                "player_number": {
+                    "$numberInt": "6"
+                },
+                "position": "RB",
+                "rushYards": [
+                    {
+                        "$numberInt": "3"
+                    }
+                ]
+            },
+            {
+                "last_name": "Q. Jones",
+                "player_number": {
+                    "$numberInt": "27"
+                },
+                "position": "RB"
+            },
+            {
+                "last_name": "J. Lovett",
+                "player_number": {
+                    "$numberInt": "7"
+                },
+                "position": "RB",
+                "rushYards": [
+                    {
+                        "$numberInt": "9"
+                    },
+                    {
+                        "$numberInt": "3"
+                    },
+                    {
+                        "$numberInt": "6"
+                    }
+                ],
+                "recYards": [
+                    {
+                        "$numberInt": "2"
+                    }
+                ]
+            },
+            {
+                "last_name": "A. Smith",
+                "player_number": {
+                    "$numberInt": "28"
+                },
+                "position": "RB"
+            },
+            {
+                "last_name": "S. Wetzel",
+                "player_number": {
+                    "$numberInt": "32"
+                },
+                "position": "RB"
+            },
+            {
+                "last_name": "J. White",
+                "player_number": {
+                    "$numberInt": "33"
+                },
+                "position": "RB"
+            },
+            {
+                "last_name": "C. Williams",
+                "player_number": {
+                    "$numberInt": "20"
+                },
+                "position": "RB"
+            },
+            {
+                "last_name": "K. Bullard",
+                "player_number": {
+                    "$numberInt": "38"
+                },
+                "position": "FB"
+            },
+            {
+                "last_name": "J. Atkinson",
+                "player_number": {
+                    "$numberInt": "16"
+                },
+                "position": "WR"
+            },
+            {
+                "last_name": "D. Baucum",
+                "player_number": {
+                    "$numberInt": "29"
+                },
+                "position": "WR"
+            },
+            {
+                "last_name": "J. Ellis",
+                "player_number": {
+                    "$numberInt": "84"
+                },
+                "position": "WR"
+            },
+            {
+                "last_name": "J. Fleeks",
+                "player_number": {
+                    "$numberInt": "21"
+                },
+                "position": "WR"
+            },
+            {
+                "last_name": "J. Gleeson",
+                "player_number": {
+                    "$numberInt": "80"
+                },
+                "position": "WR"
+            },
+            {
+                "last_name": "G. Holmes",
+                "player_number": {
+                    "$numberInt": "18"
+                },
+                "position": "WR"
+            },
+            {
+                "last_name": "M. Jones",
+                "player_number": {
+                    "$numberInt": "84"
+                },
+                "position": "WR"
+            },
+            {
+                "last_name": "D. Mims",
+                "player_number": {
+                    "$numberInt": "5"
+                },
+                "position": "WR",
+                "recYards": [
+                    {
+                        "$numberInt": "8"
+                    }
+                ]
+            },
+            {
+                "last_name": "T. Mitchell",
+                "player_number": {
+                    "$numberInt": "15"
+                },
+                "position": "WR"
+            },
+            {
+                "last_name": "R. Morrison",
+                "player_number": {
+                    "$numberInt": "83"
+                },
+                "position": "WR"
+            },
+            {
+                "last_name": "B. Perdue",
+                "player_number": {
+                    "$numberInt": "34"
+                },
+                "position": "WR"
+            },
+            {
+                "last_name": "K. Peterson",
+                "player_number": {
+                    "$numberInt": "82"
+                },
+                "position": "WR"
+            },
+            {
+                "last_name": "C. Platt",
+                "player_number": {
+                    "$numberInt": "14"
+                },
+                "position": "WR"
+            },
+            {
+                "last_name": "P. Powell",
+                "player_number": {
+                    "$numberInt": "17"
+                },
+                "position": "WR"
+            },
+            {
+                "last_name": "RJ Sneed",
+                "player_number": {
+                    "$numberInt": "13"
+                },
+                "position": "WR",
+                "recYards": [
+                    {
+                        "$numberInt": "0"
+                    }
+                ]
+            },
+            {
+                "last_name": "Y. Terry",
+                "player_number": {
+                    "$numberInt": "19"
+                },
+                "position": "WR"
+            },
+            {
+                "last_name": "T. Thornton",
+                "player_number": {
+                    "$numberInt": "81"
+                },
+                "position": "WR",
+                "recYards": [
+                    {
+                        "$numberInt": "11"
+                    }
+                ]
+            },
+            {
+                "last_name": "K. White",
+                "player_number": {
+                    "$numberInt": "40"
+                },
+                "position": "WR"
+            },
+            {
+                "last_name": "L. Compton",
+                "player_number": {
+                    "$numberInt": "89"
+                },
+                "position": "TE"
+            },
+            {
+                "last_name": "C. George",
+                "player_number": {
+                    "$numberInt": "37"
+                },
+                "position": "TE"
+            },
+            {
+                "last_name": "T. Henderson",
+                "player_number": {
+                    "$numberInt": "82"
+                },
+                "position": "TE"
+            },
+            {
+                "last_name": "C. Henle",
+                "player_number": {
+                    "$numberInt": "87"
+                },
+                "position": "TE"
+            },
+            {
+                "last_name": "R. Saulin",
+                "player_number": {
+                    "$numberInt": "91"
+                },
+                "position": "TE"
+            },
+            {
+                "last_name": "B. Sims",
+                "player_number": {
+                    "$numberInt": "86"
+                },
+                "position": "TE"
+            },
+            {
+                "last_name": "S. Snyder",
+                "player_number": {
+                    "$numberInt": "85"
+                },
+                "position": "TE"
+            },
+            {
+                "last_name": "B. Bedier",
+                "player_number": {
+                    "$numberInt": "56"
+                },
+                "position": "OL"
+            },
+            {
+                "last_name": "D. DiVall",
+                "player_number": {
+                    "$numberInt": "73"
+                },
+                "position": "OL"
+            },
+            {
+                "last_name": "E. Ellis",
+                "player_number": {
+                    "$numberInt": "75"
+                },
+                "position": "OL"
+            },
+            {
+                "last_name": "J. Fruhmorgen",
+                "player_number": {
+                    "$numberInt": "63"
+                },
+                "position": "OL"
+            },
+            {
+                "last_name": "C. Galvin",
+                "player_number": {
+                    "$numberInt": "76"
+                },
+                "position": "OL"
+            },
+            {
+                "last_name": "B. George",
+                "player_number": {
+                    "$numberInt": "65"
+                },
+                "position": "OL"
+            },
+            {
+                "last_name": "C. Johnston",
+                "player_number": {
+                    "$numberInt": "66"
+                },
+                "position": "OL"
+            },
+            {
+                "last_name": "K. Keith",
+                "player_number": {
+                    "$numberInt": "61"
+                },
+                "position": "OL"
+            },
+            {
+                "last_name": "J. Kimble",
+                "player_number": {
+                    "$numberInt": "70"
+                },
+                "position": "OL"
+            },
+            {
+                "last_name": "H. Klinge III",
+                "player_number": {
+                    "$numberInt": "78"
+                },
+                "position": "OL"
+            },
+            {
+                "last_name": "P. Matavao-Poialii",
+                "player_number": {
+                    "$numberInt": "50"
+                },
+                "position": "OL"
+            },
+            {
+                "last_name": "J. Moore",
+                "player_number": {
+                    "$numberInt": "77"
+                },
+                "position": "OL"
+            },
+            {
+                "last_name": "X. Newman",
+                "player_number": {
+                    "$numberInt": "55"
+                },
+                "position": "OL"
+            },
+            {
+                "last_name": "C. Phillips",
+                "player_number": {
+                    "$numberInt": "79"
+                },
+                "position": "OL"
+            },
+            {
+                "last_name": "P. Pines",
+                "player_number": {
+                    "$numberInt": "74"
+                },
+                "position": "OL"
+            },
+            {
+                "last_name": "T. Smith",
+                "player_number": {
+                    "$numberInt": "58"
+                },
+                "position": "OL"
+            },
+            {
+                "last_name": "S. Tecklenburg",
+                "player_number": {
+                    "$numberInt": "52"
+                },
+                "position": "OL"
+            },
+            {
+                "last_name": "J. Threet",
+                "player_number": {
+                    "$numberInt": "71"
+                },
+                "position": "OL"
+            },
+            {
+                "last_name": "J. Valentin",
+                "player_number": {
+                    "$numberInt": "57"
+                },
+                "position": "OL"
+            },
+            {
+                "last_name": "J. Grant",
+                "player_number": {
+                    "$numberInt": "98"
+                },
+                "position": "PK"
+            },
+            {
+                "last_name": "J. Mayers",
+                "player_number": {
+                    "$numberInt": "95"
+                },
+                "position": "PK"
+            },
+            {
+                "last_name": "N. Rauschenberg",
+                "player_number": {
+                    "$numberInt": "99"
+                },
+                "position": "PK"
+            },
+            {
+                "last_name": "J. Sedwick",
+                "player_number": {
+                    "$numberInt": "89"
+                },
+                "position": "PK"
+            },
+            {
+                "last_name": "I. Power",
+                "player_number": {
+                    "$numberInt": "43"
+                },
+                "position": "P"
+            },
+            {
+                "last_name": "R. Matiscik",
+                "player_number": {
+                    "$numberInt": "46"
+                },
+                "position": "LS"
+            },
+            {
+                "last_name": "T. Rodoni",
+                "player_number": {
+                    "$numberInt": "67"
+                },
+                "position": "LS"
+            }
+        ]
+    },
+    "status": "inProgress",
+    "home": {
+        "school": "UGA",
+        "color": "#ba0c2f",
+        "mascot": "Bulldogs",
+        "players": [
+            {
+                "last_name": "S. Bennett",
+                "player_number": {
+                    "$numberInt": "13"
+                },
+                "position": "QB"
+            },
+            {
+                "last_name": "J. Fromm",
+                "player_number": {
+                    "$numberInt": "11"
+                },
+                "position": "QB",
+                "passYards": [
+                    {
+                        "$numberInt": "7"
+                    },
+                    {
+                        "$numberInt": "4"
+                    },
+                    {
+                        "$numberInt": "46"
+                    }
+                ],
+                "rushYards": [
+                    {
+                        "$numberInt": "-19"
+                    }
+                ]
+            },
+            {
+                "last_name": "D. Mathis",
+                "player_number": {
+                    "$numberInt": "2"
+                },
+                "position": "QB"
+            },
+            {
+                "last_name": "N. Priestley",
+                "player_number": {
+                    "$numberInt": "9"
+                },
+                "position": "QB"
+            },
+            {
+                "last_name": "J. Seter",
+                "player_number": {
+                    "$numberInt": "16"
+                },
+                "position": "QB"
+            },
+            {
+                "last_name": "J. Sutherland",
+                "player_number": {
+                    "$numberInt": "22"
+                },
+                "position": "QB"
+            },
+            {
+                "last_name": "S. Clark",
+                "player_number": {
+                    "$numberInt": "20"
+                },
+                "position": "RB"
+            },
+            {
+                "last_name": "J. Cook",
+                "player_number": {
+                    "$numberInt": "4"
+                },
+                "position": "RB",
+                "rushYards": [
+                    {
+                        "$numberInt": "-1"
+                    },
+                    {
+                        "$numberInt": "9"
+                    }
+                ]
+            },
+            {
+                "last_name": "I. Donald-McIntyre",
+                "player_number": {
+                    "$numberInt": "33"
+                },
+                "position": "RB"
+            },
+            {
+                "last_name": "B. Herrien",
+                "player_number": {
+                    "$numberInt": "35"
+                },
+                "position": "RB"
+            },
+            {
+                "last_name": "P. Hudson",
+                "player_number": {
+                    "$numberInt": "24"
+                },
+                "position": "RB"
+            },
+            {
+                "last_name": "D. Jackson",
+                "player_number": {
+                    "$numberInt": "29"
+                },
+                "position": "RB"
+            },
+            {
+                "last_name": "G. Jones",
+                "player_number": {
+                    "$numberInt": "36"
+                },
+                "position": "RB"
+            },
+            {
+                "last_name": "KJ McCoy",
+                "player_number": {
+                    "$numberInt": "39"
+                },
+                "position": "RB"
+            },
+            {
+                "last_name": "K. McIntosh",
+                "player_number": {
+                    "$numberInt": "6"
+                },
+                "position": "RB"
+            },
+            {
+                "last_name": "A. Summey",
+                "player_number": {
+                    "$numberInt": "28"
+                },
+                "position": "RB"
+            },
+            {
+                "last_name": "D. Swift",
+                "player_number": {
+                    "$numberInt": "7"
+                },
+                "position": "RB",
+                "rushYards": [
+                    {
+                        "$numberInt": "2"
+                    }
+                ]
+            },
+            {
+                "last_name": "Z. White",
+                "player_number": {
+                    "$numberInt": "3"
+                },
+                "position": "RB",
+                "rushYards": [
+                    {
+                        "$numberInt": "0"
+                    },
+                    {
+                        "$numberInt": "4"
+                    },
+                    {
+                        "$numberInt": "0"
+                    },
+                    {
+                        "$numberInt": "6"
+                    }
+                ]
+            },
+            {
+                "last_name": "D. Blaylock",
+                "player_number": {
+                    "$numberInt": "8"
+                },
+                "position": "WR"
+            },
+            {
+                "last_name": "T. Blount",
+                "player_number": {
+                    "$numberInt": "14"
+                },
+                "position": "WR"
+            },
+            {
+                "last_name": "P. Bond",
+                "player_number": {
+                    "$numberInt": "37"
+                },
+                "position": "WR"
+            },
+            {
+                "last_name": "P. Burke",
+                "player_number": {
+                    "$numberInt": "26"
+                },
+                "position": "WR"
+            },
+            {
+                "last_name": "T. Bush",
+                "player_number": {
+                    "$numberInt": "12"
+                },
+                "position": "WR"
+            },
+            {
+                "last_name": "L. Cager",
+                "player_number": {
+                    "$numberInt": "15"
+                },
+                "position": "WR"
+            },
+            {
+                "last_name": "W. Erdman",
+                "player_number": {
+                    "$numberInt": "23"
+                },
+                "position": "WR"
+            },
+            {
+                "last_name": "K. Jackson",
+                "player_number": {
+                    "$numberInt": "10"
+                },
+                "position": "WR"
+            },
+            {
+                "last_name": "T. James",
+                "player_number": {
+                    "$numberInt": "32"
+                },
+                "position": "WR"
+            },
+            {
+                "last_name": "J. Johnson",
+                "player_number": {
+                    "$numberInt": "81"
+                },
+                "position": "WR"
+            },
+            {
+                "last_name": "M. Landers",
+                "player_number": {
+                    "$numberInt": "5"
+                },
+                "position": "WR"
+            },
+            {
+                "last_name": "C. Moore",
+                "player_number": {
+                    "$numberInt": "85"
+                },
+                "position": "WR"
+            },
+            {
+                "last_name": "J. Moran",
+                "player_number": {
+                    "$numberInt": "17"
+                },
+                "position": "WR"
+            },
+            {
+                "last_name": "G. Pickens",
+                "player_number": "1",
+                "position": "WR",
+                "recYards": [
+                    {
+                        "$numberInt": "7"
+                    },
+                    {
+                        "$numberInt": "4"
+                    },
+                    {
+                        "$numberInt": "46"
+                    }
+                ]
+            },
+            {
+                "last_name": "D. Robertson",
+                "player_number": {
+                    "$numberInt": "16"
+                },
+                "position": "WR"
+            },
+            {
+                "last_name": "T. Simmons",
+                "player_number": {
+                    "$numberInt": "87"
+                },
+                "position": "WR",
+                "rushYards": [
+                    {
+                        "$numberInt": "5"
+                    }
+                ]
+            },
+            {
+                "last_name": "M. Tongue",
+                "player_number": {
+                    "$numberInt": "19"
+                },
+                "position": "WR"
+            },
+            {
+                "last_name": "R. Tulowitzky",
+                "player_number": {
+                    "$numberInt": "31"
+                },
+                "position": "WR"
+            },
+            {
+                "last_name": "J. FitzPatrick",
+                "player_number": {
+                    "$numberInt": "86"
+                },
+                "position": "TE"
+            },
+            {
+                "last_name": "J. Freeland",
+                "player_number": {
+                    "$numberInt": "48"
+                },
+                "position": "TE"
+            },
+            {
+                "last_name": "R. Goede",
+                "player_number": {
+                    "$numberInt": "88"
+                },
+                "position": "TE"
+            },
+            {
+                "last_name": "P. Mercer",
+                "player_number": {
+                    "$numberInt": "44"
+                },
+                "position": "TE"
+            },
+            {
+                "last_name": "B. Seither",
+                "player_number": {
+                    "$numberInt": "18"
+                },
+                "position": "TE"
+            },
+            {
+                "last_name": "M. Werntz",
+                "player_number": {
+                    "$numberInt": "42"
+                },
+                "position": "TE"
+            },
+            {
+                "last_name": "C. Woerner",
+                "player_number": {
+                    "$numberInt": "89"
+                },
+                "position": "TE"
+            },
+            {
+                "last_name": "E. Wolf",
+                "player_number": {
+                    "$numberInt": "17"
+                },
+                "position": "TE"
+            },
+            {
+                "last_name": "K. Wyatt",
+                "player_number": {
+                    "$numberInt": "82"
+                },
+                "position": "TE"
+            },
+            {
+                "last_name": "B. Bunkley",
+                "player_number": {
+                    "$numberInt": "63"
+                },
+                "position": "OL"
+            },
+            {
+                "last_name": "B. Cleveland",
+                "player_number": {
+                    "$numberInt": "74"
+                },
+                "position": "OL"
+            },
+            {
+                "last_name": "W. Ericson",
+                "player_number": {
+                    "$numberInt": "50"
+                },
+                "position": "OL"
+            },
+            {
+                "last_name": "D. Gothard",
+                "player_number": {
+                    "$numberInt": "57"
+                },
+                "position": "OL"
+            },
+            {
+                "last_name": "C. Harof",
+                "player_number": {
+                    "$numberInt": "43"
+                },
+                "position": "OL"
+            },
+            {
+                "last_name": "D. Hayes",
+                "player_number": {
+                    "$numberInt": "78"
+                },
+                "position": "OL"
+            },
+            {
+                "last_name": "T. Hill",
+                "player_number": {
+                    "$numberInt": "55"
+                },
+                "position": "OL"
+            },
+            {
+                "last_name": "C. Jones",
+                "player_number": {
+                    "$numberInt": "67"
+                },
+                "position": "OL"
+            },
+            {
+                "last_name": "S. Kindley",
+                "player_number": {
+                    "$numberInt": "66"
+                },
+                "position": "OL"
+            },
+            {
+                "last_name": "W. McClendon",
+                "player_number": {
+                    "$numberInt": "70"
+                },
+                "position": "OL"
+            },
+            {
+                "last_name": "K. Pyrz",
+                "player_number": {
+                    "$numberInt": "49"
+                },
+                "position": "OL"
+            },
+            {
+                "last_name": "H. Rubin",
+                "player_number": {
+                    "$numberInt": "58"
+                },
+                "position": "OL"
+            },
+            {
+                "last_name": "J. Salyer",
+                "player_number": {
+                    "$numberInt": "69"
+                },
+                "position": "OL"
+            },
+            {
+                "last_name": "J. Shaffer",
+                "player_number": {
+                    "$numberInt": "54"
+                },
+                "position": "OL"
+            },
+            {
+                "last_name": "A. Thomas",
+                "player_number": {
+                    "$numberInt": "71"
+                },
+                "position": "OL"
+            },
+            {
+                "last_name": "X. Truss",
+                "player_number": {
+                    "$numberInt": "73"
+                },
+                "position": "OL"
+            },
+            {
+                "last_name": "D. Vann",
+                "player_number": {
+                    "$numberInt": "64"
+                },
+                "position": "OL"
+            },
+            {
+                "last_name": "JC Vega",
+                "player_number": {
+                    "$numberInt": "48"
+                },
+                "position": "OL"
+            },
+            {
+                "last_name": "B. Watson",
+                "player_number": {
+                    "$numberInt": "61"
+                },
+                "position": "OL"
+            },
+            {
+                "last_name": "C. Webb",
+                "player_number": {
+                    "$numberInt": "60"
+                },
+                "position": "OL"
+            },
+            {
+                "last_name": "I. Wilson",
+                "player_number": {
+                    "$numberInt": "79"
+                },
+                "position": "OL"
+            },
+            {
+                "last_name": "O. Condon",
+                "player_number": {
+                    "$numberInt": "75"
+                },
+                "position": "OT"
+            },
+            {
+                "last_name": "C. Mays",
+                "player_number": {
+                    "$numberInt": "77"
+                },
+                "position": "OT"
+            },
+            {
+                "last_name": "R. Blankenship",
+                "player_number": {
+                    "$numberInt": "98"
+                },
+                "position": "PK"
+            },
+            {
+                "last_name": "B. Buce",
+                "player_number": {
+                    "$numberInt": "97"
+                },
+                "position": "PK"
+            },
+            {
+                "last_name": "J. Camarda",
+                "player_number": {
+                    "$numberInt": "90"
+                },
+                "position": "PK"
+            },
+            {
+                "last_name": "N. Chumley",
+                "player_number": {
+                    "$numberInt": "95"
+                },
+                "position": "PK"
+            },
+            {
+                "last_name": "J. Podlesny",
+                "player_number": {
+                    "$numberInt": "96"
+                },
+                "position": "PK"
+            },
+            {
+                "last_name": "B. Rubright",
+                "player_number": {
+                    "$numberInt": "93"
+                },
+                "position": "P"
+            },
+            {
+                "last_name": "W. Mote",
+                "player_number": {
+                    "$numberInt": "56"
+                },
+                "position": "LS"
+            },
+            {
+                "last_name": "S. Nixon",
+                "player_number": {
+                    "$numberInt": "59"
+                },
+                "position": "LS"
+            },
+            {
+                "last_name": "P. Walker",
+                "player_number": {
+                    "$numberInt": "47"
+                },
+                "position": "LS"
+            }
+        ]
+    },
+    "city": "New Orleans",
+    "state": "LA",
+    "start_time": "6:45 PM",
+    "date": "2019-10-07T05:12:24.000Z",
+    "score": {
+        "home": {
+            "first": [
+                {
+                    "$numberInt": "0"
+                },
+                {
+                    "$numberInt": "0"
+                },
+                {
+                    "$numberInt": "3"
+                }
+            ],
+            "second": [
+                {
+                    "$numberInt": "0"
+                }
+            ],
+            "third": [
+                {
+                    "$numberInt": "0"
+                }
+            ],
+            "fourth": [
+                {
+                    "$numberInt": "0"
+                }
+            ]
+        },
+        "away": {
+            "first": [
+                {
+                    "$numberInt": "0"
+                }
+            ],
+            "second": [
+                {
+                    "$numberInt": "0"
+                }
+            ],
+            "third": [
+                {
+                    "$numberInt": "0"
+                }
+            ],
+            "fourth": [
+                {
+                    "$numberInt": "0"
+                }
+            ]
+        }
+    },
+    "drivesArr": [
+        {
+            "plays": [
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "Pass",
+                    "gainLoss": "gain",
+                    "playDist": "7",
+                    "player1": "J. Fromm",
+                    "player2": "G. Pickens",
+                    "kicker": "",
+                    "result": "2nd",
+                    "afterTD": "",
+                    "min": "14",
+                    "sec": "20",
+                    "quarter": "first",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "1"
+                    }
+                },
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "Run",
+                    "gainLoss": "gain",
+                    "playDist": "0",
+                    "player1": "Z. White",
+                    "player2": "",
+                    "kicker": "",
+                    "result": "3rd",
+                    "afterTD": "",
+                    "min": "14",
+                    "sec": "0",
+                    "quarter": "first",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "2"
+                    }
+                },
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "Pass",
+                    "gainLoss": "gain",
+                    "playDist": "4",
+                    "player1": "J. Fromm",
+                    "player2": "G. Pickens",
+                    "kicker": "",
+                    "result": "1st",
+                    "afterTD": "",
+                    "min": "13",
+                    "sec": "40",
+                    "quarter": "first",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "3"
+                    }
+                },
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "Run",
+                    "gainLoss": "gain",
+                    "playDist": "4",
+                    "player1": "Z. White",
+                    "player2": "",
+                    "kicker": "",
+                    "result": "2nd",
+                    "afterTD": "",
+                    "min": "13",
+                    "sec": "0",
+                    "quarter": "first",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "4"
+                    }
+                },
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "Run",
+                    "gainLoss": "gain",
+                    "playDist": "0",
+                    "player1": "Z. White",
+                    "player2": "",
+                    "kicker": "",
+                    "result": "3rd",
+                    "afterTD": "",
+                    "min": "12",
+                    "sec": "28",
+                    "quarter": "first",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "5"
+                    }
+                },
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "Incomplete pass",
+                    "gainLoss": "gain",
+                    "playDist": "",
+                    "player1": "J. Fromm",
+                    "player2": "G. Pickens",
+                    "kicker": "",
+                    "result": "4th",
+                    "afterTD": "",
+                    "min": "12",
+                    "sec": "22",
+                    "quarter": "first",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "6"
+                    }
+                },
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "kick",
+                    "gainLoss": "",
+                    "playDist": "43",
+                    "player1": "J. Camarda",
+                    "player2": "",
+                    "kicker": "",
+                    "result": "fair catch",
+                    "afterTD": "",
+                    "min": "12",
+                    "sec": "22",
+                    "quarter": "first",
+                    "kickType": "punt",
+                    "playCount": {
+                        "$numberInt": "7"
+                    }
+                }
+            ],
+            "_id": {
+                "$oid": "5e0e0625511dafd8f1c8109c"
+            },
+            "driveCount": {
+                "$numberInt": "1"
+            },
+            "team": "home",
+            "yardLine": {
+                "$numberInt": "25"
+            },
+            "yardTracker": {
+                "$numberInt": "40"
+            }
+        },
+        {
+            "plays": [
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "Run",
+                    "gainLoss": "gain",
+                    "playDist": "9",
+                    "player1": "J. Lovett",
+                    "player2": "",
+                    "kicker": "",
+                    "result": "2nd",
+                    "afterTD": "",
+                    "min": "12",
+                    "sec": "0",
+                    "quarter": "first",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "1"
+                    }
+                },
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "Run",
+                    "gainLoss": "gain",
+                    "playDist": "3",
+                    "player1": "J. Lovett",
+                    "player2": "",
+                    "kicker": "",
+                    "result": "1st",
+                    "afterTD": "",
+                    "min": "11",
+                    "sec": "11",
+                    "quarter": "first",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "2"
+                    }
+                },
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "Pass",
+                    "gainLoss": "gain",
+                    "playDist": "2",
+                    "player1": "C. Brewer",
+                    "player2": "J. Lovett",
+                    "kicker": "",
+                    "result": "1st",
+                    "afterTD": "",
+                    "min": "10",
+                    "sec": "45",
+                    "quarter": "first",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "3"
+                    }
+                },
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "Run",
+                    "gainLoss": "gain",
+                    "playDist": "3",
+                    "player1": "J. Hasty",
+                    "player2": "",
+                    "kicker": "",
+                    "result": "3rd",
+                    "afterTD": "",
+                    "min": "10",
+                    "sec": "20",
+                    "quarter": "first",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "4"
+                    }
+                },
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "Pass",
+                    "gainLoss": "gain",
+                    "playDist": "4",
+                    "player1": "C. Brewer",
+                    "player2": "T. Ebner",
+                    "kicker": "",
+                    "result": "4th",
+                    "afterTD": "",
+                    "min": "9",
+                    "sec": "44",
+                    "quarter": "first",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "5"
+                    }
+                },
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "kick",
+                    "gainLoss": "",
+                    "playDist": "44",
+                    "player1": "I. Power",
+                    "player2": "",
+                    "kicker": "",
+                    "result": "fair catch",
+                    "afterTD": "",
+                    "min": "9",
+                    "sec": "44",
+                    "quarter": "first",
+                    "kickType": "punt",
+                    "playCount": {
+                        "$numberInt": "6"
+                    }
+                }
+            ],
+            "_id": {
+                "$oid": "5e0e08b3511dafd8f1c8109d"
+            },
+            "driveCount": {
+                "$numberInt": "2"
+            },
+            "team": "away",
+            "yardLine": {
+                "$numberInt": "17"
+            },
+            "yardTracker": {
+                "$numberInt": "38"
+            }
+        },
+        {
+            "plays": [
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "Run",
+                    "gainLoss": "loss",
+                    "playDist": "1",
+                    "player1": "J. Cook",
+                    "player2": "",
+                    "kicker": "",
+                    "result": "2nd",
+                    "afterTD": "",
+                    "min": "9",
+                    "sec": "6",
+                    "quarter": "first",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "1"
+                    }
+                },
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "Incomplete pass",
+                    "gainLoss": "",
+                    "playDist": "",
+                    "player1": "J. Fromm",
+                    "player2": "T. Simmons",
+                    "kicker": "",
+                    "result": "3rd",
+                    "afterTD": "",
+                    "min": "8",
+                    "sec": "55",
+                    "quarter": "first",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "2"
+                    }
+                },
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "kick",
+                    "gainLoss": "",
+                    "playDist": "43",
+                    "player1": "J. Camarda",
+                    "player2": "",
+                    "kicker": "",
+                    "result": "returned",
+                    "afterTD": "",
+                    "min": "8",
+                    "sec": "20",
+                    "quarter": "first",
+                    "kickType": "punt",
+                    "playCount": {
+                        "$numberInt": "3"
+                    }
+                }
+            ],
+            "_id": {
+                "$oid": "5e0e0a6a511dafd8f1c8109e"
+            },
+            "driveCount": {
+                "$numberInt": "3"
+            },
+            "team": "home",
+            "yardLine": {
+                "$numberInt": "18"
+            },
+            "yardTracker": {
+                "$numberInt": "17"
+            }
+        },
+        {
+            "plays": [
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "Run",
+                    "gainLoss": "gain",
+                    "playDist": "6",
+                    "player1": "J. Lovett",
+                    "player2": "",
+                    "kicker": "",
+                    "result": "2nd",
+                    "afterTD": "",
+                    "min": "7",
+                    "sec": "50",
+                    "quarter": "first",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "1"
+                    }
+                },
+                {
+                    "penalty": "Pass interference",
+                    "yards": {
+                        "$numberInt": "15"
+                    },
+                    "penTeam": "home",
+                    "playType": "penalty",
+                    "gainLoss": "",
+                    "playDist": "",
+                    "player1": "D. Vann",
+                    "player2": "",
+                    "kicker": "",
+                    "result": "1st",
+                    "afterTD": "",
+                    "min": "7",
+                    "sec": "50",
+                    "quarter": "first",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "2"
+                    }
+                },
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "Run",
+                    "gainLoss": "loss",
+                    "playDist": "4",
+                    "player1": "C. Brewer",
+                    "player2": "",
+                    "kicker": "",
+                    "result": "2nd",
+                    "afterTD": "",
+                    "min": "6",
+                    "sec": "45",
+                    "quarter": "first",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "3"
+                    }
+                },
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "Pass",
+                    "gainLoss": "gain",
+                    "playDist": "0",
+                    "player1": "C. Brewer",
+                    "player2": "C. Brewer",
+                    "kicker": "",
+                    "result": "interception",
+                    "afterTD": "",
+                    "min": "6",
+                    "sec": "45",
+                    "quarter": "first",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "4"
+                    }
+                }
+            ],
+            "_id": {
+                "$oid": "5e0e0ccd511dafd8f1c8109f"
+            },
+            "driveCount": {
+                "$numberInt": "4"
+            },
+            "team": "away",
+            "yardLine": {
+                "$numberInt": "45"
+            },
+            "yardTracker": {
+                "$numberInt": "23"
+            }
+        },
+        {
+            "plays": [
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "Run",
+                    "gainLoss": "gain",
+                    "playDist": "6",
+                    "player1": "Z. White",
+                    "player2": "",
+                    "kicker": "",
+                    "result": "2nd",
+                    "afterTD": "",
+                    "min": "6",
+                    "sec": "0",
+                    "quarter": "first",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "5"
+                    }
+                },
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "Run",
+                    "gainLoss": "loss",
+                    "playDist": "19",
+                    "player1": "J. Fromm",
+                    "player2": "",
+                    "kicker": "",
+                    "result": "3rd",
+                    "afterTD": "",
+                    "min": "5",
+                    "sec": "25",
+                    "quarter": "first",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "6"
+                    }
+                },
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "Run",
+                    "gainLoss": "gain",
+                    "playDist": "9",
+                    "player1": "J. Cook",
+                    "player2": "",
+                    "kicker": "",
+                    "result": "4th",
+                    "afterTD": "",
+                    "min": "5",
+                    "sec": "2",
+                    "quarter": "first",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "7"
+                    }
+                },
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "kick",
+                    "gainLoss": "",
+                    "playDist": "47",
+                    "player1": "J. Camarda",
+                    "player2": "",
+                    "kicker": "",
+                    "result": "fair catch",
+                    "afterTD": "",
+                    "min": "5",
+                    "sec": "2",
+                    "quarter": "first",
+                    "kickType": "punt",
+                    "playCount": {
+                        "$numberInt": "8"
+                    }
+                }
+            ],
+            "_id": {
+                "$oid": "5e0e0eca511dafd8f1c810a0"
+            },
+            "driveCount": {
+                "$numberInt": "5"
+            },
+            "team": "home",
+            "yardLine": {
+                "$numberInt": "26"
+            },
+            "yardTracker": {
+                "$numberInt": "22"
+            }
+        },
+        {
+            "plays": [
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "Run",
+                    "gainLoss": "gain",
+                    "playDist": "1",
+                    "player1": "T. Ebner",
+                    "player2": "",
+                    "kicker": "",
+                    "result": "2nd",
+                    "afterTD": "",
+                    "min": "4",
+                    "sec": "23",
+                    "quarter": "first",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "1"
+                    }
+                },
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "Incomplete pass",
+                    "gainLoss": "",
+                    "playDist": "",
+                    "player1": "C. Brewer",
+                    "player2": "D. Mims",
+                    "kicker": "",
+                    "result": "3rd",
+                    "afterTD": "",
+                    "min": "4",
+                    "sec": "15",
+                    "quarter": "first",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "2"
+                    }
+                },
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "Pass",
+                    "gainLoss": "gain",
+                    "playDist": "11",
+                    "player1": "C. Brewer",
+                    "player2": "T. Thornton",
+                    "kicker": "",
+                    "result": "1st",
+                    "afterTD": "",
+                    "min": "4",
+                    "sec": "0",
+                    "quarter": "first",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "3"
+                    }
+                },
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "Pass",
+                    "gainLoss": "gain",
+                    "playDist": "0",
+                    "player1": "C. Brewer",
+                    "player2": "RJ Sneed",
+                    "kicker": "",
+                    "result": "2nd",
+                    "afterTD": "",
+                    "min": "3",
+                    "sec": "22",
+                    "quarter": "first",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "4"
+                    }
+                },
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "Incomplete pass",
+                    "gainLoss": "",
+                    "playDist": "",
+                    "player1": "C. Brewer",
+                    "player2": "T. Thornton",
+                    "kicker": "",
+                    "result": "3rd",
+                    "afterTD": "",
+                    "min": "3",
+                    "sec": "15",
+                    "quarter": "first",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "5"
+                    }
+                },
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "Run",
+                    "gainLoss": "gain",
+                    "playDist": "2",
+                    "player1": "C. Brewer",
+                    "player2": "",
+                    "kicker": "",
+                    "result": "4th",
+                    "afterTD": "",
+                    "min": "3",
+                    "sec": "3",
+                    "quarter": "first",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "6"
+                    }
+                },
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "kick",
+                    "gainLoss": "",
+                    "playDist": "55",
+                    "player1": "I. Power",
+                    "player2": "",
+                    "kicker": "",
+                    "result": "touchback",
+                    "afterTD": "",
+                    "min": "3",
+                    "sec": "3",
+                    "quarter": "first",
+                    "kickType": "punt",
+                    "playCount": {
+                        "$numberInt": "7"
+                    }
+                }
+            ],
+            "_id": {
+                "$oid": "5e0e1049511dafd8f1c810a1"
+            },
+            "driveCount": {
+                "$numberInt": "6"
+            },
+            "team": "away",
+            "yardLine": {
+                "$numberInt": "31"
+            },
+            "yardTracker": {
+                "$numberInt": "45"
+            }
+        },
+        {
+            "plays": [
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "Run",
+                    "gainLoss": "gain",
+                    "playDist": "5",
+                    "player1": "T. Simmons",
+                    "player2": "",
+                    "kicker": "",
+                    "result": "2nd",
+                    "afterTD": "",
+                    "min": "2",
+                    "sec": "30",
+                    "quarter": "first",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "1"
+                    }
+                },
+                {
+                    "penalty": "Face mask(intentional)",
+                    "yards": {
+                        "$numberInt": "15"
+                    },
+                    "penTeam": "away",
+                    "playType": "penalty",
+                    "gainLoss": "",
+                    "playDist": "",
+                    "player1": "J. Lovett",
+                    "player2": "",
+                    "kicker": "",
+                    "result": "1st",
+                    "afterTD": "",
+                    "min": "2",
+                    "sec": "30",
+                    "quarter": "first",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "2"
+                    }
+                },
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "Pass",
+                    "gainLoss": "gain",
+                    "playDist": "46",
+                    "player1": "J. Fromm",
+                    "player2": "G. Pickens",
+                    "kicker": "",
+                    "result": "1st",
+                    "afterTD": "",
+                    "min": "2",
+                    "sec": "11",
+                    "quarter": "first",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "3"
+                    }
+                },
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "Run",
+                    "gainLoss": "gain",
+                    "playDist": "2",
+                    "player1": "D. Swift",
+                    "player2": "",
+                    "kicker": "",
+                    "result": "2nd",
+                    "afterTD": "",
+                    "min": "1",
+                    "sec": "45",
+                    "quarter": "first",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "4"
+                    }
+                },
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "kick",
+                    "gainLoss": "",
+                    "playDist": "7",
+                    "player1": "R. Blankenship",
+                    "player2": "",
+                    "kicker": "",
+                    "result": "Successful",
+                    "afterTD": "",
+                    "min": "0",
+                    "sec": "49",
+                    "quarter": "first",
+                    "kickType": "field goal attempt",
+                    "playCount": {
+                        "$numberInt": "5"
+                    }
+                }
+            ],
+            "_id": {
+                "$oid": "5e0e1239511dafd8f1c810a2"
+            },
+            "driveCount": {
+                "$numberInt": "7"
+            },
+            "team": "home",
+            "yardLine": {
+                "$numberInt": "25"
+            },
+            "yardTracker": {
+                "$numberInt": "93"
+            }
+        },
+        {
+            "plays": [
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "Incomplete pass",
+                    "gainLoss": "",
+                    "playDist": "",
+                    "player1": "C. Brewer",
+                    "player2": "C. Platt",
+                    "kicker": "",
+                    "result": "2nd",
+                    "afterTD": "",
+                    "min": "0",
+                    "sec": "44",
+                    "quarter": "first",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "6"
+                    }
+                },
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "Incomplete pass",
+                    "gainLoss": "",
+                    "playDist": "",
+                    "player1": "C. Brewer",
+                    "player2": "N/A",
+                    "kicker": "",
+                    "result": "3rd",
+                    "afterTD": "",
+                    "min": "0",
+                    "sec": "37",
+                    "quarter": "first",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "7"
+                    }
+                },
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "Pass",
+                    "gainLoss": "gain",
+                    "playDist": "8",
+                    "player1": "C. Brewer",
+                    "player2": "D. Mims",
+                    "kicker": "",
+                    "result": "4th",
+                    "afterTD": "",
+                    "min": "0",
+                    "sec": "16",
+                    "quarter": "first",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "8"
+                    }
+                },
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "kick",
+                    "gainLoss": "",
+                    "playDist": "52",
+                    "player1": "I. Power",
+                    "player2": "",
+                    "kicker": "",
+                    "result": "fair catch",
+                    "afterTD": "",
+                    "min": "0",
+                    "sec": "0",
+                    "quarter": "first",
+                    "kickType": "punt",
+                    "playCount": {
+                        "$numberInt": "9"
+                    }
+                }
+            ],
+            "_id": {
+                "$oid": "5e0e15c4511dafd8f1c810a3"
+            },
+            "driveCount": {
+                "$numberInt": "8"
+            },
+            "team": "away",
+            "yardLine": {
+                "$numberInt": "25"
+            },
+            "yardTracker": {
+                "$numberInt": "33"
+            }
+        }
+    ],
+    "__v": {
+        "$numberInt": "25"
+    }
+}
