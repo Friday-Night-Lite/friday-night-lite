@@ -120,6 +120,7 @@ export default class Admin extends React.Component {
   }
 
   submitDrive = () => {
+
     const { gameId, driveCount, team, yardLine } = this.state
     this.setState(
       {
@@ -146,7 +147,9 @@ export default class Admin extends React.Component {
               showAddPlay: true,
               game: res.data,
               driveId: res.data.drivesArr[idLoc]._id,
-              yardLine: ''
+              yardLine: '',
+              playCount: 1
+
             })
             this.props.updateGame(res.data)
           })
@@ -179,9 +182,11 @@ export default class Admin extends React.Component {
     if (result === 'Successful PAT') {
       points = 1
       this.setState({
+        showAfterTD: false,
         showAddDrive: true,
         team: '',
-        showAfterTD: false
+        playCount: 0,
+        afterTD: ''
       })
     }
 
@@ -189,9 +194,11 @@ export default class Admin extends React.Component {
     if (result === '2 point') {
       points = 2
       this.setState({
+        showAfterTD: false,
         showAddDrive: true,
         team: '',
-        showAfterTD: false
+        playCount: 0,
+        afterTD: ''
       })
     }
 
@@ -201,7 +208,8 @@ export default class Admin extends React.Component {
       this.setState({
         showAddDrive: true,
         showAddPlay: false,
-        team: ''
+        team: '',
+        playCount: 0
       })
     }
 
@@ -217,7 +225,8 @@ export default class Admin extends React.Component {
       this.setState({
         showAddDrive: true,
         showAddPlay: false,
-        team: ''
+        team: '',
+        playCount: 0
       })
     }
     if (
@@ -227,12 +236,13 @@ export default class Admin extends React.Component {
       result === 'Failed' ||
       result === 'blocked' ||
       result === 'Time expires' ||
-      result === 'punt'
+      result === 'punt return' 
     ) {
       this.setState({
         showAddDrive: true,
         showAddPlay: false,
-        team: ''
+        team: '', 
+        playCount: 0
       })
     }
     if (points > 0) {
@@ -376,10 +386,14 @@ export default class Admin extends React.Component {
     } else {
       teamObj = { ...game[drivingTeam] }
     }
+
+    // if (this.state.game.status === 'upcoming') {
+    //   this.setState({game: {...this.state.game, status: 'inProgress'}})
+    // }
+
     this.setState(
-      { game: { ...this.state.game, score: scoreObj }, yardTracker: newYards },
+      { game: { ...this.state.game, score: scoreObj} },
       () => {
-        // console.log(newYards)
 
         axios
           .put(`/api/game`, {
@@ -389,7 +403,8 @@ export default class Admin extends React.Component {
             playObj,
             scoreObj,
             teamObj,
-            drivingTeam
+            drivingTeam,
+            status: 'inProgress'
           })
           .then(res => {
             if (this.state.result === 'touchdown') {
@@ -398,8 +413,13 @@ export default class Admin extends React.Component {
                 showAddPlay: false
               })
             }
+            let setDrive = res.data.game.drivesArr.find(drive => {
+              return drive._id === driveId
+            })
+
             this.setState({
-              playCount: playCount + 1,
+              // playCount: playCount + 1,
+              playCount: setDrive.plays.length + 1,
               playType: '',
               gainLoss: '',
               playDist: '0',

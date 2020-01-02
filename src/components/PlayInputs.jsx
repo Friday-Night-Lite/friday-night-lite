@@ -44,20 +44,21 @@ export default class PlayInputs extends React.Component {
                   <option value='loss'>Loss</option>
                 </select>
 
-                <input
+                <select
                   onChange={e => this.props.handleChange(e.target)}
                   name='playDist'
                   value={admin.playDist}
                   placeholder='Play Distance'
                   list='play-distance'
-                />
-                <datalist id='play-distance'>
+                >
+                {/* <datalist id='play-distance'> */}
                   {[...Array(101 - admin.yardTracker)].map((el, i) => (
                     <option value={i} key={i}>
-                      Yards
+                      {i} Yards
                     </option>
                   ))}
-                </datalist>
+                {/* </datalist> */}
+                </select>
               </>
             )}
 
