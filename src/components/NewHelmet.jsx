@@ -6,7 +6,7 @@ import styled from 'styled-components'
 
 const NewHelmet = styled.svg`
 	height: ${props => `${props.helmHeight}px`};
-	${props.flip && 'transform: scaleX(-1);'}
+	${props.flip && 'transform: scaleX(-1)'};
 	}
   .st0 {
     fill: #010101;
