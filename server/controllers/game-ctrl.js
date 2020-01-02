@@ -14,6 +14,8 @@ module.exports = {
         'away.mascot': 1,
         start_time: 1,
         score: 1,
+        city: 1,
+        state: 1
       },
 
       (err, games) => {

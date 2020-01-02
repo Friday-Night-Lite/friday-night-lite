@@ -36,15 +36,21 @@ const Wrapper = styled.div`
     display: flex;
   }
   .at {
-    font-size: 2.5rem;
+    font-size: 1.5rem;
     font-family: sans-serif;
+    margin-bottom: 10px;
   }
   h1 {
     font-size: 1.5rem;
+    font-family: sans-serif;
   }
   h3 {
   font-size: 4rem;
   font-family: Digital-7;
+  }
+  .game-info {
+    display: flex;
+    flex-direction: column;
   }
 `
 
@@ -101,7 +107,7 @@ export default class GamePreview extends React.Component {
   render() {
     const h = this.props.game.home
     const a = this.props.game.away
-    const { status, start_time } = this.props.game
+    const { status, start_time, city, state } = this.props.game
 
     return (
       <Link2 to={`/game/${this.props.game._id}`}>
@@ -111,19 +117,23 @@ export default class GamePreview extends React.Component {
               <Helmet color1={h.color} />
               <div className='school-info'>
                 <h2>{h.school}</h2>
-                { status !=='upcoming' &&
-                <h3>{this.totalScore('home')}</h3>}
+                {status !== 'upcoming' &&
+                  <h3>{this.totalScore('home')}</h3>}
               </div>
-            </div>
-            {status === 'inProgress' ? <div className='at'>In Progress</div> : status === 'FINAL' ? <div className='at'>FINAL</div> 
+              </div>  
+            
+            <div className="game-info">
+            {status === 'inProgress' ? <div className='at'>In Progress</div> : status === 'FINAL' ? <div className='at'>FINAL</div>
               : <div className='at'>{start_time}</div>
             }
+            <h1>{city}, {state}</h1>
+            </div>
 
             <div className='team'>
               <div className='school-info'>
                 <h2>{a.school}</h2>
-                { status !=='upcoming' &&
-                <h3>{this.totalScore('away')}</h3>}
+                {status !== 'upcoming' &&
+                  <h3>{this.totalScore('away')}</h3>}
               </div>
               <Helmet rightHelmet={true} color1={a.color} />
             </div>
