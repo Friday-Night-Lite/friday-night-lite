@@ -9,12 +9,15 @@ const PostDot = styled.div`
   background: black;
   box-sizing: border-box;
   margin: 0 -5.5px;
-  z-index: 1;
+  z-index: ${props => `${props.index}`};
   &.punt {
+    margin-left: -8px;
     background: orange;
   }
 `
 const Play = styled.div`
+overflow: hidden;
+animation: show 1000ms cubic-bezier(0.250, 0.100, 0.250, 1.000);
   &.run {
     height: 5px;
     background: black;
@@ -39,7 +42,7 @@ const Play = styled.div`
   &.pass {
     border: 4px solid black;
     border-radius: 50%/100% 100% 0 0;
-    height: ${props => props.passArch}%;
+    height:C;
     border-color: black transparent transparent transparent;
     z-index: ${props => `${props.index}`};
   }
@@ -64,26 +67,26 @@ const Play = styled.div`
   &.punt {
     border: 4px solid orange;
     border-radius: 50%/100% 100% 0 0;
-    margin: 0 0 0 -10px;
+    /* margin: 0 0 0 -10px; */
     height: ${props => props.passArch}%;
     border-color: orange transparent transparent transparent;
-    z-index: ${props => `${props.index}`};
+    z-index: ${props => `${props.index - 4}`};
   }
   &.loss-punt {
     border: 4px solid orange;
     border-radius: 50%/100% 100% 0 0;
-    margin: ${props => `0 0 0 -${props.lossYards}%`};
+    margin: ${props => `0 0 0 calc(-${props.lossYards}% - 3px)`};
     height: ${props => props.passArch}%;
     border-color: orange transparent transparent transparent;
-    z-index: ${props => `${props.index}`};
+    z-index: ${props => `${props.index - 4}`};
   }
   &.FG {
     position: absolute;
-    right: -110px;
+    right: -140px;
     border: 4px solid;
     border-radius: 50%/100% 100% 0 0;
     /* margin: 0 0 0 -10px; */
-    height: ${props => props.passArch * 1.2}%;
+    height: ${props => props.passArch * 1.3}%;
     /* z-index: ${props => `${props.index}`}; */
   }
   &.loss-FG {
@@ -99,6 +102,14 @@ const Play = styled.div`
   &#success {
     border-color: green transparent transparent transparent;
   }
+  /* @keyframes show {
+  from {
+    width: 0%;
+  }
+  to {
+    width: initial;
+  } */
+/* } */
 `
 const PenDot = styled.div`
   height: 11px;
@@ -169,10 +180,10 @@ const Line = props => {
   function checkPenalties() {
     let i = 0
 
-    if (playType !== 'penalty') {
+    if (playType !== 'penalty' || playType === 'Incomplete pass' || playType === 'kick') {
       if (index > 0) {
         i = index - 1
-        if (drive.plays[i].penTeam !== drive.team) {
+        if (drive.plays[i].penTeam !== drive.team && drive.plays[i].playType !== 'Incomplete pass') {
           return
         }
       } else {
@@ -182,19 +193,20 @@ const Line = props => {
     if (playType === 'penalty') {
       i = index
     }
-    while (i > 0 && drive.plays[i].penTeam === drive.team) {
+    while ((i > 0 && drive.plays[i].penTeam === drive.team) || (i >= 0 && drive.plays[i].playType === 'Incomplete pass')) {
       penaltyYards += +drive.plays[i].yards
       i--
     }
     return penaltyYards
   }
-  function checkLoss() {
+  function checkLoss(play) {
+    console.log(play)
     let i = 0
 
-    if (gainLoss !== 'loss') {
+    if (gainLoss !== 'loss' || playType === 'Incomplete pass' || playType === 'kick') {
       if (index > 0) {
         i = index - 1
-        if (drive.plays[i].gainLoss !== 'loss') {
+        if (drive.plays[i].gainLoss !== 'loss' && drive.plays[i].playType !== 'Incomplete pass') {
           return
         }
       }
@@ -205,12 +217,11 @@ const Line = props => {
     if (i === 0 && drive.plays[i].gainLoss === 'loss') {
       return (lossYards = +drive.plays[i].playDist)
     }
-    while (i >= 0 && drive.plays[i].gainLoss === 'loss') {
+    while ((i >= 0 && drive.plays[i].gainLoss === 'loss') || (i >= 0 && drive.plays[i].playType === 'Incomplete pass')) {
       lossYards += +drive.plays[i].playDist
       i--
     }
-    // console.log(lossYards)
-
+   
     return lossYards
   }
 
@@ -222,7 +233,7 @@ const Line = props => {
             index={index}
             playDist={playDist}
             className='td-run'
-            style={{ width: `calc(${playDist}% + 25px)` }}
+            style={{ width: `calc(${playDist}% + 20px)` }}
           />
         )
       } else if (playType === 'Pass') {
@@ -232,7 +243,7 @@ const Line = props => {
             playDist={playDist}
             passArch={passArch}
             className='td-pass'
-            style={{ width: `calc(${playDist}% + 25px)` }}
+            style={{ width: `calc(${playDist}% + 20px)` }}
           />
         )
       }
@@ -340,8 +351,9 @@ const Line = props => {
         )
       }
     } else if (playType === 'kick') {
-      checkPenalties()
-      checkLoss()
+      checkPenalties('punt')
+      checkLoss('punt')
+     
       if (kickType === 'punt') {
         return (
           <>
@@ -353,9 +365,9 @@ const Line = props => {
               className={
                 penaltyYards ? 'loss-punt' : lossYards ? 'loss-punt' : 'punt'
               }
-              style={{ width: `${playDist}%` }}
+              style={{ width: `calc(${playDist}% - 5px)` }}
             />
-            {result === 'punt' && <PostDot index={index} className='punt' />}
+            {kickType === 'punt' && <PostDot index={index} className='punt' />}
           </>
         )
       }
@@ -364,14 +376,14 @@ const Line = props => {
           <>
             <Play
               index={index}
-              passArch={passArch}
+              passArch={+playDist + 22}
               lossYards={lossYards}
               penaltyYards={penaltyYards}
               id={result === 'Failed' ? 'failed' : 'success'}
               className={
                 penaltyYards ? 'loss-FG' : lossYards ? 'loss-FG' : 'FG'
               }
-              style={{ width: `calc(${playDist}% + 100px)` }}
+              style={{ width: `${+playDist + 22}%` }}
             />
             {/* {result === 'field' && <PostDot index={index} className='FG' />} */}
           </>
@@ -379,15 +391,17 @@ const Line = props => {
       }
     }
   }
-  
-
   return (
-    <>
-      {index === 0 ? <PostDot className='start-dot' index={index} /> : null}
+    // setTimeout(() => { 
+    //  return (
+     <>
+      {index === 0 ? <PostDot className='start-dot' index={index - 1} /> : null}
       {playDist !== '0' ? elementType() : null}
       {result === 'touchdown' && <Football index={index} src={football} />}
     </>
-  )
+    // )
+    // }, index * 1000)
+    )
 }
 
 export default Line

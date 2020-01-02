@@ -401,7 +401,7 @@ const JerseyStyle = styled.svg`
     		</text>
 			
 
-			 <text x={props.number < 10 ? "226" : "190"} y="365" fontFamily="sans-serif" fontSize="100" fontWeight='bold' fill={props.flip ? props.color : 'white'}  {...props.flip && {transform:"scale(-1,1) translate(-490)"}}>
+			 <text x={(props.number < 10) ? "226" : "190"} y="365" fontFamily="sans-serif" fontSize="100" fontWeight='bold' fill={props.flip ? props.color : 'white'}  {...props.flip && {transform:"scale(-1,1) translate(-490)"}}>
 
 				{props.number}
 			</text>

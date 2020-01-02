@@ -123,7 +123,7 @@ export default class PlayInputs extends React.Component {
               <option value='2nd'>2nd Down</option>
               <option value='3rd'>3rd Down</option>
               <option value='4th'>4th Down</option>
-              <option value='downs'>Turnover On Downs</option>
+              <option value='turnover on downs'>Turnover On Downs</option>
               <option value='time expires'>Time Expires</option>
               {!(admin.playType === 'Incomplete pass') && (
                 <>
@@ -242,7 +242,7 @@ export default class PlayInputs extends React.Component {
                   <option value='Successful'>Field Goal (Made)</option>
                   <option value='Failed'>Field Goal (Missed) </option>
                   <option value='blocked'>Blocked </option>
-                  <option value='returned'>Returned</option>
+                  <option value='punt return'>Returned</option>
                   <option value='fair catch'>Fair Catch</option>
                   <option value='touchback'>Touchback</option>
                   <option value='fumble'>Fumble</option>

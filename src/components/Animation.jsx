@@ -11,7 +11,7 @@ const Wrapper = styled.div`
   height: 75%;
   width: 605px;
   padding-bottom: 50px;
-  margin: 0 55px;
+  margin: 0 65px;
   display: flex;
   align-items: flex-end;
   box-sizing: border-box;
@@ -24,7 +24,6 @@ const Wrapper = styled.div`
     width: 11px;
     margin: 0 -5.5px 0 -3.5px;
     min-width: 10px;
-    /* border: solid 1px black; */
     border-radius: 50%;
     background: black;
     box-sizing: border-box;
@@ -51,7 +50,7 @@ const Wrapper = styled.div`
   }
   .referee {
     position: absolute;
-    right: -100px;
+    right: -110px;
     top: 80px;
   }
   .safety-ref {
@@ -77,21 +76,15 @@ export default class Animation extends React.Component {
               className='start'
               style={{ width: `${this.props.margins}%` }}
             />
-            {/* <div className='start-dot' /> */}
             {this.props.game.drivesArr[this.props.selectedDrive].plays.map(
-              (line, i) => (
-                <Line
+              (play, i) => { return <Line
                   index={i}
                   drive={this.props.game.drivesArr[this.props.selectedDrive]}
                   key={i}
-                  line={line}
+                  line={play}
                 />
-              )
-            )}
-            {/* <div className="arrow-container">
-                <div className="arrow-line"/>
-                <div className="arrow"/>
-                </div> */}
+            })}
+          
 
             {(this.props.driveResult() === 'TOUCHDOWN' ||
               this.props.driveResult() === 'SUCCESSFUL') && (
