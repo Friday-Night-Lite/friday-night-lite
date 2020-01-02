@@ -136,6 +136,7 @@ export default class Scoreboard extends React.Component {
     if (this.props.game !== prevProps.game) {
       this.setState({ gameObj: this.props.game }, () => {
         this.calculateScore()
+        this.props.findTime()
       })
     }
   }

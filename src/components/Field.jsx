@@ -178,7 +178,7 @@ export default class Field extends React.Component {
               selectedDrive > 0 ? (
                 <h1>
                   Drive {selectedDrive}:{' '}
-                  {this.props.game[drivesArr[currentDrive].team].school}{' '}
+                  {/* {this.props.game[drivesArr[currentDrive].team].school}{' '} */}
                   {this.props.game[drivesArr[currentDrive].team].mascot} (
                   {drivesArr[currentDrive].plays.length}{' '}
                   {drivesArr[currentDrive].plays.length === 1
@@ -192,7 +192,7 @@ export default class Field extends React.Component {
               ) : (
                 <h1>
                   Current Drive:{' '}
-                  {this.props.game[drivesArr[currentDrive].team].school}{' '}
+                  {/* {this.props.game[drivesArr[currentDrive].team].school}{' '} */}
                   {this.props.game[drivesArr[currentDrive].team].mascot} (
                   {drivesArr[currentDrive].plays.length}{' '}
                   {drivesArr[currentDrive].plays.length === 1
