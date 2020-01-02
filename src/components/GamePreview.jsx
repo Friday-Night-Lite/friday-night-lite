@@ -36,7 +36,8 @@ const Wrapper = styled.div`
     display: flex;
   }
   .at {
-    font-size: 2rem;
+    font-size: 2.5rem;
+    font-family: sans-serif;
   }
   h1 {
     font-size: 1.5rem;
@@ -114,7 +115,7 @@ export default class GamePreview extends React.Component {
                 <h3>{this.totalScore('home')}</h3>}
               </div>
             </div>
-            {this.props.game.status !== 'upcoming' && status === 'inProgress' ? <div className='at'>In Progress</div>
+            {status === 'inProgress' ? <div className='at'>In Progress</div> : status === 'FINAL' ? <div className='at'>FINAL</div> 
               : <div className='at'>{start_time}</div>
             }
 

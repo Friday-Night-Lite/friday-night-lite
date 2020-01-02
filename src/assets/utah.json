@@ -3,7 +3,7 @@
         "$oid": "5e0bf11dc9f92d7d33644d5f"
     },
     "away": {
-        "school": "UTH",
+        "school": "UTAH",
         "color": "#cc0000",
         "mascot": "Utes",
         "players": [
@@ -51,6 +51,27 @@
                     },
                     {
                         "$numberInt": "8"
+                    },
+                    {
+                        "$numberInt": "5"
+                    },
+                    {
+                        "$numberInt": "15"
+                    },
+                    {
+                        "$numberInt": "9"
+                    },
+                    {
+                        "$numberInt": "-1"
+                    },
+                    {
+                        "$numberInt": "8"
+                    },
+                    {
+                        "$numberInt": "9"
+                    },
+                    {
+                        "$numberInt": "4"
                     }
                 ],
                 "rushYards": [
@@ -65,8 +86,32 @@
                     },
                     {
                         "$numberInt": "1"
+                    },
+                    {
+                        "$numberInt": "5"
+                    },
+                    {
+                        "$numberInt": "5"
+                    },
+                    {
+                        "$numberInt": "0"
+                    },
+                    {
+                        "$numberInt": "-2"
+                    },
+                    {
+                        "$numberInt": "8"
+                    },
+                    {
+                        "$numberInt": "26"
+                    },
+                    {
+                        "$numberInt": "8"
                     }
-                ]
+                ],
+                "passTDs": {
+                    "$numberInt": "1"
+                }
             },
             {
                 "last_name": "Z. Hymas",
@@ -163,6 +208,30 @@
                     },
                     {
                         "$numberInt": "7"
+                    },
+                    {
+                        "$numberInt": "4"
+                    },
+                    {
+                        "$numberInt": "4"
+                    },
+                    {
+                        "$numberInt": "4"
+                    },
+                    {
+                        "$numberInt": "-3"
+                    },
+                    {
+                        "$numberInt": "6"
+                    },
+                    {
+                        "$numberInt": "-2"
+                    },
+                    {
+                        "$numberInt": "0"
+                    },
+                    {
+                        "$numberInt": "-4"
                     }
                 ],
                 "recYards": [
@@ -233,7 +302,12 @@
                 "player_number": {
                     "$numberInt": "21"
                 },
-                "position": "WR"
+                "position": "WR",
+                "recYards": [
+                    {
+                        "$numberInt": "5"
+                    }
+                ]
             },
             {
                 "last_name": "C. Gardner",
@@ -295,7 +369,18 @@
                 "player_number": {
                     "$numberInt": "3"
                 },
-                "position": "WR"
+                "position": "WR",
+                "recYards": [
+                    {
+                        "$numberInt": "8"
+                    },
+                    {
+                        "$numberInt": "4"
+                    }
+                ],
+                "recTDs": {
+                    "$numberInt": "1"
+                }
             },
             {
                 "last_name": "D. Slavens",
@@ -309,7 +394,12 @@
                 "player_number": {
                     "$numberInt": "19"
                 },
-                "position": "WR"
+                "position": "WR",
+                "recYards": [
+                    {
+                        "$numberInt": "9"
+                    }
+                ]
             },
             {
                 "last_name": "D. Thompson",
@@ -330,7 +420,15 @@
                 "player_number": {
                     "$numberInt": "8"
                 },
-                "position": "WR"
+                "position": "WR",
+                "rushYards": [
+                    {
+                        "$numberInt": "4"
+                    },
+                    {
+                        "$numberInt": "-3"
+                    }
+                ]
             },
             {
                 "last_name": "T. Young-Smith",
@@ -354,7 +452,7 @@
                 "position": "TE"
             },
             {
-                "last_name": "Fotheringham",
+                "last_name": "C. Fotheringham",
                 "player_number": {
                     "$numberInt": "89"
                 },
@@ -362,6 +460,9 @@
                 "recYards": [
                     {
                         "$numberInt": "12"
+                    },
+                    {
+                        "$numberInt": "9"
                     },
                     {
                         "$numberInt": "9"
@@ -377,6 +478,17 @@
                 "recYards": [
                     {
                         "$numberInt": "19"
+                    },
+                    {
+                        "$numberInt": "15"
+                    },
+                    {
+                        "$numberInt": "-1"
+                    }
+                ],
+                "rushYards": [
+                    {
+                        "$numberInt": "29"
                     }
                 ]
             },
@@ -571,7 +683,7 @@
             }
         ]
     },
-    "status": "inProgress",
+    "status": "FINAL",
     "home": {
         "school": "TEX",
         "color": "#bf5700",
@@ -612,6 +724,18 @@
                     },
                     {
                         "$numberInt": "9"
+                    },
+                    {
+                        "$numberInt": "8"
+                    },
+                    {
+                        "$numberInt": "31"
+                    },
+                    {
+                        "$numberInt": "6"
+                    },
+                    {
+                        "$numberInt": "5"
                     }
                 ],
                 "passYards": [
@@ -638,16 +762,34 @@
                     },
                     {
                         "$numberInt": "0"
+                    },
+                    {
+                        "$numberInt": "15"
+                    },
+                    {
+                        "$numberInt": "8"
+                    },
+                    {
+                        "$numberInt": "37"
+                    },
+                    {
+                        "$numberInt": "5"
                     }
                 ],
                 "passTDs": {
-                    "$numberInt": "1"
+                    "$numberInt": "3"
                 },
                 "recYards": [
                     {
                         "$numberInt": "0"
+                    },
+                    {
+                        "$numberInt": "6"
                     }
-                ]
+                ],
+                "rushTDs": {
+                    "$numberInt": "1"
+                }
             },
             {
                 "last_name": "R. Johnson",
@@ -664,6 +806,15 @@
                     },
                     {
                         "$numberInt": "0"
+                    },
+                    {
+                        "$numberInt": "20"
+                    },
+                    {
+                        "$numberInt": "3"
+                    },
+                    {
+                        "$numberInt": "5"
                     }
                 ]
             },
@@ -679,7 +830,15 @@
                 "player_number": {
                     "$numberInt": "8"
                 },
-                "position": "QB"
+                "position": "QB",
+                "rushYards": [
+                    {
+                        "$numberInt": "8"
+                    },
+                    {
+                        "$numberInt": "6"
+                    }
+                ]
             },
             {
                 "last_name": "D. Brown",
@@ -712,8 +871,37 @@
                     },
                     {
                         "$numberInt": "15"
+                    },
+                    {
+                        "$numberInt": "5"
+                    },
+                    {
+                        "$numberInt": "10"
+                    },
+                    {
+                        "$numberInt": "49"
+                    },
+                    {
+                        "$numberInt": "3"
+                    },
+                    {
+                        "$numberInt": "7"
                     }
-                ]
+                ],
+                "recYards": [
+                    {
+                        "$numberInt": "15"
+                    },
+                    {
+                        "$numberInt": "8"
+                    }
+                ],
+                "recTDs": {
+                    "$numberInt": "1"
+                },
+                "rushTDs": {
+                    "$numberInt": "1"
+                }
             },
             {
                 "last_name": "K. Johnson",
@@ -748,7 +936,18 @@
                 "player_number": {
                     "$numberInt": "32"
                 },
-                "position": "RB"
+                "position": "RB",
+                "rushYards": [
+                    {
+                        "$numberInt": "3"
+                    },
+                    {
+                        "$numberInt": "0"
+                    },
+                    {
+                        "$numberInt": "-1"
+                    }
+                ]
             },
             {
                 "last_name": "K. Akkihal",
@@ -780,13 +979,27 @@
                 "recYards": [
                     {
                         "$numberInt": "40"
+                    },
+                    {
+                        "$numberInt": "37"
+                    },
+                    {
+                        "$numberInt": "5"
                     }
                 ],
                 "rushYards": [
                     {
                         "$numberInt": "-8"
                     }
-                ]
+                ],
+                "passYards": [
+                    {
+                        "$numberInt": "6"
+                    }
+                ],
+                "recTDs": {
+                    "$numberInt": "1"
+                }
             },
             {
                 "last_name": "B. Eagles",
@@ -1121,6 +1334,9 @@
                     },
                     {
                         "$numberInt": "71"
+                    },
+                    {
+                        "$numberInt": "25"
                     }
                 ]
             }
@@ -1154,11 +1370,35 @@
             "third": [
                 {
                     "$numberInt": "0"
+                },
+                {
+                    "$numberInt": "6"
+                },
+                {
+                    "$numberInt": "1"
+                },
+                {
+                    "$numberInt": "6"
+                },
+                {
+                    "$numberInt": "1"
                 }
             ],
             "fourth": [
                 {
                     "$numberInt": "0"
+                },
+                {
+                    "$numberInt": "6"
+                },
+                {
+                    "$numberInt": "1"
+                },
+                {
+                    "$numberInt": "6"
+                },
+                {
+                    "$numberInt": "1"
                 }
             ]
         },
@@ -1176,11 +1416,20 @@
             "third": [
                 {
                     "$numberInt": "0"
+                },
+                {
+                    "$numberInt": "3"
                 }
             ],
             "fourth": [
                 {
                     "$numberInt": "0"
+                },
+                {
+                    "$numberInt": "6"
+                },
+                {
+                    "$numberInt": "1"
                 }
             ]
         }
@@ -2769,9 +3018,1527 @@
             "yardTracker": {
                 "$numberInt": "35"
             }
+        },
+        {
+            "plays": [
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "Run",
+                    "gainLoss": "gain",
+                    "playDist": "5",
+                    "player1": "T. Huntley",
+                    "player2": "",
+                    "kicker": "",
+                    "result": "2nd",
+                    "afterTD": "",
+                    "min": "14",
+                    "sec": "25",
+                    "quarter": "third",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "1"
+                    }
+                },
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "Run",
+                    "gainLoss": "gain",
+                    "playDist": "5",
+                    "player1": "T. Huntley",
+                    "player2": "",
+                    "kicker": "",
+                    "result": "1st",
+                    "afterTD": "",
+                    "min": "13",
+                    "sec": "46",
+                    "quarter": "third",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "2"
+                    }
+                },
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "Run",
+                    "gainLoss": "gain",
+                    "playDist": "0",
+                    "player1": "T. Huntley",
+                    "player2": "",
+                    "kicker": "",
+                    "result": "2nd",
+                    "afterTD": "",
+                    "min": "13",
+                    "sec": "4",
+                    "quarter": "third",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "3"
+                    }
+                },
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "Run",
+                    "gainLoss": "gain",
+                    "playDist": "4",
+                    "player1": "D. Vickers",
+                    "player2": "",
+                    "kicker": "",
+                    "result": "3rd",
+                    "afterTD": "",
+                    "min": "12",
+                    "sec": "23",
+                    "quarter": "third",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "4"
+                    }
+                },
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "Pass",
+                    "gainLoss": "gain",
+                    "playDist": "5",
+                    "player1": "T. Huntley",
+                    "player2": "S. Enis",
+                    "kicker": "",
+                    "result": "4th",
+                    "afterTD": "",
+                    "min": "11",
+                    "sec": "40",
+                    "quarter": "third",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "5"
+                    }
+                },
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "Run",
+                    "gainLoss": "loss",
+                    "playDist": "2",
+                    "player1": "T. Huntley",
+                    "player2": "",
+                    "kicker": "",
+                    "result": "downs",
+                    "afterTD": "",
+                    "min": "11",
+                    "sec": "34",
+                    "quarter": "third",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "6"
+                    }
+                }
+            ],
+            "_id": {
+                "$oid": "5e0cfbaabc57a6d0a1e698fb"
+            },
+            "driveCount": {
+                "$numberInt": "12"
+            },
+            "team": "away",
+            "yardLine": {
+                "$numberInt": "25"
+            },
+            "yardTracker": {
+                "$numberInt": "42"
+            }
+        },
+        {
+            "plays": [
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "Run",
+                    "gainLoss": "gain",
+                    "playDist": "5",
+                    "player1": "K. Ingram",
+                    "player2": "",
+                    "kicker": "",
+                    "result": "2nd",
+                    "afterTD": "",
+                    "min": "11",
+                    "sec": "2",
+                    "quarter": "third",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "7"
+                    }
+                },
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "Pass",
+                    "gainLoss": "gain",
+                    "playDist": "15",
+                    "player1": "S. Ehlinger",
+                    "player2": "K. Ingram",
+                    "kicker": "",
+                    "result": "1st",
+                    "afterTD": "",
+                    "min": "10",
+                    "sec": "30",
+                    "quarter": "third",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "8"
+                    }
+                },
+                {
+                    "penalty": "Face mask(intentional)",
+                    "yards": {
+                        "$numberInt": "15"
+                    },
+                    "penTeam": "away",
+                    "playType": "penalty",
+                    "gainLoss": "",
+                    "playDist": "",
+                    "player1": "M. Bernard",
+                    "player2": "",
+                    "kicker": "",
+                    "result": "1st",
+                    "afterTD": "",
+                    "min": "10",
+                    "sec": "30",
+                    "quarter": "third",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "9"
+                    }
+                },
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "Pass",
+                    "gainLoss": "gain",
+                    "playDist": "8",
+                    "player1": "S. Ehlinger",
+                    "player2": "K. Ingram",
+                    "kicker": "",
+                    "result": "touchdown",
+                    "afterTD": "",
+                    "min": "10",
+                    "sec": "30",
+                    "quarter": "third",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "10"
+                    }
+                },
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "",
+                    "gainLoss": "",
+                    "playDist": "",
+                    "player1": "",
+                    "player2": "",
+                    "kicker": "C. Dicker",
+                    "result": "Successful PAT",
+                    "afterTD": "pat",
+                    "min": "10",
+                    "sec": "30",
+                    "quarter": "third",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "11"
+                    }
+                }
+            ],
+            "_id": {
+                "$oid": "5e0cfdf4bc57a6d0a1e698fc"
+            },
+            "driveCount": {
+                "$numberInt": "13"
+            },
+            "team": "home",
+            "yardLine": {
+                "$numberInt": "57"
+            },
+            "yardTracker": {
+                "$numberInt": "100"
+            }
+        },
+        {
+            "plays": [
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "Pass",
+                    "gainLoss": "gain",
+                    "playDist": "15",
+                    "player1": "T. Huntley",
+                    "player2": "B. Kuithe",
+                    "kicker": "",
+                    "result": "1st",
+                    "afterTD": "",
+                    "min": "10",
+                    "sec": "15",
+                    "quarter": "third",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "12"
+                    }
+                },
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "Run",
+                    "gainLoss": "gain",
+                    "playDist": "4",
+                    "player1": "Z. Moss",
+                    "player2": "",
+                    "kicker": "",
+                    "result": "3rd",
+                    "afterTD": "",
+                    "min": "9",
+                    "sec": "42",
+                    "quarter": "third",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "13"
+                    }
+                },
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "Run",
+                    "gainLoss": "gain",
+                    "playDist": "4",
+                    "player1": "Z. Moss",
+                    "player2": "",
+                    "kicker": "",
+                    "result": "3rd",
+                    "afterTD": "",
+                    "min": "9",
+                    "sec": "8",
+                    "quarter": "third",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "14"
+                    }
+                },
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "Run",
+                    "gainLoss": "gain",
+                    "playDist": "4",
+                    "player1": "Z. Moss",
+                    "player2": "",
+                    "kicker": "",
+                    "result": "1st",
+                    "afterTD": "",
+                    "min": "8",
+                    "sec": "40",
+                    "quarter": "third",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "15"
+                    }
+                },
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "Run",
+                    "gainLoss": "gain",
+                    "playDist": "8",
+                    "player1": "T. Huntley",
+                    "player2": "",
+                    "kicker": "",
+                    "result": "2nd",
+                    "afterTD": "",
+                    "min": "7",
+                    "sec": "51",
+                    "quarter": "third",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "16"
+                    }
+                },
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "Run",
+                    "gainLoss": "loss",
+                    "playDist": "3",
+                    "player1": "Z. Moss",
+                    "player2": "",
+                    "kicker": "",
+                    "result": "3rd",
+                    "afterTD": "",
+                    "min": "7",
+                    "sec": "9",
+                    "quarter": "third",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "17"
+                    }
+                },
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "Pass",
+                    "gainLoss": "gain",
+                    "playDist": "9",
+                    "player1": "T. Huntley",
+                    "player2": "B. Thompson",
+                    "kicker": "",
+                    "result": "1st",
+                    "afterTD": "",
+                    "min": "6",
+                    "sec": "29",
+                    "quarter": "third",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "18"
+                    }
+                },
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "Pass",
+                    "gainLoss": "loss",
+                    "playDist": "1",
+                    "player1": "T. Huntley",
+                    "player2": "B. Kuithe",
+                    "kicker": "",
+                    "result": "2nd",
+                    "afterTD": "",
+                    "min": "5",
+                    "sec": "50",
+                    "quarter": "third",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "19"
+                    }
+                },
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "Incomplete pass",
+                    "gainLoss": "",
+                    "playDist": "",
+                    "player1": "T. Huntley",
+                    "player2": "S. Nacua",
+                    "kicker": "",
+                    "result": "3rd",
+                    "afterTD": "",
+                    "min": "5",
+                    "sec": "42",
+                    "quarter": "third",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "20"
+                    }
+                },
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "Pass",
+                    "gainLoss": "gain",
+                    "playDist": "8",
+                    "player1": "T. Huntley",
+                    "player2": "D. Simpkins",
+                    "kicker": "",
+                    "result": "4th",
+                    "afterTD": "",
+                    "min": "4",
+                    "sec": "58",
+                    "quarter": "third",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "21"
+                    }
+                },
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "kick",
+                    "gainLoss": "",
+                    "playDist": "15",
+                    "player1": "J. Redding",
+                    "player2": "",
+                    "kicker": "",
+                    "result": "Successful",
+                    "afterTD": "",
+                    "min": "4",
+                    "sec": "58",
+                    "quarter": "third",
+                    "kickType": "field goal attempt",
+                    "playCount": {
+                        "$numberInt": "22"
+                    }
+                }
+            ],
+            "_id": {
+                "$oid": "5e0cff49bc57a6d0a1e698fd"
+            },
+            "driveCount": {
+                "$numberInt": "14"
+            },
+            "team": "away",
+            "yardLine": {
+                "$numberInt": "37"
+            },
+            "yardTracker": {
+                "$numberInt": "85"
+            }
+        },
+        {
+            "plays": [
+                {
+                    "penalty": "Holding",
+                    "yards": {
+                        "$numberInt": "10"
+                    },
+                    "penTeam": "home",
+                    "playType": "penalty",
+                    "gainLoss": "",
+                    "playDist": "",
+                    "player1": "B. Eagles",
+                    "player2": "",
+                    "kicker": "",
+                    "result": "1st",
+                    "afterTD": "",
+                    "min": "4",
+                    "sec": "58",
+                    "quarter": "third",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "23"
+                    }
+                },
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "Run",
+                    "gainLoss": "gain",
+                    "playDist": "8",
+                    "player1": "S. Ehlinger",
+                    "player2": "",
+                    "kicker": "",
+                    "result": "2nd",
+                    "afterTD": "",
+                    "min": "3",
+                    "sec": "59",
+                    "quarter": "third",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "24"
+                    }
+                },
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "Run",
+                    "gainLoss": "gain",
+                    "playDist": "31",
+                    "player1": "S. Ehlinger",
+                    "player2": "",
+                    "kicker": "",
+                    "result": "1st",
+                    "afterTD": "",
+                    "min": "2",
+                    "sec": "22",
+                    "quarter": "third",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "25"
+                    }
+                },
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "Pass",
+                    "gainLoss": "gain",
+                    "playDist": "6",
+                    "player1": "D. Duvernay",
+                    "player2": "S. Ehlinger",
+                    "kicker": "",
+                    "result": "2nd",
+                    "afterTD": "",
+                    "min": "1",
+                    "sec": "34",
+                    "quarter": "third",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "26"
+                    }
+                },
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "Run",
+                    "gainLoss": "gain",
+                    "playDist": "10",
+                    "player1": "K. Ingram",
+                    "player2": "",
+                    "kicker": "",
+                    "result": "1st",
+                    "afterTD": "",
+                    "min": "1",
+                    "sec": "6",
+                    "quarter": "third",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "27"
+                    }
+                },
+                {
+                    "penalty": "Personal foul",
+                    "yards": {
+                        "$numberInt": "15"
+                    },
+                    "penTeam": "away",
+                    "playType": "penalty",
+                    "gainLoss": "",
+                    "playDist": "",
+                    "player1": "J. Maea",
+                    "player2": "",
+                    "kicker": "",
+                    "result": "1st",
+                    "afterTD": "",
+                    "min": "1",
+                    "sec": "6",
+                    "quarter": "third",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "28"
+                    }
+                },
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "Run",
+                    "gainLoss": "gain",
+                    "playDist": "6",
+                    "player1": "S. Ehlinger",
+                    "player2": "",
+                    "kicker": "",
+                    "result": "touchdown",
+                    "afterTD": "",
+                    "min": "0",
+                    "sec": "6",
+                    "quarter": "third",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "29"
+                    }
+                },
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "",
+                    "gainLoss": "",
+                    "playDist": "",
+                    "player1": "",
+                    "player2": "",
+                    "kicker": "C. Dicker",
+                    "result": "Successful PAT",
+                    "afterTD": "pat",
+                    "min": "0",
+                    "sec": "6",
+                    "quarter": "third",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "30"
+                    }
+                }
+            ],
+            "_id": {
+                "$oid": "5e0d017fbc57a6d0a1e698fe"
+            },
+            "driveCount": {
+                "$numberInt": "15"
+            },
+            "team": "home",
+            "yardLine": {
+                "$numberInt": "25"
+            },
+            "yardTracker": {
+                "$numberInt": "91"
+            }
+        },
+        {
+            "plays": [
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "Run",
+                    "gainLoss": "gain",
+                    "playDist": "26",
+                    "player1": "T. Huntley",
+                    "player2": "",
+                    "kicker": "",
+                    "result": "1st",
+                    "afterTD": "",
+                    "min": "0",
+                    "sec": "0",
+                    "quarter": "third",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "31"
+                    }
+                },
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "Run",
+                    "gainLoss": "gain",
+                    "playDist": "6",
+                    "player1": "Z. Moss",
+                    "player2": "",
+                    "kicker": "",
+                    "result": "2nd",
+                    "afterTD": "",
+                    "min": "14",
+                    "sec": "43",
+                    "quarter": "fourth",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "32"
+                    }
+                },
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "Run",
+                    "gainLoss": "gain",
+                    "playDist": "29",
+                    "player1": "B. Kuithe",
+                    "player2": "",
+                    "kicker": "",
+                    "result": "1st",
+                    "afterTD": "",
+                    "min": "14",
+                    "sec": "14",
+                    "quarter": "fourth",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "33"
+                    }
+                },
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "Pass",
+                    "gainLoss": "gain",
+                    "playDist": "9",
+                    "player1": "T. Huntley",
+                    "player2": "Fotheringham",
+                    "kicker": "",
+                    "result": "2nd",
+                    "afterTD": "",
+                    "min": "13",
+                    "sec": "36",
+                    "quarter": "fourth",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "34"
+                    }
+                },
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "sack",
+                    "gainLoss": "loss",
+                    "playDist": "5",
+                    "player1": "T. Huntley",
+                    "player2": "",
+                    "kicker": "",
+                    "result": "3rd",
+                    "afterTD": "",
+                    "min": "12",
+                    "sec": "45",
+                    "quarter": "fourth",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "35"
+                    }
+                },
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "Incomplete pass",
+                    "gainLoss": "",
+                    "playDist": "",
+                    "player1": "T. Huntley",
+                    "player2": "T. Perriman",
+                    "kicker": "",
+                    "result": "4th",
+                    "afterTD": "",
+                    "min": "12",
+                    "sec": "6",
+                    "quarter": "fourth",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "36"
+                    }
+                },
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "Run",
+                    "gainLoss": "gain",
+                    "playDist": "8",
+                    "player1": "T. Huntley",
+                    "player2": "",
+                    "kicker": "",
+                    "result": "1st",
+                    "afterTD": "",
+                    "min": "12",
+                    "sec": "6",
+                    "quarter": "fourth",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "37"
+                    }
+                },
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "Run",
+                    "gainLoss": "loss",
+                    "playDist": "2",
+                    "player1": "Z. Moss",
+                    "player2": "",
+                    "kicker": "",
+                    "result": "2nd",
+                    "afterTD": "",
+                    "min": "11",
+                    "sec": "34",
+                    "quarter": "fourth",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "38"
+                    }
+                },
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "Pass",
+                    "gainLoss": "gain",
+                    "playDist": "4",
+                    "player1": "T. Huntley",
+                    "player2": "D. Simpkins",
+                    "kicker": "",
+                    "result": "touchdown",
+                    "afterTD": "",
+                    "min": "11",
+                    "sec": "34",
+                    "quarter": "fourth",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "39"
+                    }
+                },
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "",
+                    "gainLoss": "",
+                    "playDist": "",
+                    "player1": "",
+                    "player2": "",
+                    "kicker": "J. Redding",
+                    "result": "Successful PAT",
+                    "afterTD": "pat",
+                    "min": "11",
+                    "sec": "34",
+                    "quarter": "fourth",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "40"
+                    }
+                }
+            ],
+            "_id": {
+                "$oid": "5e0d0331bc57a6d0a1e698ff"
+            },
+            "driveCount": {
+                "$numberInt": "16"
+            },
+            "team": "away",
+            "yardLine": {
+                "$numberInt": "25"
+            },
+            "yardTracker": {
+                "$numberInt": "100"
+            }
+        },
+        {
+            "plays": [
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "Run",
+                    "gainLoss": "gain",
+                    "playDist": "20",
+                    "player1": "R. Johnson",
+                    "player2": "",
+                    "kicker": "",
+                    "result": "1st",
+                    "afterTD": "",
+                    "min": "10",
+                    "sec": "55",
+                    "quarter": "fourth",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "41"
+                    }
+                },
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "Run",
+                    "gainLoss": "gain",
+                    "playDist": "3",
+                    "player1": "R. Johnson",
+                    "player2": "",
+                    "kicker": "",
+                    "result": "2nd",
+                    "afterTD": "",
+                    "min": "10",
+                    "sec": "16",
+                    "quarter": "fourth",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "42"
+                    }
+                },
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "Pass",
+                    "gainLoss": "gain",
+                    "playDist": "37",
+                    "player1": "S. Ehlinger",
+                    "player2": "D. Duvernay",
+                    "kicker": "",
+                    "result": "1st",
+                    "afterTD": "",
+                    "min": "9",
+                    "sec": "55",
+                    "quarter": "fourth",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "43"
+                    }
+                },
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "Run",
+                    "gainLoss": "gain",
+                    "playDist": "5",
+                    "player1": "S. Ehlinger",
+                    "player2": "",
+                    "kicker": "",
+                    "result": "2nd",
+                    "afterTD": "",
+                    "min": "9",
+                    "sec": "26",
+                    "quarter": "fourth",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "44"
+                    }
+                },
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "Run",
+                    "gainLoss": "gain",
+                    "playDist": "5",
+                    "player1": "R. Johnson",
+                    "player2": "",
+                    "kicker": "",
+                    "result": "1st",
+                    "afterTD": "",
+                    "min": "9",
+                    "sec": "17",
+                    "quarter": "fourth",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "45"
+                    }
+                },
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "Pass",
+                    "gainLoss": "gain",
+                    "playDist": "5",
+                    "player1": "S. Ehlinger",
+                    "player2": "D. Duvernay",
+                    "kicker": "",
+                    "result": "touchdown",
+                    "afterTD": "",
+                    "min": "8",
+                    "sec": "58",
+                    "quarter": "fourth",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "46"
+                    }
+                },
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "",
+                    "gainLoss": "",
+                    "playDist": "",
+                    "player1": "",
+                    "player2": "",
+                    "kicker": "C. Dicker",
+                    "result": "Successful PAT",
+                    "afterTD": "pat",
+                    "min": "8",
+                    "sec": "58",
+                    "quarter": "fourth",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "47"
+                    }
+                }
+            ],
+            "_id": {
+                "$oid": "5e0d078dbc57a6d0a1e69900"
+            },
+            "driveCount": {
+                "$numberInt": "17"
+            },
+            "team": "home",
+            "yardLine": {
+                "$numberInt": "25"
+            },
+            "yardTracker": {
+                "$numberInt": "100"
+            }
+        },
+        {
+            "plays": [
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "Run",
+                    "gainLoss": "gain",
+                    "playDist": "0",
+                    "player1": "Z. Moss",
+                    "player2": "",
+                    "kicker": "",
+                    "result": "2nd",
+                    "afterTD": "",
+                    "min": "8",
+                    "sec": "57",
+                    "quarter": "fourth",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "48"
+                    }
+                },
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "Incomplete pass",
+                    "gainLoss": "",
+                    "playDist": "",
+                    "player1": "T. Huntley",
+                    "player2": "S. Enis",
+                    "kicker": "",
+                    "result": "3rd",
+                    "afterTD": "",
+                    "min": "8",
+                    "sec": "26",
+                    "quarter": "fourth",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "49"
+                    }
+                },
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "Incomplete pass",
+                    "gainLoss": "",
+                    "playDist": "",
+                    "player1": "T. Huntley",
+                    "player2": "J. Dixon",
+                    "kicker": "",
+                    "result": "4th",
+                    "afterTD": "",
+                    "min": "8",
+                    "sec": "7",
+                    "quarter": "fourth",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "50"
+                    }
+                },
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "kick",
+                    "gainLoss": "",
+                    "playDist": "49",
+                    "player1": "B. Lennon",
+                    "player2": "",
+                    "kicker": "",
+                    "result": "returned",
+                    "afterTD": "",
+                    "min": "8",
+                    "sec": "7",
+                    "quarter": "fourth",
+                    "kickType": "punt",
+                    "playCount": {
+                        "$numberInt": "51"
+                    }
+                }
+            ],
+            "_id": {
+                "$oid": "5e0d08f2bc57a6d0a1e69901"
+            },
+            "driveCount": {
+                "$numberInt": "18"
+            },
+            "team": "away",
+            "yardLine": {
+                "$numberInt": "25"
+            },
+            "yardTracker": {
+                "$numberInt": "25"
+            }
+        },
+        {
+            "plays": [
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "Kick return",
+                    "gainLoss": "gain",
+                    "playDist": "25",
+                    "player1": "D. Jamison",
+                    "player2": "",
+                    "kicker": "",
+                    "result": "1st",
+                    "afterTD": "",
+                    "min": "7",
+                    "sec": "54",
+                    "quarter": "fourth",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "1"
+                    }
+                },
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "Run",
+                    "gainLoss": "gain",
+                    "playDist": "49",
+                    "player1": "K. Ingram",
+                    "player2": "",
+                    "kicker": "",
+                    "result": "touchdown",
+                    "afterTD": "",
+                    "min": "7",
+                    "sec": "54",
+                    "quarter": "fourth",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "2"
+                    }
+                },
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "",
+                    "gainLoss": "",
+                    "playDist": "",
+                    "player1": "",
+                    "player2": "",
+                    "kicker": "C. Dicker",
+                    "result": "Successful PAT",
+                    "afterTD": "pat",
+                    "min": "7",
+                    "sec": "54",
+                    "quarter": "fourth",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "3"
+                    }
+                }
+            ],
+            "_id": {
+                "$oid": "5e0d0a0fbc57a6d0a1e69902"
+            },
+            "driveCount": {
+                "$numberInt": "19"
+            },
+            "team": "home",
+            "yardLine": {
+                "$numberInt": "26"
+            },
+            "yardTracker": {
+                "$numberInt": "100"
+            }
+        },
+        {
+            "plays": [
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "Run",
+                    "gainLoss": "loss",
+                    "playDist": "4",
+                    "player1": "Z. Moss",
+                    "player2": "",
+                    "kicker": "",
+                    "result": "2nd",
+                    "afterTD": "",
+                    "min": "7",
+                    "sec": "8",
+                    "quarter": "fourth",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "4"
+                    }
+                },
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "Run",
+                    "gainLoss": "loss",
+                    "playDist": "3",
+                    "player1": "D. Vickers",
+                    "player2": "",
+                    "kicker": "",
+                    "result": "3rd",
+                    "afterTD": "",
+                    "min": "6",
+                    "sec": "30",
+                    "quarter": "fourth",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "5"
+                    }
+                },
+                {
+                    "penalty": "False start",
+                    "yards": {
+                        "$numberInt": "5"
+                    },
+                    "penTeam": "away",
+                    "playType": "penalty",
+                    "gainLoss": "",
+                    "playDist": "",
+                    "player1": "B. Daniels",
+                    "player2": "",
+                    "kicker": "",
+                    "result": "3rd",
+                    "afterTD": "",
+                    "min": "6",
+                    "sec": "30",
+                    "quarter": "fourth",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "6"
+                    }
+                },
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "sack",
+                    "gainLoss": "loss",
+                    "playDist": "1",
+                    "player1": "T. Huntley",
+                    "player2": "",
+                    "kicker": "",
+                    "result": "4th",
+                    "afterTD": "",
+                    "min": "5",
+                    "sec": "20",
+                    "quarter": "fourth",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "7"
+                    }
+                },
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "kick",
+                    "gainLoss": "",
+                    "playDist": "54",
+                    "player1": "B. Lennon",
+                    "player2": "",
+                    "kicker": "",
+                    "result": "fair catch",
+                    "afterTD": "",
+                    "min": "5",
+                    "sec": "20",
+                    "quarter": "fourth",
+                    "kickType": "punt",
+                    "playCount": {
+                        "$numberInt": "8"
+                    }
+                }
+            ],
+            "_id": {
+                "$oid": "5e0d0ab1bc57a6d0a1e69903"
+            },
+            "driveCount": {
+                "$numberInt": "20"
+            },
+            "team": "away",
+            "yardLine": {
+                "$numberInt": "25"
+            },
+            "yardTracker": {
+                "$numberInt": "12"
+            }
+        },
+        {
+            "plays": [
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "Run",
+                    "gainLoss": "gain",
+                    "playDist": "3",
+                    "player1": "K. Ingram",
+                    "player2": "",
+                    "kicker": "",
+                    "result": "2nd",
+                    "afterTD": "",
+                    "min": "4",
+                    "sec": "28",
+                    "quarter": "second",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "1"
+                    }
+                },
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "Run",
+                    "gainLoss": "gain",
+                    "playDist": "7",
+                    "player1": "K. Ingram",
+                    "player2": "",
+                    "kicker": "",
+                    "result": "1st",
+                    "afterTD": "",
+                    "min": "3",
+                    "sec": "43",
+                    "quarter": "fourth",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "2"
+                    }
+                },
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "Run",
+                    "gainLoss": "gain",
+                    "playDist": "3",
+                    "player1": "D. Young",
+                    "player2": "",
+                    "kicker": "",
+                    "result": "2nd",
+                    "afterTD": "",
+                    "min": "2",
+                    "sec": "52",
+                    "quarter": "fourth",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "3"
+                    }
+                },
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "Run",
+                    "gainLoss": "gain",
+                    "playDist": "0",
+                    "player1": "D. Young",
+                    "player2": "",
+                    "kicker": "",
+                    "result": "3rd",
+                    "afterTD": "",
+                    "min": "2",
+                    "sec": "14",
+                    "quarter": "fourth",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "4"
+                    }
+                },
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "Run",
+                    "gainLoss": "gain",
+                    "playDist": "8",
+                    "player1": "C. Thompson",
+                    "player2": "",
+                    "kicker": "",
+                    "result": "1st",
+                    "afterTD": "",
+                    "min": "1",
+                    "sec": "45",
+                    "quarter": "fourth",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "5"
+                    }
+                },
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "Run",
+                    "gainLoss": "loss",
+                    "playDist": "1",
+                    "player1": "D. Young",
+                    "player2": "",
+                    "kicker": "",
+                    "result": "1st",
+                    "afterTD": "",
+                    "min": "1",
+                    "sec": "11",
+                    "quarter": "fourth",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "6"
+                    }
+                },
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "sack",
+                    "gainLoss": "loss",
+                    "playDist": "7",
+                    "player1": "C. Thompson",
+                    "player2": "",
+                    "kicker": "",
+                    "result": "3rd",
+                    "afterTD": "",
+                    "min": "1",
+                    "sec": "11",
+                    "quarter": "fourth",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "7"
+                    }
+                },
+                {
+                    "penalty": "",
+                    "yards": "",
+                    "penTeam": "",
+                    "playType": "Run",
+                    "gainLoss": "gain",
+                    "playDist": "6",
+                    "player1": "C. Thompson",
+                    "player2": "",
+                    "kicker": "",
+                    "result": "time expires",
+                    "afterTD": "",
+                    "min": "0",
+                    "sec": "0",
+                    "quarter": "fourth",
+                    "kickType": "",
+                    "playCount": {
+                        "$numberInt": "8"
+                    }
+                }
+            ],
+            "_id": {
+                "$oid": "5e0d0bf6bc57a6d0a1e69904"
+            },
+            "driveCount": {
+                "$numberInt": "21"
+            },
+            "team": "home",
+            "yardLine": {
+                "$numberInt": "34"
+            },
+            "yardTracker": {
+                "$numberInt": "53"
+            }
         }
     ],
     "__v": {
-        "$numberInt": "31"
+        "$numberInt": "56"
     }
 }

@@ -86,15 +86,6 @@ export default class Field extends React.Component {
     selectedDrive: 0
   }
 
-  // componentDidMount() {
-  //   if (this.props.selectedDrive > 0) {
-  //   this.setState({
-  //     start: this.props.game.drivesArr[(this.props.selectedDrive - 1)].yardLine,
-  //     selectedDrive: this.props.selectedDrive
-  //   })
-  // }
-  // }
-
   addDriveYards = () => {
     let driveYards = [0]
     const { selectedDrive, game } = this.props
@@ -124,6 +115,12 @@ export default class Field extends React.Component {
     const { selectedDrive, game } = this.props
     const { drivesArr } = game
     let currentDrive
+
+    if (!drivesArr[0]){
+      return
+    }
+
+
     if (selectedDrive > 0) {
       currentDrive = selectedDrive - 1
     } else{
@@ -136,12 +133,20 @@ export default class Field extends React.Component {
             this.props.game.drivesArr[currentDrive].plays.length - 2
           ].result === 'touchdown'
         ) {
-          return 'touchdown'
+          return 'TOUCHDOWN'
         }
       }
       let result = this.props.game.drivesArr[currentDrive].plays[
         this.props.game.drivesArr[currentDrive].plays.length - 1
       ].result
+
+      if (
+        result === 'returned' ||
+        result === 'touchback' ||
+        result === 'fair catch' 
+      ){
+        return 'PUNT'
+      }
 
       if (
         result === '1st' ||
@@ -152,7 +157,7 @@ export default class Field extends React.Component {
         return 'in progress'
       }
 
-      return result
+      return result.toUpperCase()
     }
   }
 
@@ -180,8 +185,8 @@ export default class Field extends React.Component {
                     ? 'play'
                     : 'plays'}
                   , {`${this.addDriveYards()}`} yards) {this.driveResult()}
-                  {(this.driveResult() === 'Successful' ||
-                    this.driveResult() === 'Failed') &&
+                  {(this.driveResult() === 'SUCCESSFUL' ||
+                    this.driveResult() === 'FAILED') &&
                     ' FG'}
                 </h1>
               ) : (
@@ -194,8 +199,8 @@ export default class Field extends React.Component {
                     ? 'play'
                     : 'plays'}
                   , {`${this.addDriveYards()}`} yards) {this.driveResult()}
-                  {(this.driveResult() === 'Successful' ||
-                    this.driveResult() === 'Failed') &&
+                  {(this.driveResult() === 'SUCCESSFUL' ||
+                    this.driveResult() === 'FAILED') &&
                     ' FG'}
                 </h1>
               )
@@ -241,7 +246,7 @@ export default class Field extends React.Component {
 
               <img className='goal-post-right' src={goal} alt='' height='100' />
               
-              {this.props.game.drivesArr.length > 0 &&
+              {/* {this.props.game.drivesArr.length > 0 &&
               this.props.game.drivesArr[currentDrive].plays > 0  ?
               this.props.game.drivesArr[currentDrive].plays[
                 this.props.game.drivesArr[currentDrive].plays.length - 1
@@ -252,7 +257,14 @@ export default class Field extends React.Component {
                   alt=''
                   height='65'
                 />
-              ) : null}
+              ) : null} */}
+
+                {this.driveResult() === 'SUCCESSFUL' &&   <img className='goal-post-right-right'
+                  src={upright}
+                  alt=''
+                  height='65'
+                />}
+
             </div>
           </div>
         </div>

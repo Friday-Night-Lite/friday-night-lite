@@ -70,7 +70,7 @@ export default class Animation extends React.Component {
   
         return (
           <Wrapper>
-            {this.props.driveResult() === 'safety' && (
+            {this.props.driveResult() === 'SAFETY' && (
               <img className='safety-ref' src={referee3} alt='' height='60' />
             )}
             <div
@@ -93,12 +93,12 @@ export default class Animation extends React.Component {
                 <div className="arrow"/>
                 </div> */}
 
-            {(this.props.driveResult() === 'touchdown' ||
-              this.props.driveResult() === 'Successful') && (
+            {(this.props.driveResult() === 'TOUCHDOWN' ||
+              this.props.driveResult() === 'SUCCESSFUL') && (
               <img className='referee' src={referee} alt='' height='60' />
             )}
 
-            {this.props.driveResult() === 'Failed' && (
+            {this.props.driveResult() === 'FAILED' && (
               <img className='referee' src={referee2} alt='' height='60' />
             )}
           </Wrapper>

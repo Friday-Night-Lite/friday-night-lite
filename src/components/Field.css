@@ -40,11 +40,11 @@ h4 {
   transform: skewY(60deg)
 }
 .goal-post-right-right {
-    margin-left: -8px;
-    margin-bottom: 112px;
+  margin-left: -8px;
+  margin-bottom: 112px;
   background-color: none;
   z-index: 20;
-  transform: skewY(60deg)
+  transform: skewY(60deg);
 }
 .goal-post-left{
   margin-right: -25px;
