@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import Helmet from "../components/Helmet";
+import NewHelmet from "../components/NewHelmet";
 import "../assets/digital-7.ttf"
 import football from '../assets/football.jpg'
 
@@ -45,7 +45,7 @@ padding: 10px;
   border: solid 1px #999999;
   border-radius: 5px;
   padding: 0 20px;
-  margin: 0 75px;
+  margin: 0 55px;
   width: 150px;
   box-shadow: 1px 1px 2px #999999;
 }
@@ -229,7 +229,7 @@ export default class Scoreboard extends React.Component {
       <Wrapper quarter={this.state.quarter}>
         <div className='teams'>
           <div className='team'>
-            <Helmet color1={home.color} />
+            <NewHelmet helmHeight={120} color={home.color} />
             <div className='school-info'>
               {/* <h2>{home.school}</h2> */}
               <h2>{home.mascot}</h2>
@@ -334,7 +334,7 @@ export default class Scoreboard extends React.Component {
                 </div>)
               )}
             </div>
-            <Helmet rightHelmet={true} color1={away.color} />
+            <NewHelmet helmHeight={120} flip={true} color={away.color} />
           </div>
         </div>
       </Wrapper>

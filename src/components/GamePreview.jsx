@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import "../assets/digital-7.ttf"
 import { Link } from 'react-router-dom'
-import Helmet from './Helmet'
+import NewHelmet from './NewHelmet'
 
 const Link2 = styled(Link)`
 text-decoration: none;
@@ -114,7 +114,7 @@ export default class GamePreview extends React.Component {
         <Wrapper >
           <div className='teams'>
             <div className='team'>
-              <Helmet color1={h.color} />
+              <NewHelmet helmHeight={80} color={h.color}/>
               <div className='school-info'>
                 <h2>{h.school}</h2>
                 {status !== 'upcoming' &&
@@ -135,7 +135,8 @@ export default class GamePreview extends React.Component {
                 {status !== 'upcoming' &&
                   <h3>{this.totalScore('away')}</h3>}
               </div>
-              <Helmet rightHelmet={true} color1={a.color} />
+              <NewHelmet helmHeight={80} flip={true} color={a.color}/>
+              {/* <Helmet rightHelmet={true} color1={a.color} /> */}
             </div>
           </div>
 
