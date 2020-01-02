@@ -65,6 +65,7 @@ export default class Drive extends React.Component {
 
       if (
         result === 'returned' ||
+        result === 'punt return' ||
         result === 'touchback' ||
         result === 'fair catch'
       ) {

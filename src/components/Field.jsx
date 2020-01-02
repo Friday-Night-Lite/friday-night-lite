@@ -28,6 +28,7 @@ const Wrapper = styled.div`
     font-family: sans-serif;
     margin-top: 50px;
     font-weight: bold;
+    z-index: 50;
   }
   .field-container {
     width: 900px;
@@ -142,6 +143,7 @@ export default class Field extends React.Component {
 
       if (
         result === 'returned' ||
+        result === 'punt return' ||
         result === 'touchback' ||
         result === 'fair catch' 
       ){

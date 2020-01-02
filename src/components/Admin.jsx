@@ -146,7 +146,9 @@ export default class Admin extends React.Component {
               showAddPlay: true,
               game: res.data,
               driveId: res.data.drivesArr[idLoc]._id,
-              yardLine: ''
+              yardLine: '',
+              playCount: 1
+
             })
             this.props.updateGame(res.data)
           })
@@ -181,7 +183,8 @@ export default class Admin extends React.Component {
       this.setState({
         showAddDrive: true,
         team: '',
-        showAfterTD: false
+        showAfterTD: false,
+        playCount: 0
       })
     }
 
@@ -191,7 +194,8 @@ export default class Admin extends React.Component {
       this.setState({
         showAddDrive: true,
         team: '',
-        showAfterTD: false
+        showAfterTD: false,
+        playCount: 0
       })
     }
 
@@ -201,7 +205,8 @@ export default class Admin extends React.Component {
       this.setState({
         showAddDrive: true,
         showAddPlay: false,
-        team: ''
+        team: '',
+        playCount: 0
       })
     }
 
@@ -217,7 +222,8 @@ export default class Admin extends React.Component {
       this.setState({
         showAddDrive: true,
         showAddPlay: false,
-        team: ''
+        team: '',
+        playCount: 0
       })
     }
     if (
@@ -227,12 +233,13 @@ export default class Admin extends React.Component {
       result === 'Failed' ||
       result === 'blocked' ||
       result === 'Time expires' ||
-      result === 'punt'
+      result === 'punt return' 
     ) {
       this.setState({
         showAddDrive: true,
         showAddPlay: false,
-        team: ''
+        team: '', 
+        playCount: 0
       })
     }
     if (points > 0) {
@@ -398,8 +405,13 @@ export default class Admin extends React.Component {
                 showAddPlay: false
               })
             }
+            let setDrive = res.data.game.drivesArr.find(drive => {
+              return drive._id === driveId
+            })
+
             this.setState({
-              playCount: playCount + 1,
+              // playCount: playCount + 1,
+              playCount: setDrive.plays.length + 1,
               playType: '',
               gainLoss: '',
               playDist: '0',
