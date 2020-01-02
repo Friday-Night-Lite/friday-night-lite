@@ -28,6 +28,7 @@ const Wrapper = styled.div`
     justify-content: space-between;
     align-items: center;
     font-size: 1.2rem;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
   }
   .teams {
     padding: 0 15px;
@@ -42,7 +43,7 @@ const Wrapper = styled.div`
   }
   h1 {
     font-size: 1.5rem;
-    font-family: sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   }
   h3 {
   font-size: 4rem;
