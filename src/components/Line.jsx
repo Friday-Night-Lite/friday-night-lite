@@ -42,7 +42,7 @@ animation: show 1000ms cubic-bezier(0.250, 0.100, 0.250, 1.000);
   &.pass {
     border: 4px solid black;
     border-radius: 50%/100% 100% 0 0;
-    height:C;
+    height: ${props => props.passArch}%;
     border-color: black transparent transparent transparent;
     z-index: ${props => `${props.index}`};
   }
@@ -200,7 +200,6 @@ const Line = props => {
     return penaltyYards
   }
   function checkLoss(play) {
-    console.log(play)
     let i = 0
 
     if (gainLoss !== 'loss' || playType === 'Incomplete pass' || playType === 'kick') {

@@ -10,7 +10,7 @@ const Wrapper = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  margin-bottom: 25px;
+  /* margin-bottom: 5px; */
   .fieldContainer {
     position: relative;
     top: 0;
@@ -28,6 +28,7 @@ const Wrapper = styled.div`
     font-family: sans-serif;
     margin-top: 50px;
     font-weight: bold;
+    z-index: 50;
   }
   .field-container {
     width: 900px;
@@ -142,6 +143,7 @@ export default class Field extends React.Component {
 
       if (
         result === 'returned' ||
+        result === 'punt return' ||
         result === 'touchback' ||
         result === 'fair catch' 
       ){
@@ -178,7 +180,7 @@ export default class Field extends React.Component {
               selectedDrive > 0 ? (
                 <h1>
                   Drive {selectedDrive}:{' '}
-                  {this.props.game[drivesArr[currentDrive].team].school}{' '}
+                  {/* {this.props.game[drivesArr[currentDrive].team].school}{' '} */}
                   {this.props.game[drivesArr[currentDrive].team].mascot} (
                   {drivesArr[currentDrive].plays.length}{' '}
                   {drivesArr[currentDrive].plays.length === 1
@@ -192,7 +194,7 @@ export default class Field extends React.Component {
               ) : (
                 <h1>
                   Current Drive:{' '}
-                  {this.props.game[drivesArr[currentDrive].team].school}{' '}
+                  {/* {this.props.game[drivesArr[currentDrive].team].school}{' '} */}
                   {this.props.game[drivesArr[currentDrive].team].mascot} (
                   {drivesArr[currentDrive].plays.length}{' '}
                   {drivesArr[currentDrive].plays.length === 1

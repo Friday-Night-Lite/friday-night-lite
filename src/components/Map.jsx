@@ -38,12 +38,8 @@ class Map extends React.Component {
     return (
       <>
       <MapPage>
-        {/* <input placeholder="username" />
-        <input placeholder="password" />
-        <button>confirm</button> */}
         <div className="App">
-          <USAMap onClick={this.mapHandler} />
-          {/* <USAMap onClick={() => {this.toggleModal(); this.mapHandler()}} /> */}
+          <USAMap onClick={this.mapHandler} height='70vh' width='100vw'/>
         </div>
       </MapPage>
           {this.state.modalDisplay ? (
@@ -58,11 +54,19 @@ class Map extends React.Component {
 export default Map;
 
 const MapPage = styled.div `
-background: white;
+display: flex;
+align-items: center;
+justify-content: center;
+background: #c9c9c9;
+min-height: calc(100vh - 175px);
+box-sizing: border-box;
+path {
+  fill: white;
+}
 path:hover {
     opacity: 0.60;
     cursor:  pointer;
-    transform: scale(1.005);
-    z-index: 3;}
-    
+    transform: scale(1.006) ;
+    z-index: 3;
+  }
     `
