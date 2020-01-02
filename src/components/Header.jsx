@@ -14,7 +14,10 @@ background: #262626;
 .container {
     display: flex;
     justify-content: space-between;
-    width: 1200px;
+    align-items: center;
+    width: 100%;
+    padding: 0 50px;
+    justify-content: center;
     &:hover {
         color: purple;
     }
@@ -31,10 +34,11 @@ background: #262626;
 .lights {
     height: 75px;
     margin-top: 5px;
+    margin: 35px;
 }
 h1 {
     transition: all 1s ease;
-    font-size: 5rem;
+    font-size: 5vw;
     font-family: 'Bungee Shade', cursive;
     color: red;
     &:hover {
@@ -92,7 +96,7 @@ class Header extends React.Component {
                         <h1>FRIDAY NIGHT LITE</h1>
                     </Link2>
                 
-                <div className='logoRight lights'>
+                <div className='logoRight'>
                     <img className='lights' src={lights} alt="stadium lights"/>
                 </div>
     

@@ -8,7 +8,7 @@ import Footer from './components/Footer'
 
 class App extends React.Component {
   state = {
-    show: !false
+    show: false
   }
 
   toggle = _ => {

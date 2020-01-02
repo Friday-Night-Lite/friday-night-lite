@@ -9,7 +9,7 @@ box-shadow: 1px 1px 2px #999999;
 background: white;
 display: flex;
 width: 900px;
-margin: 25px auto;
+margin: 5px auto;
 border-radius: 7px;
 box-sizing: border-box;
 padding: 10px;
