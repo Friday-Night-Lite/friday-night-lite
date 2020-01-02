@@ -42,7 +42,7 @@ export default class Admin extends React.Component {
     submitPlay: true,
     playType: '',
     gainLoss: '',
-    playDist: '',
+    playDist: '0',
     player1: '',
     player2: '',
     result: '',
@@ -222,7 +222,7 @@ export default class Admin extends React.Component {
       })
     }
     if (
-      result === 'downs' ||
+      result === 'turnover on downs' ||
       result === 'fumble' ||
       result === 'interception' ||
       result === 'Failed' ||
@@ -403,7 +403,7 @@ export default class Admin extends React.Component {
               playCount: playCount + 1,
               playType: '',
               gainLoss: '',
-              playDist: '',
+              playDist: '0',
               player1: '',
               player2: '',
               result: '',
