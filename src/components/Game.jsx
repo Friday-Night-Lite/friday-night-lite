@@ -20,7 +20,7 @@ const keyFrameFootball = keyframes`
 `
 
 const Wrapper = styled.div`
-  background: #ececec;
+  background: #c9c9c9;
   padding-top: 25px;
   padding-bottom: 50px;
   .container {

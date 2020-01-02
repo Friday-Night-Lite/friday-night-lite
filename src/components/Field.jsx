@@ -36,8 +36,8 @@ const Wrapper = styled.div`
     justify-content: center;
     flex-direction: column;
     border-radius: 7px;
-    background: grey;
-    box-shadow: 1px 1px 2px #999999;
+    /* background: grey; */
+    /* box-shadow: 1px 1px 2px #999999; */
   }
 `
 

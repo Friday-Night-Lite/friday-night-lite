@@ -16,6 +16,8 @@ const PostDot = styled.div`
   }
 `
 const Play = styled.div`
+overflow: hidden;
+animation: show 1000ms cubic-bezier(0.250, 0.100, 0.250, 1.000);
   &.run {
     height: 5px;
     background: black;
@@ -100,6 +102,14 @@ const Play = styled.div`
   &#success {
     border-color: green transparent transparent transparent;
   }
+  /* @keyframes show {
+  from {
+    width: 0%;
+  }
+  to {
+    width: initial;
+  } */
+/* } */
 `
 const PenDot = styled.div`
   height: 11px;
@@ -201,7 +211,6 @@ const Line = props => {
         }
       }
     }
-    console.log(index, play)
     if (gainLoss === 'loss') {
       i = index
     }
@@ -209,12 +218,10 @@ const Line = props => {
       return (lossYards = +drive.plays[i].playDist)
     }
     while ((i >= 0 && drive.plays[i].gainLoss === 'loss') || (i >= 0 && drive.plays[i].playType === 'Incomplete pass')) {
-      console.log(play, 'while loop')
       lossYards += +drive.plays[i].playDist
       i--
     }
-    // console.log(lossYards)
-
+   
     return lossYards
   }
 
@@ -346,8 +353,7 @@ const Line = props => {
     } else if (playType === 'kick') {
       checkPenalties('punt')
       checkLoss('punt')
-      console.log(lossYards)
-      
+     
       if (kickType === 'punt') {
         return (
           <>
@@ -385,15 +391,17 @@ const Line = props => {
       }
     }
   }
-  
-
   return (
-    <>
+    // setTimeout(() => { 
+    //  return (
+     <>
       {index === 0 ? <PostDot className='start-dot' index={index - 1} /> : null}
       {playDist !== '0' ? elementType() : null}
       {result === 'touchdown' && <Football index={index} src={football} />}
     </>
-  )
+    // )
+    // }, index * 1000)
+    )
 }
 
 export default Line

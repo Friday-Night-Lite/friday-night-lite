@@ -120,8 +120,7 @@ export default class Admin extends React.Component {
   }
 
   submitDrive = () => {
-    console.log('hit')
-    const { gameId, driveCount, team, yardLine, yardTracker } = this.state
+    const { gameId, driveCount, team, yardLine } = this.state
     this.setState(
       {
         drivingTeam: team,
