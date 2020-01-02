@@ -120,6 +120,7 @@ export default class Admin extends React.Component {
   }
 
   submitDrive = () => {
+
     const { gameId, driveCount, team, yardLine } = this.state
     this.setState(
       {
@@ -181,10 +182,11 @@ export default class Admin extends React.Component {
     if (result === 'Successful PAT') {
       points = 1
       this.setState({
+        showAfterTD: false,
         showAddDrive: true,
         team: '',
-        showAfterTD: false,
-        playCount: 0
+        playCount: 0,
+        afterTD: ''
       })
     }
 
@@ -192,10 +194,11 @@ export default class Admin extends React.Component {
     if (result === '2 point') {
       points = 2
       this.setState({
+        showAfterTD: false,
         showAddDrive: true,
         team: '',
-        showAfterTD: false,
-        playCount: 0
+        playCount: 0,
+        afterTD: ''
       })
     }
 
@@ -383,10 +386,14 @@ export default class Admin extends React.Component {
     } else {
       teamObj = { ...game[drivingTeam] }
     }
+
+    // if (this.state.game.status === 'upcoming') {
+    //   this.setState({game: {...this.state.game, status: 'inProgress'}})
+    // }
+
     this.setState(
-      { game: { ...this.state.game, score: scoreObj }, yardTracker: newYards },
+      { game: { ...this.state.game, score: scoreObj} },
       () => {
-        // console.log(newYards)
 
         axios
           .put(`/api/game`, {
@@ -396,7 +403,8 @@ export default class Admin extends React.Component {
             playObj,
             scoreObj,
             teamObj,
-            drivingTeam
+            drivingTeam,
+            status: 'inProgress'
           })
           .then(res => {
             if (this.state.result === 'touchdown') {

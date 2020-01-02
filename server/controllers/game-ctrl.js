@@ -62,7 +62,7 @@ module.exports = {
           let oldDrives = result.drivesArr
           result.drivesArr = [...oldDrives, newDrive]
         }
-        if (body.status) {
+        if (body.status !== result.status) {
           result.status = body.status
         }
         if (body.scoreObj) {

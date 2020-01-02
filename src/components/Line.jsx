@@ -200,7 +200,6 @@ const Line = props => {
     return penaltyYards
   }
   function checkLoss(play) {
-    console.log(play)
     let i = 0
 
     if (gainLoss !== 'loss' || playType === 'Incomplete pass' || playType === 'kick') {
