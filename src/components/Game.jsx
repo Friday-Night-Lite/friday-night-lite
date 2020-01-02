@@ -132,7 +132,7 @@ class Game extends React.Component {
           />
         )}
         {!this.state.isLoading && null}
-        {this.props.show && !this.state.isLoading && (
+        {this.state.gameObj.status !== 'FINAL' && this.props.show && !this.state.isLoading && (
           <Admin updateGame={this.updateGame} game={this.state.gameObj} />
         )}
 

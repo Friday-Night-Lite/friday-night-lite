@@ -7,11 +7,11 @@ export const Wrapper = styled.div`
 display: flex;
 align-items: center;
 justify-content: center;
-height: 100px;
+height: 75px;
 background: #262626;
 position: sticky;
 width: 100%;
-bottom: -100px;
+bottom: -75px;
 .container {
     width: 1200px;
     display: flex;

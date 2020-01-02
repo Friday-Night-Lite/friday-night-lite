@@ -39,7 +39,7 @@ class Map extends React.Component {
       <>
       <MapPage>
         <div className="App">
-          <USAMap onClick={this.mapHandler} height='75vh' width='100vw'/>
+          <USAMap onClick={this.mapHandler} height='70vh' width='100vw'/>
         </div>
       </MapPage>
           {this.state.modalDisplay ? (
@@ -58,7 +58,7 @@ display: flex;
 align-items: center;
 justify-content: center;
 background: #c9c9c9;
-min-height: calc(100vh - 200px);
+min-height: calc(100vh - 175px);
 box-sizing: border-box;
 path {
   fill: white;
