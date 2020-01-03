@@ -49,15 +49,12 @@ export default class PlayInputs extends React.Component {
                   name='playDist'
                   value={admin.playDist}
                   placeholder='Play Distance'
-                  list='play-distance'
-                >
-                {/* <datalist id='play-distance'> */}
+                  list='play-distance'>
                   {[...Array(101 - admin.yardTracker)].map((el, i) => (
                     <option value={i} key={i}>
                       {i} Yards
                     </option>
                   ))}
-                {/* </datalist> */}
                 </select>
               </>
             )}
@@ -65,7 +62,13 @@ export default class PlayInputs extends React.Component {
             <input
               onChange={e => this.props.handleChange(e.target)}
               name='player1'
-              placeholder={admin.playType === 'Kick return' ? 'Kick Returner' : admin.playType === 'Run' ? 'Runner' : 'Passer'}
+              placeholder={
+                admin.playType === 'Kick return'
+                  ? 'Kick Returner'
+                  : admin.playType === 'Run'
+                  ? 'Runner'
+                  : 'Passer'
+              }
               list='player1'
               value={admin.player1}
             />
@@ -208,7 +211,7 @@ export default class PlayInputs extends React.Component {
                   value={admin.playDist}>
                   {[...Array(101 - admin.yardTracker)].map((el, i) => (
                     <option value={i} key={i}>
-                     {i} Yards
+                      {i} Yards
                     </option>
                   ))}
                 </select>
@@ -239,7 +242,6 @@ export default class PlayInputs extends React.Component {
                   name='result'
                   value={admin.result}>
                   <option value=''>Play Result</option>
-
                   <option value='Successful'>Field Goal (Made)</option>
                   <option value='Failed'>Field Goal (Missed) </option>
                   <option value='blocked'>Blocked </option>
@@ -250,34 +252,32 @@ export default class PlayInputs extends React.Component {
                   <option value='safety'>Safety</option>
                   <option value='Time expires'>Time Expires</option>
                 </select>
-                <input
+
+                <select
                   placeholder='Minutes'
                   value={admin.min}
                   onChange={e => this.props.handleChange(e.target)}
-                  name='min'
-                  list='min'
-                />
-                <datalist id='min'>
+                  name='min'>
+                  <option value=''>Minutes</option>
                   {[...Array(15)].map((el, i) => (
                     <option key={i} value={i}>
-                      Minutes
+                      {`${i} Minutes`}
                     </option>
                   ))}
-                </datalist>
-                <input
+                </select>
+
+                <select
                   placeholder='Seconds'
                   onChange={e => this.props.handleChange(e.target)}
                   name='sec'
-                  list='sec'
-                  value={admin.sec}
-                />
-                <datalist id='sec'>
+                  value={admin.sec}>
+                  <option value=''>Seconds</option>
                   {[...Array(60)].map((el, i) => (
                     <option key={i} value={i}>
-                      Seconds
+                      {`${i} Seconds`}
                     </option>
                   ))}
-                </datalist>
+                </select>
                 <select
                   name='quarter'
                   onChange={e => this.props.handleChange(e.target)}

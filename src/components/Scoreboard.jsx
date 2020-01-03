@@ -202,8 +202,6 @@ export default class Scoreboard extends React.Component {
   }
 
   render() {
-
-    // this.teamBall()
     
     const {
       away,

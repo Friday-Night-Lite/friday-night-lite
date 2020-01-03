@@ -31,6 +31,17 @@ module.exports = {
       }
     ).catch(err => console.log(err))
   },
+  syncGame: async (gameId) => {
+    await GameModel.findOne({ _id: req.params.id }, (err, game) => {
+      if (err) {
+        return res.status(400).json({ success: false, error: err })
+      }
+      if (!game) {
+        return res.status(404).json({ success: false, error: 'Game not found' })
+      }
+      return game
+    }).catch(err => console.log(err))
+  },
 
   getGame: async (req, res) => {
     await GameModel.findOne({ _id: req.params.id }, (err, game) => {

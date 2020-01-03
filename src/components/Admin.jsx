@@ -5,6 +5,7 @@ import PlayInputs from './PlayInputs'
 import AfterTDInputs from './AfterTDInputs'
 import SubmitButton from './SubmitButton'
 import Penalties from './Penalties'
+import io from 'socket.io-client'
 
 const Wrapper = styled.div`
   box-shadow: 1px 1px 2px #999999;
@@ -15,7 +16,6 @@ const Wrapper = styled.div`
   margin: 25px auto;
   margin-top: 0;
   padding: 25px;
-  /* border: 1px solid black; */
   border-radius: 7px;
   width: 850px;
   .new-drive {
@@ -27,50 +27,62 @@ const Wrapper = styled.div`
 `
 
 export default class Admin extends React.Component {
-  state = {
-    game: {},
-    gameId: '',
+  constructor(props) {
+    super(props)
+    this.state = {
+      game: {},
+      gameId: '',
 
-    showAddDrive: true,
-    submitDrive: true,
-    team: '',
-    fieldSide: '',
-    yardLine: '',
-    driveId: '',
-    driveCount: 1,
+      showAddDrive: true,
+      submitDrive: true,
+      team: '',
+      fieldSide: '',
+      yardLine: '',
+      driveId: '',
+      driveCount: 1,
 
-    showAddPlay: false,
-    submitPlay: true,
-    playType: '',
-    gainLoss: '',
-    playDist: '0',
-    player1: '',
-    player2: '',
-    result: '',
-    min: '',
-    sec: '',
-    quarter: 'first',
-    kickType: '',
-    playCount: 1,
-    drivingTeam: '',
-    yardTracker: 0,
+      showAddPlay: false,
+      submitPlay: true,
+      playType: '',
+      gainLoss: '',
+      playDist: '0',
+      player1: '',
+      player2: '',
+      result: '',
+      min: '',
+      sec: '',
+      quarter: 'first',
+      kickType: '',
+      playCount: 1,
+      drivingTeam: '',
+      yardTracker: 0,
 
-    showAfterTD: false,
-    afterTD: '',
-    kicker: '',
-    patRes: '',
-    patBlocker: '',
+      showAfterTD: false,
+      afterTD: '',
+      kicker: '',
+      patRes: '',
+      patBlocker: '',
 
-    penalty: '',
-    yards: '',
-    penTeam: ''
+      penalty: '',
+      yards: '',
+      penTeam: ''
+    }
+    this.socket = io.connect(':4321')
   }
-
   componentDidMount = () => {
     this.setState({
       driveCount: this.props.game.drivesArr.length + 1,
       game: this.props.game,
       gameId: this.props.game._id
+    })
+  }
+  componentWillUnmount() {
+    this.socket.disconnect()
+  }
+
+  blast = game => {
+    this.socket.emit(`blast to global socket`, {
+      game
     })
   }
 
@@ -121,7 +133,6 @@ export default class Admin extends React.Component {
   }
 
   submitDrive = () => {
-
     const { gameId, driveCount, team, yardLine } = this.state
     this.setState(
       {
@@ -150,7 +161,6 @@ export default class Admin extends React.Component {
               driveId: res.data.drivesArr[idLoc]._id,
               yardLine: '',
               playCount: 1
-
             })
             this.props.updateGame(res.data)
           })
@@ -237,12 +247,12 @@ export default class Admin extends React.Component {
       result === 'Failed' ||
       result === 'blocked' ||
       result === 'Time expires' ||
-      result === 'punt return' 
+      result === 'punt return'
     ) {
       this.setState({
         showAddDrive: true,
         showAddPlay: false,
-        team: '', 
+        team: '',
         playCount: 0
       })
     }
@@ -317,9 +327,7 @@ export default class Admin extends React.Component {
     index1 = game[drivingTeam].players.findIndex(player => {
       return player1 === player.last_name
     })
-
     playerA = game[drivingTeam].players[index1]
-
     if (playType === 'Run' || playType === 'Kick return') {
       if (result === 'touchdown') {
         if (!playerA.rushTDs) {
@@ -337,9 +345,7 @@ export default class Admin extends React.Component {
           ? (playerA.rushYards = [...playerA.rushYards, +playDist])
           : (playerA.rushYards = [...playerA.rushYards, -+playDist])
       }
-
       let updatedPlayers = [...game[drivingTeam].players]
-
       teamObj = { ...game[drivingTeam], players: updatedPlayers }
     }
 
@@ -347,9 +353,7 @@ export default class Admin extends React.Component {
       index2 = game[drivingTeam].players.findIndex(player => {
         return player2 === player.last_name
       })
-
       playerB = game[drivingTeam].players[index2]
-
       if (result === 'touchdown') {
         if (!playerA.passTDs) {
           playerA.passTDs = 1
@@ -388,14 +392,12 @@ export default class Admin extends React.Component {
       teamObj = { ...game[drivingTeam] }
     }
 
-    // if (this.state.game.status === 'upcoming') {
-    //   this.setState({game: {...this.state.game, status: 'inProgress'}})
-    // }
-
     this.setState(
-      { game: { ...this.state.game, score: scoreObj}, yardTracker: newYards },
+      {
+        game: { ...this.state.game, score: scoreObj },
+        yardTracker: newYards
+      },
       () => {
-
         axios
           .put(`/api/game`, {
             yardTracker: newYards,
@@ -408,6 +410,7 @@ export default class Admin extends React.Component {
             status: 'inProgress'
           })
           .then(res => {
+            this.blast(res.data.game)
             if (this.state.result === 'touchdown') {
               this.setState({
                 showAfterTD: true,
@@ -419,11 +422,10 @@ export default class Admin extends React.Component {
             })
 
             this.setState({
-              // playCount: playCount + 1,
               playCount: setDrive.plays.length + 1,
               playType: '',
               gainLoss: '',
-              playDist: '0',
+              playDist: '',
               player1: '',
               player2: '',
               result: '',

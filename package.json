@@ -23,6 +23,7 @@
     "react-spring": "^8.0.27",
     "react-test-renderer": "^16.12.0",
     "react-usa-map": "^1.4.0",
+    "socket.io": "^2.3.0",
     "styled-components": "^4.4.1"
   },
   "scripts": {

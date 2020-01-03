@@ -8,11 +8,11 @@ import GameLeaders from './GameLeaders'
 import Admin from './Admin'
 import { withRouter } from 'react-router-dom'
 import football from '../assets/football.jpg'
+import io from 'socket.io-client'
 
 const keyFrameFootball = keyframes`
   from {
     transform: rotate(0deg);
-    
   }
   to {
     transform: rotate(360deg);
@@ -44,17 +44,24 @@ const Wrapper = styled.div`
 `
 
 class Game extends React.Component {
-  state = {
-    isLoading: true,
-    gameObj: {},
-    gameId: '',
-    selectedDrive: 0,
-    min: '15',
-    sec: '00',
-    quarter: ''
+  constructor(props) {
+    super(props)
+    this.state = {
+      isLoading: true,
+      gameObj: {},
+      gameId: '',
+      selectedDrive: 0,
+      min: '15',
+      sec: '00',
+      quarter: ''
+    }
+    this.socket = io.connect(':4321')
+    this.socket.on('global response', data => {
+      this.updateGame(data.game)
+    })
   }
 
-  componentDidMount() {
+  componentDidMount = () => {
     let id = this.props.match.params.id
     axios.get(`/api/game/${id}`).then(res => {
       this.setState({
@@ -65,15 +72,16 @@ class Game extends React.Component {
     })
   }
 
+  componentWillUnmount() {
+    this.socket.disconnect()
+  }
+
   updateGame = game => {
-    this.setState({ gameObj: game })
+    this.setState({ gameObj: game }, () => this.findTime())
   }
 
   setCurrentDrive = id => {
-    this.setState(
-      {
-        selectedDrive: id
-      },
+    this.setState({selectedDrive: id},
       () => this.findTime()
     )
   }
@@ -82,7 +90,11 @@ class Game extends React.Component {
     let min
     let sec
     let quarter
-    if (!this.state.selectedDrive && this.state.gameObj.drivesArr.length > 0 && this.state.gameObj.drivesArr[0].plays.length > 0 ) {
+    if (
+      !this.state.selectedDrive &&
+      this.state.gameObj.drivesArr.length > 0 &&
+      this.state.gameObj.drivesArr[0].plays.length > 0
+    ) {
       const { drivesArr } = this.state.gameObj
       const { plays } = drivesArr[drivesArr.length - 1]
 
@@ -105,12 +117,12 @@ class Game extends React.Component {
     }
   }
   render() {
+ 
     return (
       <Wrapper>
         {/* LOADING... */}
         {this.state.isLoading && (
           <div className='loading'>
-            {/* <h1>Loading...</h1> */}
             <img className='football' src={football} alt='football' />
           </div>
         )}
@@ -132,9 +144,11 @@ class Game extends React.Component {
           />
         )}
         {!this.state.isLoading && null}
-        {this.state.gameObj.status !== 'FINAL' && this.props.show && !this.state.isLoading && (
-          <Admin updateGame={this.updateGame} game={this.state.gameObj} />
-        )}
+        {this.state.gameObj.status !== 'FINAL' &&
+          this.props.show &&
+          !this.state.isLoading && (
+            <Admin updateGame={this.updateGame} game={this.state.gameObj} />
+          )}
 
         {!this.state.isLoading && (
           <div className='container'>
