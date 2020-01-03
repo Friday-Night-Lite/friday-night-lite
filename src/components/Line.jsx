@@ -76,7 +76,8 @@ animation: show 1000ms cubic-bezier(0.250, 0.100, 0.250, 1.000);
     border: 4px solid orange;
     border-radius: 50%/100% 100% 0 0;
     margin: ${props => `0 0 0 calc(-${props.lossYards}% - 3px)`};
-    height: ${props => props.passArch}%;
+    height: ${props =>
+      props.passArch < 45 ? props.passArch : props.passArch / 2}%;
     border-color: orange transparent transparent transparent;
     z-index: ${props => `${props.index - 4}`};
   }
@@ -85,14 +86,14 @@ animation: show 1000ms cubic-bezier(0.250, 0.100, 0.250, 1.000);
     right: -140px;
     border: 4px solid;
     border-radius: 50%/100% 100% 0 0;
-    /* margin: 0 0 0 -10px; */
-    height: ${props => props.passArch * 1.3}%;
-    /* z-index: ${props => `${props.index}`}; */
+    height: ${props =>
+    props.passArch < 45 ? props.passArch * 1.3 : props.passArch}%;
   }
   &.loss-FG {
+    position: absolute;
+    right: -140px;
     border: 4px solid;
     border-radius: 50%/100% 100% 0 0;
-    margin: ${props => `0 0 0 -${props.lossYards}%`};
     height: ${props => props.passArch}%;
     z-index: ${props => `${props.index}`};
   }
@@ -102,14 +103,6 @@ animation: show 1000ms cubic-bezier(0.250, 0.100, 0.250, 1.000);
   &#success {
     border-color: green transparent transparent transparent;
   }
-  /* @keyframes show {
-  from {
-    width: 0%;
-  }
-  to {
-    width: initial;
-  } */
-/* } */
 `
 const PenDot = styled.div`
   height: 11px;
@@ -384,22 +377,17 @@ const Line = props => {
               }
               style={{ width: `${+playDist + 22}%` }}
             />
-            {/* {result === 'field' && <PostDot index={index} className='FG' />} */}
           </>
         )
       }
     }
   }
   return (
-    // setTimeout(() => { 
-    //  return (
      <>
       {index === 0 ? <PostDot className='start-dot' index={index - 1} /> : null}
       {playDist !== '0' ? elementType() : null}
       {result === 'touchdown' && <Football index={index} src={football} />}
     </>
-    // )
-    // }, index * 1000)
     )
 }
 
