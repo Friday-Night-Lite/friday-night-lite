@@ -425,7 +425,7 @@ export default class Admin extends React.Component {
               playCount: setDrive.plays.length + 1,
               playType: '',
               gainLoss: '',
-              playDist: '0',
+              playDist: '',
               player1: '',
               player2: '',
               result: '',
