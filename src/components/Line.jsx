@@ -31,6 +31,13 @@ animation: show 1000ms cubic-bezier(0.250, 0.100, 0.250, 1.000);
     margin: ${props => `0 -1px 2.8px -${props.lossYards}%`};
     z-index: ${props => `${props.index}`};
   }
+  &.pen-run {
+    height: 5px;
+    background: black;
+    opacity: 0.6;
+    margin: ${props => `0 -1px 2.8px -${props.penaltyYards}%`};
+    z-index: ${props => `${props.index}`};
+  }
   &.td-run {
     position: absolute;
     right: -25px;
@@ -50,6 +57,14 @@ animation: show 1000ms cubic-bezier(0.250, 0.100, 0.250, 1.000);
     border: 4px solid black;
     border-radius: 50%/100% 100% 0 0;
     margin: ${props => `0 0 0 -${props.lossYards}%`};
+    height: ${props => props.passArch}%;
+    border-color: black transparent transparent transparent;
+    z-index: ${props => `${props.index}`};
+  }
+  &.pen-pass {
+    border: 4px solid black;
+    border-radius: 50%/100% 100% 0 0;
+    margin: ${props => `0 0 0 -${props.penaltyYards}%`};
     height: ${props => props.passArch}%;
     border-color: black transparent transparent transparent;
     z-index: ${props => `${props.index}`};
@@ -87,7 +102,7 @@ animation: show 1000ms cubic-bezier(0.250, 0.100, 0.250, 1.000);
     border: 4px solid;
     border-radius: 50%/100% 100% 0 0;
     height: ${props =>
-    props.passArch < 45 ? props.passArch * 1.3 : props.passArch}%;
+      props.passArch < 45 ? props.passArch * 1.3 : props.passArch}%;
   }
   &.loss-FG {
     position: absolute;
@@ -263,7 +278,7 @@ const Line = props => {
             lossYards={lossYards}
             penaltyYards={penaltyYards}
             className={
-              penaltyYards ? 'loss-run' : lossYards ? 'loss-run' : 'run'
+              penaltyYards ? 'pen-run' : lossYards ? 'loss-run' : 'run'
             }
             style={{ width: `${playDist}%` }}
           />
@@ -273,6 +288,7 @@ const Line = props => {
     } else if (playType === 'Pass') {
       checkPenalties()
       checkLoss()
+      
       return (
         <>
           <Play
@@ -281,7 +297,7 @@ const Line = props => {
             lossYards={lossYards}
             penaltyYards={penaltyYards}
             className={
-              penaltyYards ? 'loss-pass' : lossYards ? 'loss-pass' : 'pass'
+              penaltyYards ? 'pen-pass' : lossYards ? 'loss-pass' : 'pass'
             }
             style={{ width: `calc(${playDist}% - 8px)` }}
           />
