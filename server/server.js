@@ -11,6 +11,8 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(cors())
 
+app.use( express.static( `${__dirname}/../build` ) )
+
 const server = app.listen(SERVER_PORT, () => {
   console.log(`Self destruct in ${SERVER_PORT}`)
 })
