@@ -43,6 +43,7 @@ export default class Modal extends React.Component {
   getGames() {
     let state = this.props.st;
     axios.get(`/api/games/${state}`).then(res => {
+      console.log(res.data)
       this.setState({
         games: res.data.data
       });
