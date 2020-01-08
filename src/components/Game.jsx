@@ -25,6 +25,8 @@ const Wrapper = styled.div`
   padding-bottom: 50px;
   .container {
     display: flex;
+    flex-wrap: wrap;
+    align-items: center;
     justify-content: center;
   }
   .football {
@@ -41,12 +43,29 @@ const Wrapper = styled.div`
   .loading h1 {
     font-size: 3rem;
   }
+  .toggle-info {
+    display: none;
+  }
+  @media (max-width: 920px) {
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .drive-container {
+      display: none;
+    }
+    .toggle-info {
+      display: flex;
+    }
+  }
 `
 
 class Game extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      infoChange: false,
       isLoading: true,
       gameObj: {},
       gameId: '',
@@ -116,6 +135,9 @@ class Game extends React.Component {
       return quarter
     }
   }
+  infoToggle = () => {
+    this.setState({ infoChange: !this.state.infoChange });
+  }
   render() {
  
     return (
@@ -152,8 +174,16 @@ class Game extends React.Component {
 
         {!this.state.isLoading && (
           <div className='container'>
-            <GameLeaders game={this.state.gameObj} />
+            <div className='toggle-info'>
+              <button onClick={this.infoToggle}>Game Leaders</button>
+              <button onClick={this.infoToggle}>Drives</button>
+            </div>
+            <GameLeaders
+              display={!this.state.infoChange}
+              game={this.state.gameObj}
+            />
             <Drives
+              display={this.state.infoChange}
               setCurrentDrive={this.setCurrentDrive}
               selectedDrive={this.state.selectedDrive}
               game={this.state.gameObj}

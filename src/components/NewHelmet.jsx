@@ -331,7 +331,7 @@ const NewHelmet = styled.svg`
 }`
 
 return (
-    <div className='App'>
+    <>
       <NewHelmet helmHeight={props.helmHeight} version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
 	 viewBox="440 10 180 160" style={{enableBackground:'new 0 0 1060 1052.4'}} xmlSpace="preserve" fill={props.color}>
 <style type="text/css"></style>
@@ -579,7 +579,7 @@ return (
 
     </g>
     </NewHelmet>
-    </div>
+    </>
     )
     }
 

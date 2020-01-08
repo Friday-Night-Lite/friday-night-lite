@@ -3,34 +3,40 @@ import styled from 'styled-components'
 import cat from '../assets/cat.png'
 
 export const Wrapper = styled.div`
-@import url('https://fonts.googleapis.com/css?family=Bungee+Shade|Frijole&display=swap');
-display: flex;
-align-items: center;
-justify-content: center;
-height: 75px;
-background: #262626;
-position: sticky;
-width: 100%;
-bottom: -75px;
-.container {
-    width: 1200px;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-}
-h1{
-    transition: all 1s ease;
-    font-family: 'Frijole', cursive;
-    color: red;
-    font-size: 2rem;
-    &:hover{
-        color: white;
-        cursor: pointer;
-    }
-}
-.cat {
-    height: 50px;
-}`
+         @import url('https://fonts.googleapis.com/css?family=Bungee+Shade|Frijole&display=swap');
+         display: flex;
+         box-sizing: border-box;
+         contain: content;
+         align-items: center;
+         justify-content: center;
+         height: 75px;
+         background: #262626;
+         position: sticky;
+         width: 100%;
+         bottom: -75px;
+         .container {
+           box-sizing: border-box;
+           width: 100%;
+           padding: 25px;
+           display: flex;
+           justify-content: space-evenly;
+           align-items: center;
+         }
+         h1 {
+           transition: all 1s ease;
+           font-family: 'Frijole', cursive;
+           color: red;
+           font-size: 3vw;
+           &:hover {
+             color: white;
+             cursor: pointer;
+           }
+         }
+         .cat {
+            margin: 15px;
+            height: 5vw;
+         }
+       `
 
 const A = styled.a`
 text-decoration: none;`
@@ -38,9 +44,7 @@ text-decoration: none;`
 const Footer = () => {
     return (
         <Wrapper>
-
             <div className='container'>
-
             <A href='https://www.linkedin.com/in/chazguyton/' target='_blank'>
             <h1>Chaz</h1>
             </A>
@@ -56,13 +60,7 @@ const Footer = () => {
             <A href='https://github.com/Friday-Night-Lite/friday-night-lite' target='_blank'>
             <img className='cat' src={cat} alt="github logo"/>
             </A>
-
-
-           
-            
             </div>
-            
-            
         </Wrapper>
     )
 }
