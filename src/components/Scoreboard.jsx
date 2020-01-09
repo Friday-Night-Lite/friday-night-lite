@@ -5,103 +5,153 @@ import "../assets/digital-7.ttf"
 import football from '../assets/football.jpg'
 
 const Wrapper = styled.div`
-box-shadow: 1px 1px 2px #999999;
-background: white;
-display: flex;
-width: 900px;
-margin: 5px auto;
-border-radius: 7px;
-box-sizing: border-box;
-padding: 10px;
-.school-info {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 150px;
-  font-size: 1.25rem;
-}
-.team {
-  display: flex;
-}
-.teams {
-  display: flex;
-  width: 100%;
-  justify-content: center;
-  box-sizing: border-box;
-  font-family: sans-serif;
-  padding: 0 150px;
-}
-.field-component {
-  display: flex;
-}
-.clock {
-  display: flex;
-  align-items: center;
-  font-family: Digital-7;
-  font-size: 3rem;
-  justify-content: center;
-  background: white;
-  border: solid 1px #999999;
-  border-radius: 5px;
-  padding: 0 20px;
-  margin: 0 55px;
-  width: 150px;
   box-shadow: 1px 1px 2px #999999;
-}
-.clock span { 
-  font-size: 2rem;
-  margin: 10px;
-  font-family: sans-serif;
-  color: black;
-  font-weight: 500;
-}
-.clockContainer {
+  background: white;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto;
-}
-#title {
-  font-family: sans-serif;
-  font-size: 1rem;
-}
-.score {
-  font-size: 4rem;
-  font-family: Digital-7;
-}
-.box-score {
-  display: flex;
-  padding: 3px 5px;
-  margin-bottom: 3px;
-  font-family: sans-serif;
-}
-.quarter {
-  display: flex;
-  flex-direction: column;
-  /* justify-content: center; */
-  padding: 2px;
-}
-span {
-  font-weight: 700;
-  color: #999999;
-}
-.poss {
-  height: 25px;
-  margin: 0 15px;
-}
-.school-score {
-  display: flex;
-  align-items: center;
-}
-.placeholder {
-  display: flex;
-  justify-content: center;
-}
-.hidden {
-  visibility: hidden;
-}`
+  width: 900px;
+  margin: 5px auto;
+  border-radius: 7px;
+  box-sizing: border-box;
+  padding: 10px;
+  .school-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    font-size: 1.25rem;
+  }
+  .team {
+    display: flex;
+  }
+  .teams {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    padding: 0 150px;
+  }
+  .field-component {
+    display: flex;
+  }
+  .clock {
+    display: flex;
+    align-items: center;
+    font-family: Digital-7;
+    font-size: 3rem;
+    justify-content: center;
+    background: white;
+    border: solid 1px #999999;
+    border-radius: 5px;
+    padding: 0 20px;
+    margin: 0 55px;
+    width: 150px;
+    box-shadow: 1px 1px 2px #999999;
+  }
+  .clock span {
+    font-size: 2rem;
+    margin: 10px;
+    font-family: sans-serif;
+    color: black;
+    font-weight: 500;
+  }
+  .clockContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+  }
+  #title {
+    font-family: sans-serif;
+    font-size: 1rem;
+  }
+  .score {
+    font-size: 4rem;
+    font-family: Digital-7;
+  }
+  .box-score {
+    display: flex;
+    padding: 3px 5px;
+    margin-bottom: 3px;
+    font-family: sans-serif;
+  }
+  .quarter {
+    display: flex;
+    flex-direction: column;
+    padding: 2px;
+  }
+  span {
+    font-weight: 700;
+    color: #999999;
+  }
+  .poss {
+    height: 25px;
+    margin: 0 15px;
+  }
+  .school-score {
+    display: flex;
+    align-items: center;
+  }
+  .placeholder {
+    display: flex;
+    justify-content: center;
+  }
+  .hidden {
+    visibility: hidden;
+  }
+  @media (max-width: 920px) {
+    padding: 5px;
+    margin-bottom: 15px;
+    width: 100%;
+    max-width: 425px;
+    .clock span {
+      font-size: 1rem;
+      margin: 0;
+      color: black;
+      font-weight: 500;
+    }
+    .teams {
+      padding: 0 0;
+    }
+    .team {
+      align-items: center;
+      justify-content: center;
+    }
+    .school-info {
+      width: unset;
+      font-size: 0.75rem;
+    }
+    .score {
+      font-size: 2rem;
+    }
+    .clock {
+      font-size: 2rem;
+      border: solid 1px #999999;
+      border-radius: 5px;
+      padding: 5px 5px 0 5px;
+      margin: 0 0;
+      width: unset;
+      box-shadow: 1px 1px 2px #999999;
+    }
+    .box-score {
+      padding: 0 0;
+      margin-bottom: 0;
+      font-size: .5rem;
+    }
+    .poss {
+      height: 10px;
+      margin: 0 0px;
+    }
+    #title {
+      font-size: 0.75rem;
+    }
+    .quarter {
+      padding: 2px 2px;
+    }
+  }
+`
 
 
 
@@ -228,40 +278,45 @@ export default class Scoreboard extends React.Component {
       <Wrapper quarter={this.state.quarter}>
         <div className='teams'>
           <div className='team'>
-            <NewHelmet helmHeight={120} color={home.color} />
+            <NewHelmet
+              helmHeight={window.screen.width > 800 ? 120 : 60}
+              color={home.color}
+            />
             <div className='school-info'>
               {/* <h2>{home.school}</h2> */}
               <h2>{home.mascot}</h2>
-              {!(this.props.game.status === 'upcoming') && 
-              (<div className='school-score'>
-                <h3 className='score'>{hScore.toString()}</h3>
-                { (status === 'inProgress' && this.teamBall() === 'home') &&
-                  <img className='poss' src={football} alt="football"/>}
-                </div>)
-              }
+              {!(this.props.game.status === 'upcoming') && (
+                <div className='school-score'>
+                  <h3 className='score'>{hScore.toString()}</h3>
+                  {status === 'inProgress' && this.teamBall() === 'home' && (
+                    <img className='poss' src={football} alt='football' />
+                  )}
+                </div>
+              )}
             </div>
           </div>
 
           <div className='clockContainer'>
             {!(status === 'upcoming') && (
               <>
-                {status === 'inProgress' &&
-                <h1 id='title'>Time Remaining:</h1>}
-                {status === 'FINAL' &&
-                  <h1 id='title'>FINAL</h1>}
-
+                {status === 'inProgress' && <h1 id='title'>Time Remaining:</h1>}
+                {status === 'FINAL' && <h1 id='title'>FINAL</h1>}
 
                 <div className='clock'>
                   <div className='numbers'>
                     <p className='hours'></p>
-                    <p className='placeholder'>{min.length === 1 ? `0${min}` : `${min}`}</p>
+                    <p className='placeholder'>
+                      {min.length === 1 ? `0${min}` : `${min}`}
+                    </p>
                   </div>
                   <div className='colon'>
                     <p>:</p>
                   </div>
                   <div className='numbers'>
                     <p className='minutes'></p>
-                    <p className='placeholder'>{sec.length === 1 ? `0${sec}` : `${sec}`}</p>
+                    <p className='placeholder'>
+                      {sec.length === 1 ? `0${sec}` : `${sec}`}
+                    </p>
                   </div>
                 </div>
                 <div className='box-score'>
@@ -269,8 +324,16 @@ export default class Scoreboard extends React.Component {
                     <p className='hidden'>
                       <span>team</span>
                     </p>
-                    <p><span className='school'>{this.props.game.home.school}</span></p>
-                    <p><span className='school'>{this.props.game.away.school}</span></p>
+                    <p>
+                      <span className='school'>
+                        {this.props.game.home.school}
+                      </span>
+                    </p>
+                    <p>
+                      <span className='school'>
+                        {this.props.game.away.school}
+                      </span>
+                    </p>
                   </div>
 
                   <div className='quarter first'>
@@ -311,8 +374,17 @@ export default class Scoreboard extends React.Component {
             {this.props.game.status === 'upcoming' && (
               <div>
                 <h1 id='title'>Kickoff at:</h1>
-                <h1 className='clock'>{this.props.game.start_time.substring(0, this.props.game.start_time.length-2)}<span>{this.props.game.start_time.substring(this.props.game.start_time.length-2)}</span></h1> 
-               
+                <h1 className='clock'>
+                  {this.props.game.start_time.substring(
+                    0,
+                    this.props.game.start_time.length - 2
+                  )}
+                  <span>
+                    {this.props.game.start_time.substring(
+                      this.props.game.start_time.length - 2
+                    )}
+                  </span>
+                </h1>
               </div>
             )}
 
@@ -324,16 +396,20 @@ export default class Scoreboard extends React.Component {
               {/* <h2>{away.school}</h2> */}
               <h2>{away.mascot}</h2>
               {!(status === 'upcoming') && (
-                (<div className='school-score'>
+                <div className='school-score'>
+                  {status === 'inProgress' && this.teamBall() === 'away' && (
+                    <img className='poss' src={football} alt='football' />
+                  )}
 
-                 { (status === 'inProgress' && this.teamBall() === 'away') &&
-                <img className='poss' src={football} alt="football"/>}
-
-                <h3 className='score'>{aScore.toString()}</h3>
-                </div>)
+                  <h3 className='score'>{aScore.toString()}</h3>
+                </div>
               )}
             </div>
-            <NewHelmet helmHeight={120} flip={true} color={away.color} />
+            <NewHelmet
+              helmHeight={window.screen.width > 800 ? 120 : 60}
+              flip={true}
+              color={away.color}
+            />
           </div>
         </div>
       </Wrapper>

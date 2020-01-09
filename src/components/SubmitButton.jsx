@@ -27,6 +27,11 @@ const Button = styled.button`
   :disabled {
     opacity: 0.5;
   }
+  @media (max-width: 920px) {
+    margin: 10px;
+    padding: 5px;
+    font-size: 12px;
+  }
 `
 
 const SubmitButton = props => {

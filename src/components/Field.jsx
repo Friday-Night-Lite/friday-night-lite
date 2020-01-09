@@ -31,14 +31,17 @@ const Wrapper = styled.div`
     z-index: 50;
   }
   .field-container {
-    width: 900px;
+    width: 90%;
+    /* contain: content; */
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
     border-radius: 7px;
-    /* background: grey; */
-    /* box-shadow: 1px 1px 2px #999999; */
+    @media (max-width: 920px) {
+      display:none;
+      width: 90%;
+    }
   }
 `
 

@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import Jersey from '../components/Jersey'
 
 const Wrapper = styled.div`
-  /* border: 1px solid black; */
   box-shadow: 1px 1px 2px #999999;
   background: white;
   border-radius: 7px;
@@ -32,20 +31,29 @@ const Wrapper = styled.div`
   }
   .box {
     display: flex;
-}
-.home, .away {
+  }
+  .home,
+  .away {
     font-family: sans-serif;
     color: #999999;
     width: 110px;
     padding: 2px;
-}
-.home {
-  border-right: 1px solid #999999;
   }
-.line {
-  height: 100%;
-  border: solid #999999;
-}`
+  .home {
+    border-right: 1px solid #999999;
+  }
+  .line {
+    height: 100%;
+    border: solid #999999;
+  }
+  @media (max-width: 920px) {
+    display: ${props => (props.shown ? 'none' : 'inital')};
+    width: 100%;
+    max-width: 425px;
+    margin: 0;
+    border-radius: 0 0 7px 7px;
+  }
+`
 
 export default class GameLeaders extends React.Component {
   state = {
@@ -262,7 +270,7 @@ export default class GameLeaders extends React.Component {
   render() {
     const { aPass, hPass, aRush, hRush, aRec, hRec } = this.state
     return (
-      <Wrapper>
+      <Wrapper shown={this.props.display}>
         {/* PASSING LEADERS */}
         <div className='section'>
           <Jersey

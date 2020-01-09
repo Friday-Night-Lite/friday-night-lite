@@ -26,11 +26,11 @@ const Wrapper = styled.div`
     font-family: sans-serif;
     color: black;
   }
-  .drive-title {
-    /* font-size: 1rem; */
-  }
-  span {
-
+  @media (max-width: 920px) {
+    text-align: left;
+    .plays {
+      padding-left: 10px;
+    }
   }
 `
 

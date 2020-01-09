@@ -58,6 +58,11 @@ const Wrapper = styled.div`
     left: -100px;
     top: 80px;
   }
+  @media (max-width: 920px) {
+    width: 90%;
+    padding-bottom: 0;
+    margin: 0;
+  }
 `
 
 export default class Animation extends React.Component {

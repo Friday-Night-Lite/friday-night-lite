@@ -3,17 +3,24 @@ import styled from 'styled-components'
 import { returnText } from '../functions/returnText'
 
 const Plays = styled.h1`
-    display: flex;
-    align-items: flex-start;
-    font-family: sans-serif;
-    font-weight: bold;
-    text-align: left;
-    font-size: 12px;
-    padding: 5px 5px 5px 15px;
-    color: black;
-    .play-desc {
-        font-weight: 400;
+  display: flex;
+  align-items: flex-start;
+  font-family: sans-serif;
+  font-weight: bold;
+  text-align: left;
+  font-size: 12px;
+  padding: 5px 5px 5px 15px;
+  color: black;
+  .play-desc {
+    font-weight: 400;
+  }
+  @media (max-width: 920px) {
+    display: unset;
+    padding: 0;
+    span p {
+      padding-left: 10px;
     }
+  }
 `
 
 export default class Play extends React.Component {
@@ -22,7 +29,7 @@ export default class Play extends React.Component {
     const { play } = this.props
     return (
       <Plays>
-        Play {play.playCount}: <span className='play-desc'>{returnText(play)}</span>
+        {`Play ${play.playCount}:`} <span className='play-desc'>{returnText(play)}</span>
       </Plays>
     )
   }

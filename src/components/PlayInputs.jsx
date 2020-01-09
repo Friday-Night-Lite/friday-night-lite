@@ -2,7 +2,14 @@ import React from 'react'
 import styled from 'styled-components'
 import SubmitButton from './SubmitButton'
 
-const Wrapper = styled.div``
+const Wrapper = styled.div`
+input {
+  margin: 5px;
+}
+select {
+  margin: 5px;
+}
+`
 
 export default class PlayInputs extends React.Component {
   state = {}
@@ -182,7 +189,7 @@ export default class PlayInputs extends React.Component {
               <option value='fourth'>4th</option>
             </select>
             <SubmitButton
-              title={titleVar}
+              title={admin.result ? titleVar : '-----------'}
               addScore={this.props.addScore}
               disable={this.props.submitPlay}
             />
@@ -244,7 +251,7 @@ export default class PlayInputs extends React.Component {
                   <option value=''>Play Result</option>
                   <option value='Successful'>Field Goal (Made)</option>
                   <option value='Failed'>Field Goal (Missed) </option>
-                  <option value='blocked'>Blocked </option>
+                  <option value='Blocked'>Blocked </option>
                   <option value='punt return'>Returned</option>
                   <option value='fair catch'>Fair Catch</option>
                   <option value='touchback'>Touchback</option>
