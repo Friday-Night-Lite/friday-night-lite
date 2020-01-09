@@ -32,7 +32,7 @@ const Wrapper = styled.div`
   }
   .football {
     height: 150px;
-    animation: ${keyFrameFootball}  2s infinite linear;
+    animation: ${keyFrameFootball} 2s infinite linear;
   }
   .loading {
     height: 600px;
@@ -81,7 +81,6 @@ const Wrapper = styled.div`
     }
     .selected {
       background: #ededed;
-
       box-shadow: inset
         ${props =>
           props.infochange
@@ -132,9 +131,7 @@ class Game extends React.Component {
   }
 
   setCurrentDrive = id => {
-    this.setState({selectedDrive: id},
-      () => this.findTime()
-    )
+    this.setState({ selectedDrive: id }, () => this.findTime())
   }
 
   findTime = () => {
@@ -167,17 +164,15 @@ class Game extends React.Component {
       return quarter
     }
   }
-  infoToggle = (button) => {
-    if (button === 'drives'){
-    this.setState({ infoChange: false });
-  }
-  if (button === 'leaders') {
-    this.setState({ infoChange: true })
-  }
-
+  infoToggle = button => {
+    if (button === 'drives') {
+      this.setState({ infoChange: false })
+    }
+    if (button === 'leaders') {
+      this.setState({ infoChange: true })
+    }
   }
   render() {
- 
     return (
       <Wrapper infochange={!this.state.infoChange}>
         {/* LOADING... */}

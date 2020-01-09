@@ -1,8 +1,8 @@
-import React from "react";
-import axios from "axios";
+import React from 'react'
+import axios from 'axios'
 import styled, { keyframes } from 'styled-components'
 import football from '../assets/football.jpg'
-import GamePreview from "./GamePreview";
+import GamePreview from './GamePreview'
 // import Scoreboard from './Scoreboard'
 
 const keyFrameFootball = keyframes`
@@ -20,6 +20,7 @@ const ModalBackdrop = styled.div`
   left: 0;
   height: 100vh;
   width: 100vw;
+  z-index: 5;
   .modal-outer {
     position: fixed;
     width: 650px;
@@ -38,7 +39,14 @@ const ModalBackdrop = styled.div`
   }
   .football {
     height: 150px;
-    animation: ${keyFrameFootball}  2s infinite linear;
+    animation: ${keyFrameFootball} 2s infinite linear;
+  }
+  .loading {
+    height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
   }
   @media (max-width: 920px) {
     .modal-outer {
@@ -60,37 +68,35 @@ export default class Modal extends React.Component {
   state = {
     games: [],
     loading: false
-  };
+  }
 
   componentDidMount() {
-    this.getGames();
+    this.getGames()
   }
 
   getGames() {
-    this.setState({ loading: true });
-    let state = this.props.st;
+    this.setState({ loading: true })
+    let state = this.props.st
     axios.get(`/api/games/${state}`).then(res => {
       this.setState({
         games: res.data.data,
         loading: false
-      });
-    });
+      })
+    })
   }
 
   render() {
-    console.log(this.state.games)
-    
     return (
       <ModalBackdrop
         hidden={!this.props.st}
         id='grey-back'
         onClick={this.props.closeMenu}>
-          {this.state.games.length > 0 ? 
-        <div
-          className='modal-outer'
-          ref={element => {
-            this.props.assignElement(element)
-          }}>
+        {this.state.games.length > 0 ? (
+          <div
+            className='modal-outer'
+            ref={element => {
+              this.props.assignElement(element)
+            }}>
             {this.state.games.map(game => {
               return (
                 <GamePreview
@@ -101,12 +107,14 @@ export default class Modal extends React.Component {
                 />
               )
             })}
-            </div>
-           : this.state.loading ? 
+          </div>
+        ) : this.state.loading ? (
           <div className='loading'>
             <img className='football' src={football} alt='football' />
-          </div> 
-          : <h1 className='no'>No Games Currently</h1>}
+          </div>
+        ) : (
+          <h1 className='no'>No Games Currently</h1>
+        )}
       </ModalBackdrop>
     )
   }

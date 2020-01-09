@@ -1,13 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
-import "../assets/digital-7.ttf"
+import '../assets/digital-7.ttf'
 import { Link } from 'react-router-dom'
 import NewHelmet from './NewHelmet'
 
 const Link2 = styled(Link)`
   width: 600px;
   margin: 25px;
-  background: white;
   border-radius: 7px;
   box-sizing: border-box;
   align-items: center;
@@ -20,7 +19,7 @@ const Link2 = styled(Link)`
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin: 0 10px;
+    margin: 0 30px;
   }
   .teams,
   .team {
@@ -33,6 +32,10 @@ const Link2 = styled(Link)`
   }
   .teams {
     padding: 0 15px;
+    margin: 0 15px;
+    /* background: white; */
+    background: white;
+    border-radius: 7px;
   }
   .field-component {
     display: flex;
@@ -58,6 +61,7 @@ const Link2 = styled(Link)`
     margin: 5px 0;
     width: 94%;
     .teams {
+      margin: 0;
       padding: 0 2px;
       .school-info {
         margin: 0 15px;
@@ -78,7 +82,7 @@ const Link2 = styled(Link)`
 export default class GamePreview extends React.Component {
   state = {}
 
-  totalScore = (team) => {
+  totalScore = team => {
     const { away, home } = this.props.game.score
     //away quarters
     let newAS1 = away.first.reduce((acc, num) => {
@@ -107,11 +111,8 @@ export default class GamePreview extends React.Component {
       return acc + num
     })
 
-
-
     let awayScore = newAS1 + newAS2 + newAS3 + newAS4
     let homeScore = newHS1 + newHS2 + newHS3 + newHS4
-
 
     if (team === 'home') {
       return homeScore
@@ -122,7 +123,6 @@ export default class GamePreview extends React.Component {
     }
 
     return
-
   }
 
   render() {
