@@ -104,7 +104,8 @@ const Wrapper = styled.div`
   @media (max-width: 920px) {
     padding: 5px;
     margin-bottom: 15px;
-    width: 95%;
+    width: 100%;
+    max-width: 425px;
     .clock span {
       font-size: 1rem;
       margin: 0;

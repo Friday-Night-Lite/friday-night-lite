@@ -82,6 +82,8 @@ const Wrapper = styled.div`
     .login-button {
       font-size: 0.75rem;
       right: 10px;
+      top: 65px;
+      padding: 4px;
     }
   }
 `
@@ -133,6 +135,7 @@ class Header extends React.Component {
           ) : (
             <div>
               <button
+                className='login-button'
                 onClick={() => {
                   this.click()
                 }}>

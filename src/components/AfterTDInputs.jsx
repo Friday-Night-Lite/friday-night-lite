@@ -50,9 +50,9 @@ export default class AfterTDInputs extends React.Component{
       <option>PAT Result</option>
       <option value='Successful PAT'>Good</option>
       <option value='Missed PAT'>Missed</option>
-      <option value='blocked'>Blocked</option>
+      <option value='Blocked'>Blocked</option>
     </select>
-    {admin.result === 'blocked' && (
+    {admin.result === 'Blocked' && (
       <>
         <input
           onChange={e => this.props.handleChange(e.target)}

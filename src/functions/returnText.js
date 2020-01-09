@@ -35,7 +35,7 @@ export const returnText = play => {
   } else if (kickType === 'field goal attempt') {
     return <p>{` ${result} ${playDist} yard ${kickType} by ${player1}`}</p>
   } else if (afterTD === 'pat') {
-    return <p>{` ${result} attempt by ${kicker}.`}</p>
+    return <p>{` ${result} PAT attempt by ${kicker}.`}</p>
   } else if (playType === 'penalty') {
     return (
       <p>{` Penalty on the ${penTeam} team, ${penalty} by ${player1} for ${yards.toString()} yards.(${

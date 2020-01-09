@@ -24,6 +24,29 @@ const Wrapper = styled.div`
     justify-content: space-around;
     width: 800px;
   }
+  .title {
+    display: none;
+  }
+  @media (max-width: 920px) {
+    min-height: 90px;
+    width: 100%;
+    flex-wrap: wrap;
+    margin: 0 0 15px 0;
+    padding: 0;
+    .new-drive {
+      flex-wrap: wrap;
+    }
+    .title {
+      display: block;
+    }
+    input {
+      width: 70px;
+      font-size: 13px;
+    }
+    .play-type {
+      margin: 10px 0 5px 0;
+    }
+  }
 `
 
 export default class Admin extends React.Component {
@@ -245,7 +268,7 @@ export default class Admin extends React.Component {
       result === 'fumble' ||
       result === 'interception' ||
       result === 'Failed' ||
-      result === 'blocked' ||
+      result === 'Blocked' ||
       result === 'Time expires' ||
       result === 'punt return'
     ) {
@@ -457,6 +480,7 @@ export default class Admin extends React.Component {
         {/* Add drive inputs */}
         {this.state.showAddDrive && (
           <div className='new-drive'>
+            <h2 className='title'>Add Drive:</h2>
             <select
               required={true}
               onChange={e => this.handleChange(e.target)}
@@ -467,6 +491,7 @@ export default class Admin extends React.Component {
               <option value='away'>Away</option>
             </select>
             <input
+              type='number'
               required={true}
               onChange={e => this.handleChange(e.target)}
               name='yardLine'
@@ -485,6 +510,7 @@ export default class Admin extends React.Component {
               addScore={this.submitDrive}
               title='Add Drive'
             />
+            <h2 className='title'>Resume Drive:</h2>
             <select
               name='driveId'
               onChange={e => this.setDriveInfo(e.target.value)}>
@@ -514,6 +540,7 @@ export default class Admin extends React.Component {
         {this.state.showAddPlay && (
           <div>
             <select
+              className='play-type'
               required={true}
               onChange={e => this.handleChange(e.target)}
               name='playType'

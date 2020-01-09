@@ -6,8 +6,9 @@ import styled from 'styled-components'
 class Map extends React.Component {
   state = {
     modalDisplay: false,
-    st: ""
-  };
+    st: "",
+    states: ['AK', 'AL', 'AR', 'AS', 'AZ', 'CA', 'CO', 'CT', 'DC', 'DE', 'FL', 'GA', 'GU', 'HI', 'IA', 'ID', 'IL', 'IN', 'KS', 'KY', 'LA', 'MA', 'MD', 'ME', 'MI', 'MN', 'MO', 'MP', 'MS', 'MT', 'NC', 'ND', 'NE', 'NH', 'NJ', 'NM', 'NV', 'NY', 'OH', 'OK', 'OR', 'PA', 'PR', 'RI', 'SC', 'SD', 'TN', 'TX', 'UM', 'UT', 'VA', 'VI', 'VT', 'WA', 'WI', 'WV', 'WY']
+  }
 
   closeMenu = event => {
     const greyBack = document.getElementById('grey-back')
@@ -18,12 +19,14 @@ class Map extends React.Component {
     }
   };
   showMenu = () => {
-    this.setState({modalDisplay:true}, () => {
+    this.setState({ modalDisplay: true }, () => {
       const greyBack = document.getElementById('grey-back')
           greyBack.addEventListener('click', this.closeMenu)
       })
   };
-
+  handleChange = (trg) => {
+    this.setState({ [trg.name]: trg.value }, () => this.showMenu());
+  }
   mapHandler = event => {
     this.setState({
       st: event.target.dataset.name
@@ -35,18 +38,42 @@ class Map extends React.Component {
   }
 
   render() {
+    console.log(this.state.st);
+    
     return (
       <>
-      <MapPage>
-        <div className="App">
-          <USAMap onClick={this.mapHandler} height='70vh' width='100vw'/>
-        </div>
-      </MapPage>
-          {this.state.modalDisplay ? (
-            <Modal closeMenu={this.hideMenu} st={this.state.st} assignElement={this.assignElement} />
-          ) : null}
-          </>
-    );
+        <MapPage>
+          {window.screen.width > 800 ? (
+            <div className='App'>
+              <USAMap onClick={this.mapHandler} height='70vh' width='100vw' />
+            </div>
+          ) : (
+            <div className='mobile'>
+              <h3>Find Games By State:</h3>
+              <select
+                name='st'
+                value={this.state.st}
+                onChange={e => this.handleChange(e.target)}>
+                  <option>--</option>
+                {this.state.states.map((oneState, i) => {
+                  return (
+                    <option value={oneState} key={i}>
+                      {oneState}
+                    </option>
+                  )
+                })}
+              </select>
+            </div>
+          )}
+        </MapPage>
+          {this.state.st && <Modal
+            modalDisplay={this.state.modalDisplay}
+            closeMenu={this.hideMenu}
+            st={this.state.st}
+            assignElement={this.assignElement}
+          />}
+      </>
+    )
   }
 }
 
@@ -68,5 +95,19 @@ path:hover {
     cursor:  pointer;
     transform: scale(1.006) ;
     z-index: 3;
+  }
+  .mobile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .mobile select {
+    font-size: 16px;
+    background: white;
+    margin: 10px;
+  }
+  .mobile h3 {
+    font-size: 24px;
   }
     `

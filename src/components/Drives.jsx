@@ -13,8 +13,9 @@ const Wrapper = styled.div`
   overflow: scroll;
   display: ${props => props.shown ? 'none' : 'inital'};
   @media (max-width: 920px) {
-      width: 350px;
-      margin: 0
+      width: 100%;
+      margin: 0;
+      border-radius: 0 0 7px 7px;
   }
 `
 
