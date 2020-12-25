@@ -45,19 +45,19 @@ const Footer = () => {
     return (
         <Wrapper>
             <div className='container'>
-            <A href='https://www.linkedin.com/in/chazguyton/' target='_blank'>
+            <A href='https://www.linkedin.com/in/chazguyton/' target='_blank' rel="noreferrer">
             <h1>Chaz</h1>
             </A>
-            <A href='http://doily.dev/' target='_blank'>
+            <A href='https://www.linkedin.com/in/fdavison1/' target='_blank' rel="noreferrer">
             <h1>Fred</h1>
             </A>
-            <A href='https://www.linkedin.com/in/jeramiahfields/' target='_blank'> 
+            <A href='https://www.linkedin.com/in/jeramiahfields/' target='_blank' rel="noreferrer"> 
             <h1>Jeramiah</h1>
             </A>
-            <A href='https://www.linkedin.com/in/johnclewis8/' target='_blank'>
+            <A href='https://www.linkedin.com/in/johnclewis8/' target='_blank' rel="noreferrer">
             <h1>John</h1>
             </A>
-            <A href='https://github.com/Friday-Night-Lite/friday-night-lite' target='_blank'>
+            <A href='https://github.com/Friday-Night-Lite/friday-night-lite' target='_blank' rel="noreferrer">
             <img className='cat' src={cat} alt="github logo"/>
             </A>
             </div>
